@@ -1,5 +1,5 @@
 {
-  "main": "src/request-state-monad/client.js",
+  "main": "lib/index.js",
   "name": "request-state-monad",
   "version": "0.0.0",
   "description": "A monad to handle request states",
