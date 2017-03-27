@@ -4,8 +4,8 @@
 // Identities
 //
 
-export function RequestEmpty(value: any): RequestState {
-    return new RequestState(value, false, false, false);
+export function RequestEmpty(): RequestState {
+    return new RequestState(null, false, false, false);
 }
 
 export function RequestFetching(value: any): RequestState {
