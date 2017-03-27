@@ -1,0 +1,15 @@
+{
+  "generator-bigdatr-startr": {
+    "promptValues": {
+      "name": "request-state-monad",
+      "description": "A monad to handle request states",
+      "version": "0.0.0",
+      "license": "UNLICENSED",
+      "private": false,
+      "author": "Allan Hortle",
+      "username": "blueflag",
+      "nameConstant": "REQUEST_STATE_MONAD",
+      "example": false
+    }
+  }
+}
