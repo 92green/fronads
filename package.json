@@ -12,6 +12,9 @@
   "bugs": {
     "url": "https://github.com/blueflag/request-state-monad/issues"
   },
+  "files": [
+    "lib"
+  ],
   "private": false,
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
