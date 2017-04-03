@@ -52,6 +52,18 @@ export default class RequestState {
     errorFlatMap(fn: Function): RequestState {
         return this.isError ? fn(this.value) : this;
     }
+    toFetching(): RequestState {
+        return RequestFetching(this.value);
+    }
+    toError(): RequestState {
+        return RequestError(this.value);
+    }
+    toSuccess(): RequestState {
+        return RequestSuccess(this.value);
+    }
+    toEmpty(): RequestState {
+        return RequestEmpty();
+    }
     orValue(defaultValue: any): any {
         return this.value || defaultValue;
     }

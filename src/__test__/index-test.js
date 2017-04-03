@@ -17,7 +17,6 @@ test('RequestEmpty', tt => {
             .orValue('foo'),
         'foo'
     );
-
 });
 
 test('RequestFetching', tt => {
@@ -55,4 +54,12 @@ test('Component Test', tt => {
     tt.is(Component(RequestSuccess()), 'Component');
 
 });
+
+test('to<type> functions', tt => {
+    tt.is(RequestEmpty().toFetching().isFetching, true);
+    tt.is(RequestEmpty().toError().isError, true);
+    tt.is(RequestEmpty().toSuccess().isSuccess, true);
+    tt.is(RequestSuccess().toEmpty().isSuccess, false);
+});
+
 

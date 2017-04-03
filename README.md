@@ -25,10 +25,10 @@ function MyComponent(props) {
 ```js
 RequestState<value, fetching, error, success>;
 
-RequestEmpty(): RequestState<V,false,false,false>
 RequestFetching(value: any): RequestState<V,true,false,false>
 RequestError(value: any): RequestState<V,false,true,false>
 RequestSuccess(value: any): RequestState<V,false,false,true>
+RequestEmpty(): RequestState<V,false,false,false>
 ```
 
 ## Methods
@@ -53,3 +53,14 @@ perform a map only on RequestError
 
 ### `orValue(defaultValue: any): any`
 return the current value of the monad or defaultValue
+
+
+### `toFetching(): RequestState`
+return a new `RequestFetching` with the current value.
+### `toError(): RequestState`
+return a new `RequestError` with the current value.
+### `toSuccess(): RequestState`
+return a new `RequestSuccess` with the current value.
+### `toEmpty(): RequestState`
+return a new `RequestEmpty` with the current value.
+
