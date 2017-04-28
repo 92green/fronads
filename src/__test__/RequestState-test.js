@@ -4,7 +4,7 @@ import RequestState, {
     RequestFetching,
     RequestError,
     RequestSuccess
-} from '../index';
+} from '../RequestState';
 
 const NOOP = () => {};
 
