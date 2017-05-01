@@ -2684,9 +2684,9 @@ jsdoc@^3.4.3:
     taffydb "2.6.2"
     underscore "~1.8.3"
 
-jsdonk@^0.2.1:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/jsdonk/-/jsdonk-0.2.3.tgz#8e37d9f8e963a863b007531891639acd44f5ed73"
+jsdonk@^0.4.20:
+  version "0.4.20"
+  resolved "https://registry.yarnpkg.com/jsdonk/-/jsdonk-0.4.20.tgz#7e586f75d3b9d254ab89ed25088af2b22df763b9"
   dependencies:
     immutable "^3.8.1"
     prismjs "^1.5.1"

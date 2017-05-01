@@ -34,3 +34,10 @@ test('fromNull', tt => {
     tt.is(Maybe.fromNull(2).isSome, true);
     tt.is(Maybe.fromNull(null).isSome, false);
 });
+
+
+test('to', tt => {
+    tt.is(Some(1).toEither().isRight, true);
+    tt.is(None().toEither().isRight, false);
+    tt.is(None().toEither('fail').val, 'fail');
+});

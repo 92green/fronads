@@ -1,41 +1,38 @@
 {
     "source": {
-        "include": [
-            "README.md",
-            "src"
-        ],
-        "includePattern": ".+jsx?"
+    "include": [ "README.md", "src" ],
+    "includePattern": ".+jsx?"
     },
     "opts": {
-        "destination": "./docs/",
-        "recurse": true,
-        "template": "node_modules/jsdonk",
-        "jsdonk": {
-            "title": "request-state-monad",
-            "sections": {
-                "module": {
-                    "typedef": false
-                },
-                "typedef": false
-            }
-        }
-    },
-    "plugins": [
-        "plugins/markdown",
-        "node_modules/jsdoc-babel"
-    ],
-    "babel": {
-        "extensions": [
-            "js",
-            "es6",
-            "jsx"
-        ],
-        "presets": [
-            "es2015",
-            "react"
-        ],
-        "plugins": [
-            "transform-flow-strip-types"
-        ]
-    }
+     "destination": "./docs/",
+     "recurse": true,
+     "template": "node_modules/jsdonk",
+     "jsdonk": {
+        "title": "Fronads",
+        "repo": {
+          "github": "https://github.com/blueflag/fronads"
+        },
+        "sections": {
+          "module": {
+            "typedef": false
+          },
+          "typedef": false
+        },
+        "output": {
+          "taffyjson": true,
+          "heirarchyjson": true
+        },
+        "debug": true
+     }
+  },
+  "plugins": [
+     "plugins/markdown",
+     "node_modules/jsdoc-babel",
+     "node_modules/jsdonk/lib/plugins/react-tags"
+  ],
+  "babel": {
+    "extensions": ["js", "es6", "jsx"],
+    "presets": ["blueflag"],
+    "plugins": ["transform-flow-strip-types"]
+  }
 }
