@@ -1,6 +1,6 @@
 {
   "main": "lib/index.js",
-  "name": "request-state-monad",
+  "name": "frondads",
   "version": "0.2.0",
   "description": "A monad to handle request states",
   "license": "UNLICENSED",
