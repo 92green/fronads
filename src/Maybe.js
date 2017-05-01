@@ -17,7 +17,6 @@ export function None(): Maybe {
 // Monad
 //
 
-
 export default class Maybe {
     static fromNull(value: any): Maybe {
         return value == null ? None() : Some(value);

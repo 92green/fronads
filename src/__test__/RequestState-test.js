@@ -14,18 +14,18 @@ test('RequestEmpty', tt => {
             .map(tt.fail)
             .fetchingMap(tt.fail)
             .errorMap(tt.fail)
-            .orValue('foo'),
+            .value('foo'),
         'foo'
     );
 });
 
 test('RequestFetching', tt => {
-    tt.is(RequestFetching().errorMap(NOOP).fetchingMap(() => 'foo').orValue(), 'foo');
+    tt.is(RequestFetching().errorMap(NOOP).fetchingMap(() => 'foo').value(), 'foo');
     tt.is(RequestFetching().errorFlatMap(NOOP).fetchingFlatMap(() => 'foo'), 'foo');
 });
 
 test('RequestError', tt => {
-    tt.is(RequestError().fetchingMap(NOOP).errorMap(() => 'foo').orValue(), 'foo');
+    tt.is(RequestError().fetchingMap(NOOP).errorMap(() => 'foo').value(), 'foo');
     tt.is(RequestError().fetchingFlatMap(NOOP).errorFlatMap(() => 'foo'), 'foo');
 });
 
@@ -35,8 +35,8 @@ test('RequestSuccess', tt => {
     tt.is(RequestFetching('success').flatMap(ii => ii) instanceof RequestState, true);
     tt.is(RequestError('success').flatMap(ii => ii) instanceof RequestState, true);
 
-    tt.is(RequestSuccess('success').orValue('rad'), 'success');
-    tt.is(RequestFetching().orValue('rad'), 'rad');
+    tt.is(RequestSuccess('success').value('rad'), 'success');
+    tt.is(RequestFetching().value('rad'), 'rad');
 });
 
 
@@ -46,7 +46,7 @@ test('Component Test', tt => {
             .map(() => 'Component')
             .fetchingMap(() => 'fetching')
             .errorMap(() => 'error')
-            .orValue('empty');
+            .value('empty');
     }
     tt.is(Component(RequestFetching()), 'fetching');
     tt.is(Component(RequestError()), 'error');
