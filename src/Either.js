@@ -4,42 +4,9 @@ import {Some, None} from './Maybe';
 
 
 /**
+ * Either is monad that can hold a value of type `Left` or `Right`, but never at the same time.
  * @module Either
- * @description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, porro dolorem blanditiis minima harum corporis praesentium animi sunt libero officia, illo esse sed in, commodi quibusdam ipsum nam mollitia dolor.
  */
-
-/**
- * Create an Either as a Right value
- * @param {any} value
- * @return {Either}
- */
-export function Right(value: any): Either {
-    return new Either(value, true);
-}
-
-/**
- * Create an Either as a Left value
- * @param {any} value
- * @return {Either}
- */
-export function Left(value: any): Either {
-    return new Either(value, false);
-}
-
-/**
- * Create a Try Either. `func` is immediately exceuted,
- * if an error is thrown the Either will be Left(error) otherwise
- * the value of `func` is passed to a Right.
- * @param {Function} func
- * @return {Either}
- */
-export function Try(func: Function): Either {
-    try {
-        return Right(func.call());
-    } catch(error) {
-        return Left(error);
-    }
-}
 
 /**
  * Either class
@@ -127,3 +94,37 @@ export default class Either {
         return this.isRight ? Some(this.val) : None();
     }
 }
+
+/**
+ * Create an Either as a Right value
+ * @param {any} value
+ * @return {Either}
+ */
+export function Right(value: any): Either {
+    return new Either(value, true);
+}
+
+/**
+ * Create an Either as a Left value
+ * @param {any} value
+ * @return {Either}
+ */
+export function Left(value: any): Either {
+    return new Either(value, false);
+}
+
+/**
+ * Create a Try Either. `func` is immediately exceuted,
+ * if an error is thrown the Either will be Left(error) otherwise
+ * the value of `func` is passed to a Right.
+ * @param {Function} func
+ * @return {Either}
+ */
+export function Try(func: Function): Either {
+    try {
+        return Right(func.call());
+    } catch(error) {
+        return Left(error);
+    }
+}
+

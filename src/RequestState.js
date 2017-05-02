@@ -1,45 +1,16 @@
 // @flow
 
 /**
+ * RequestState is used to hold the four part relationship of an asynchronous request.
+ * It is like a four way version of an Either. Instead of Left and Right the RequestState
+ * can be either be empty, fetching, an error or a success. These states are represented through the identites:
+ * * [RequestEmpty](#module:RequestState~RequestEmpty)
+ * * [RequestFetching](#module:RequestState~RequestFetching)
+ * * [RequestError](#module:RequestState~RequestError)
+ * * [RequestSuccess](#module:RequestState~RequestSuccess)
+ *
  * @module RequestState
- * @description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, porro dolorem blanditiis minima harum corporis praesentium animi sunt libero officia, illo esse sed in, commodi quibusdam ipsum nam mollitia dolor.
  */
-
-/**
- * Create an RequestState as a RequestEmpty value
- * @param {any} value
- * @return {RequestState}
- */
-export function RequestEmpty(): RequestState {
-    return new RequestState(null, false, false, false);
-}
-
-/**
- * Create a RequestState as a RequestFetching value
- * @param {any} value
- * @return {RequestState}
- */
-export function RequestFetching(value: any): RequestState {
-    return new RequestState(value, true, false, false);
-}
-
-/**
- * Create a RequestState as a RequestError value
- * @param {any} value
- * @return {RequestState}
- */
-export function RequestError(value: any): RequestState {
-    return new RequestState(value, false, true, false);
-}
-
-/**
- * Create a RequestState as a RequestSuccess value
- * @param {any} value
- * @return {RequestState}
- */
-export function RequestSuccess(value: any): RequestState {
-    return new RequestState(value, false, false, true);
-}
 
 
 /**
@@ -155,3 +126,40 @@ export default class RequestState {
         return this.val == null ? defaultValue : this.val;
     }
 }
+
+/**
+ * Create an RequestState as a RequestEmpty value
+ * @param {any} value
+ * @return {RequestState}
+ */
+export function RequestEmpty(): RequestState {
+    return new RequestState(null, false, false, false);
+}
+
+/**
+ * Create a RequestState as a RequestFetching value
+ * @param {any} value
+ * @return {RequestState}
+ */
+export function RequestFetching(value: any): RequestState {
+    return new RequestState(value, true, false, false);
+}
+
+/**
+ * Create a RequestState as a RequestError value
+ * @param {any} value
+ * @return {RequestState}
+ */
+export function RequestError(value: any): RequestState {
+    return new RequestState(value, false, true, false);
+}
+
+/**
+ * Create a RequestState as a RequestSuccess value
+ * @param {any} value
+ * @return {RequestState}
+ */
+export function RequestSuccess(value: any): RequestState {
+    return new RequestState(value, false, false, true);
+}
+
