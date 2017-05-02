@@ -1,4 +1,5 @@
 //@flow
+
 export {
     default as RequestState,
     RequestEmpty,

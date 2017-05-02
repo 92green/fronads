@@ -1,6 +1,6 @@
 {
     "source": {
-    "include": [ "README.md", "src" ],
+    "include": [ "README.md", "./src" ],
     "includePattern": ".+jsx?"
     },
     "opts": {
@@ -21,6 +21,13 @@
         "output": {
           "taffyjson": true,
           "heirarchyjson": true
+        },
+        "functions": {
+          "multiline": false
+        },
+        "doclet": {
+          "params": false,
+          "returns": false
         },
         "debug": true
      }

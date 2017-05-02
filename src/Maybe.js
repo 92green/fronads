@@ -1,29 +1,14 @@
 // @flow
 
 import Either, {Left, Right} from './Either';
-//
-// Identities
-//
-
-
-/**
- * Flatmapper...
- *
- * @callback MaybeFlatMap
- * @param {Maybe-A} A
- * @return {Maybe-B} B
- */
 
 /**
  * @module Maybe
+ * @description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, porro dolorem blanditiis minima harum corporis praesentium animi sunt libero officia, illo esse sed in, commodi quibusdam ipsum nam mollitia dolor.
  */
 
 /**
  * Creates a new Maybe as 'Some' value
- *
- * @param {*} value
- * @return {Some}
- *
  * @example
  * var person = Some({
  *     name: "Derek Tibbs",
@@ -37,17 +22,12 @@ export function Some(value: any): Maybe {
 }
 
 /**
- * Creates a new Maybe as 'Some' value
- *
- * @param {ColumnUpdater} updater
- * @return {Maybe} A new `ChartData` containing the updated columns.
+ * Creates a new Maybe as 'None' value
  *
  * @example
  * var person = Some({
  *     name: "Derek Tibbs",
- *     child: Some({
- *         name: "Derek Tibbs Jr"
- *     })
+ *     child: None()
  * });
  */
 export function None(): Maybe {
@@ -56,7 +36,10 @@ export function None(): Maybe {
 
 
 /**
- * Maybe Class Description
+ * Maybe constructor
+ *
+ * @param {*} value - The value to store
+ * @param {boolean} isSome - Whether or not the maybe is `some` or `none`
  *
  * @class
  * @name Maybe
@@ -75,38 +58,20 @@ export default class Maybe {
     /**
      * Unit function
      *
-     * @param {*} value that is Some.
-     * @return {Some}
-     *
-     * @name unit
-     * @kind function
-     * @inner
+     * #### `maybe.unit(A): Some[A]`
+     * ```
+     * Maybe
+     * ```
      */
     unit(value: any): Maybe {
         return Some(value);
     }
 
     /**
-     * map
+     * Perform a flatMap on the current maybe
      *
-     * @param {*} value that is Some.
+     * @param {Function} fn - perform a flatMap if Some
      * @return {Some}
-     *
-     * @name map
-     * @kind function
-     * @inner
-     */
-    map(fn: any): Maybe {
-        return this.flatMap(value => this.unit(fn(value)));
-    }
-
-    /**
-     * flatMap
-     *
-     * @param {MaybeFlatMap} fn - perform a flatMap if Some
-     * @return {Some}
-     *
-     * @name flatMap
      * @kind function
      * @inner
      */
@@ -115,19 +80,35 @@ export default class Maybe {
     }
 
     /**
-     * value
-     *
-     * @param {*} value that is Some.
-     * @return {Some}
-     *
-     * @name value
+     * `map(fn: A => B): Some(B)`
      * @kind function
      * @inner
+     */
+    map(fn: any): Maybe {
+        return this.flatMap(value => this.unit(fn(value)));
+    }
+
+
+    /**
+     * Return the maybe's value if it is 'some' or else return `defaultValue`
+     *
+     * @kind function
+     * @inner
+     * @param {*} [defaultValue = null] - value that is Some
+     * @return {*}
      */
     value(defaultValue: any = null): any {
         return this.val == null ? defaultValue : this.val;
     }
 
+    /**
+     * Change the Maybe to an Either. If `Some` the value is placed in `Right`
+     * if `None` the value of `leftValue` is placed in a `Left`
+     *
+     * @inner
+     * @param {*} [leftValue] - Value to place in the Left side
+     * @return {Either}
+     */
     toEither(leftValue: any): Either {
         return this.isSome ? Right(this.val) : Left(leftValue);
     }
