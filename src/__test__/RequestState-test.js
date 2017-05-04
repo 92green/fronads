@@ -1,5 +1,6 @@
 import test from 'ava';
 import RequestState, {
+    RequestStateFactory,
     RequestEmpty,
     RequestFetching,
     RequestError,
@@ -7,6 +8,10 @@ import RequestState, {
 } from '../RequestState';
 
 const NOOP = () => {};
+
+test('RequestStateFactory', tt => {
+    tt.is(RequestStateFactory(null, false, false, false) instanceof RequestState, true);
+});
 
 test('RequestEmpty', tt => {
     tt.is(

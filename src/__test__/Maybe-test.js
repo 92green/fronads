@@ -1,5 +1,7 @@
 import test from 'ava';
-import Maybe, {
+import {
+    MaybeFactory,
+    Perhaps,
     Some,
     None
 } from '../Maybe';
@@ -19,6 +21,11 @@ const noGrandChild = Some({
 
 const getChild = (ii) => ii.child;
 
+test('MaybeFactory', tt => {
+    tt.is(MaybeFactory(1, true).map(ii => 2).value(), 2);
+    tt.is(MaybeFactory(1, false).map(ii => 2).value(), 1);
+});
+
 test('Some', tt => {
     tt.is(Some(1).map(() => 2).value(), 2);
     tt.is(person.flatMap(getChild).flatMap(getChild).value(), 'harry');
@@ -29,10 +36,9 @@ test('None', tt => {
     tt.is(noGrandChild.flatMap(getChild).flatMap(getChild).flatMap(getChild).value(), null);
 });
 
-
-test('fromNull', tt => {
-    tt.is(Maybe.fromNull(2).isSome, true);
-    tt.is(Maybe.fromNull(null).isSome, false);
+test('Perhaps', tt => {
+    tt.is(Perhaps(2).isSome, true);
+    tt.is(Perhaps(null).isSome, false);
 });
 
 

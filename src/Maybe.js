@@ -12,10 +12,7 @@ import Either, {Left, Right} from './Either';
 /**
  * Maybe class
  */
-export default class Maybe {
-    static fromNull(value: any): Maybe {
-        return value == null ? None() : Some(value);
-    }
+class Maybe {
 
     /**
      * Maybe constructor
@@ -80,6 +77,11 @@ export default class Maybe {
     }
 }
 
+
+export function MaybeFactory(value: any, isSome: boolean): Either {
+    return new Maybe(value, isSome);
+}
+
 /**
  * Creates a new Maybe as 'Some' value
  * @example
@@ -91,7 +93,7 @@ export default class Maybe {
  * });
  */
 export function Some(value: any): Maybe {
-    return new Maybe(value, true);
+    return MaybeFactory(value, true);
 }
 
 /**
@@ -104,5 +106,18 @@ export function Some(value: any): Maybe {
  * });
  */
 export function None(): Maybe {
-    return new Maybe(null, false);
+    return MaybeFactory(null, false);
 }
+
+/**
+ * Create a new Maybe where the value is uncertain.
+ *
+ * @example
+ * var person = Perhaps(possibleNullValue);
+ */
+export function Perhaps(value: any): Maybe {
+    return value == null ? None() : Some(value);
+}
+
+
+

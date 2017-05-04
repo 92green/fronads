@@ -18,6 +18,7 @@
  */
 export default class RequestState {
     /**
+     * @kind function
      * @param {any} value
      * @param {boolean} isFetching
      * @param {boolean} isError
@@ -161,5 +162,10 @@ export function RequestError(value: any): RequestState {
  */
 export function RequestSuccess(value: any): RequestState {
     return new RequestState(value, false, false, true);
+}
+
+
+export function RequestStateFactory(value: any, isFetching: boolean, isError: boolean, isSuccess: boolean): RequestState {
+    return new RequestState(value, isFetching, isError, isSuccess);
 }
 

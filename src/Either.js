@@ -8,10 +8,9 @@ import {Some, None} from './Maybe';
  * @module Either
  */
 
-/**
- * Either class
- */
-export default class Either {
+
+class Either {
+
     /**
      * @param {any} value
      * @param {boolean} isRight
@@ -77,13 +76,31 @@ export default class Either {
     }
 
     /**
-     * cata
+     * Provide functions to map both sides of the Either
      * @param {Function} leftFn
      * @param {Function} rightFn
      * @return {any}
      */
-    cata(leftFn: Function, rightFn: Function): any {
+    biMap(leftFn: Function, rightFn: Function): Either {
+        return this.isRight ? this.map(rightFn) : this.leftMap(leftFn);
+    }
+
+    /**
+     * biFlatMap
+     * @param {Function} leftFn
+     * @param {Function} rightFn
+     * @return {any}
+     */
+    biFlatMap(leftFn: Function, rightFn: Function): any {
         return this.isRight ? rightFn(this.val) : leftFn(this.val);
+    }
+
+    /**
+     * Return the current value.
+     * @return {any}
+     */
+    value(): any {
+        return this.val;
     }
 
     /**
@@ -95,13 +112,17 @@ export default class Either {
     }
 }
 
+export function EitherFactory(value: any, isRight: boolean): Either {
+    return new Either(value, isRight);
+}
+
 /**
  * Create an Either as a Right value
  * @param {any} value
  * @return {Either}
  */
 export function Right(value: any): Either {
-    return new Either(value, true);
+    return EitherFactory(value, true);
 }
 
 /**
@@ -110,7 +131,7 @@ export function Right(value: any): Either {
  * @return {Either}
  */
 export function Left(value: any): Either {
-    return new Either(value, false);
+    return EitherFactory(value, false);
 }
 
 /**

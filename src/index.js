@@ -1,7 +1,7 @@
 //@flow
 
 export {
-    default as RequestState,
+    RequestStateFactory as RequestState,
     RequestEmpty,
     RequestError,
     RequestFetching,
@@ -9,14 +9,16 @@ export {
 } from './RequestState';
 
 export {
-    default as Maybe,
-    Some,
-    None
+    MaybeFactory as Maybe,
+    None,
+    Perhaps,
+    Some
 } from './Maybe';
 
 export {
-    default as Either,
+    EitherFactory as Either,
     Left,
     Right,
     Try
 } from './Either';
+
