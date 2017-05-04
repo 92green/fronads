@@ -1,7 +1,7 @@
 {
   "main": "lib/index.js",
   "name": "fronads",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "A monad to handle request states",
   "license": "UNLICENSED",
   "author": "Allan Hortle",
