@@ -78,7 +78,7 @@ class Maybe {
 }
 
 
-export function MaybeFactory(value: any, isSome: boolean): Either {
+export function MaybeFactory(value: any, isSome: boolean): Maybe {
     return new Maybe(value, isSome);
 }
 
