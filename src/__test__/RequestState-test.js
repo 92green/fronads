@@ -65,6 +65,8 @@ test('to<type> functions', tt => {
     tt.is(RequestEmpty().toError().isError, true);
     tt.is(RequestEmpty().toSuccess().isSuccess, true);
     tt.is(RequestSuccess().toEmpty().isSuccess, false);
+    tt.is(RequestSuccess().toEither().map(() => 2).value(), 2);
+    tt.is(RequestError().toEither().leftMap(() => 2).value(), 2);
 });
 
 

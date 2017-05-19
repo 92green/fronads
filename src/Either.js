@@ -9,6 +9,9 @@ import {Some, None} from './Maybe';
  */
 
 
+/**
+ * Either class
+ */
 class Either {
 
     /**
