@@ -12,3 +12,9 @@ test('StateFunctor map/flatmap/unit', tt => {
     tt.is(EditState('foo').viewMap(() => 'bar').value(), 'foo');
     tt.is(EditState('foo').editMap(() => 'bar').value(), 'bar');
 });
+
+
+test('StateFunctor.value', tt => {
+    tt.is(ViewState('bar').value('foo'), 'bar');
+    tt.is(ViewState().value('foo'), 'foo');
+});

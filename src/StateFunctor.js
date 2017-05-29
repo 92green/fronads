@@ -23,7 +23,7 @@ class StateFunctor {
      */
     constructor(value: any, stateBooleans: Object) {
         this.val = value;
-        this.value = () => this.val;
+        this.value = (defaultValue: *): * => this.val == null ? defaultValue : this.val;
         Object
             .keys(stateBooleans)
             .forEach((booleanKey: string) => {
