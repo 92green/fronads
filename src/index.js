@@ -22,6 +22,9 @@ export {
     Try
 } from './Either';
 
+export {
+    IdentityFactory as Identity
+} from './Either';
 
 export {
     StateFunctorFactoryFactory as StateFunctor
