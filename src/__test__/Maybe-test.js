@@ -46,4 +46,7 @@ test('to', tt => {
     tt.is(Some(1).toEither().isRight, true);
     tt.is(None().toEither().isRight, false);
     tt.is(None().toEither('fail').val, 'fail');
+
+    tt.deepEqual(JSON.stringify({a: Some({b: Some(2)})}), JSON.stringify({a: {b: 2}}));
+    tt.deepEqual(JSON.stringify({a: None()}), JSON.stringify({a: null}));
 });

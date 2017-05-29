@@ -75,6 +75,10 @@ class Maybe {
     toEither(leftValue: any): Either {
         return this.isSome ? Right(this.val) : Left(leftValue);
     }
+
+    toJSON(): * {
+        return this.isSome ? this.val : null;
+    }
 }
 
 

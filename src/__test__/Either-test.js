@@ -48,5 +48,10 @@ test('ap', tt => {
 test('to', tt => {
     tt.is(Left(1).toMaybe().isSome, false);
     tt.is(Right(1).toMaybe().isSome, true);
+
+    tt.deepEqual(JSON.stringify({a: Right({b: Right(2)})}), JSON.stringify({a: {b: 2}}));
+    tt.deepEqual(JSON.stringify({a: Left()}), JSON.stringify({a: null}));
 });
+
+
 

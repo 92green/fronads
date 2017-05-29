@@ -113,6 +113,10 @@ class Either {
     toMaybe(): Maybe {
         return this.isRight ? Some(this.val) : None();
     }
+
+    toJSON(): * {
+        return this.isRight ? this.val : null;
+    }
 }
 
 export function EitherFactory(value: any, isRight: boolean): Either {
