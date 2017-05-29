@@ -22,3 +22,7 @@ export {
     Try
 } from './Either';
 
+
+export {
+    StateFunctorFactoryFactory as StateFunctor
+} from './StateFunctor';
