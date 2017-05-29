@@ -45,9 +45,9 @@ class StateFunctor {
                     return flatMap(value => unit(fn(value)));
                 };
 
-                this[`unit${booleanKey}`] = unit;
-                this[`flatMap${booleanKey}`] = flatMap;
-                this[`map${booleanKey}`] = map;
+                this[`${booleanKey.toLowerCase()}Unit`] = unit;
+                this[`${booleanKey.toLowerCase()}FlatMap`] = flatMap;
+                this[`${booleanKey.toLowerCase()}Map`] = map;
             });
     }
 
