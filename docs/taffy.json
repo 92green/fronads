@@ -1,5 +1,346 @@
 [
     {
+        "comment": "/**\n * Component is a monad that has only one state that knows how to flatten\n * a set of props.\n * @module Component\n */",
+        "meta": {
+            "range": [
+                374,
+                495
+            ],
+            "filename": "Component.js",
+            "lineno": 18,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {}
+        },
+        "description": "<p>Component is a monad that has only one state that knows how to flatten\na set of props.</p>",
+        "kind": "module",
+        "name": "Component",
+        "longname": "module:Component",
+        "___id": "T000002R000002",
+        "___s": true
+    },
+    {
+        "meta": {
+            "range": [
+                524,
+                1887
+            ],
+            "filename": "Component.js",
+            "lineno": 27,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000058",
+                "name": "Component",
+                "type": "ClassDeclaration",
+                "paramnames": [
+                    "value"
+                ]
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "*"
+                    ]
+                },
+                "description": "<p>The value to store</p>",
+                "name": "value"
+            }
+        ],
+        "longname": "module:Component~Component",
+        "classdesc": "<p>Component class</p>",
+        "name": "Component",
+        "memberof": "module:Component",
+        "scope": "inner",
+        "kind": "class",
+        "___s": true,
+        "___id": "T000002R000011",
+        "description": "<p>Component constructor</p>",
+        "comment": "/**\n * Component class\n */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Component"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                819,
+                922
+            ],
+            "filename": "Component.js",
+            "lineno": 44,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000072",
+                "name": "Component#unit",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "value",
+                    "props"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "any"
+                    ]
+                },
+                "name": "value"
+            }
+        ],
+        "longname": "module:Component~Component#unit",
+        "name": "unit",
+        "memberof": "module:Component~Component",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000014",
+        "description": "<p>Unit function</p>",
+        "comment": "/**\n     * Unit function\n     * @param {any} value\n     * @return {Component}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Some"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1070,
+                1118
+            ],
+            "filename": "Component.js",
+            "lineno": 54,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000089",
+                "name": "Component#flatMap",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "function"
+                    ]
+                },
+                "description": "<p>perform a flatMap</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Component~Component#flatMap",
+        "name": "flatMap",
+        "memberof": "module:Component~Component",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000015",
+        "description": "<p>Perform a flatMap on the current identity</p>",
+        "comment": "/**\n     * Perform a flatMap on the current identity\n     *\n     * @param {Function} fn - perform a flatMap\n     * @return {Some}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Component"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1206,
+                1277
+            ],
+            "filename": "Component.js",
+            "lineno": 63,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000100",
+                "name": "Component#map",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "function"
+                    ]
+                },
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Component~Component#map",
+        "name": "map",
+        "memberof": "module:Component~Component",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000016",
+        "description": "<p>map</p>",
+        "comment": "/**\n     * map\n     * @param {Function} fn\n     * @return {Component}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "*"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1438,
+                1531
+            ],
+            "filename": "Component.js",
+            "lineno": 72,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000120",
+                "name": "Component#value",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "defaultValue"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "*"
+                    ]
+                },
+                "optional": true,
+                "defaultvalue": null,
+                "name": "defaultValue"
+            }
+        ],
+        "longname": "module:Component~Component#value",
+        "name": "value",
+        "memberof": "module:Component~Component",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000017",
+        "description": "<p>Return the identity's value. If the value is null, return <code>defaultValue</code></p>",
+        "comment": "/**\n     * Return the identity's value. If the value is null, return `defaultValue`\n     * @param {*} [defaultValue = null]\n     * @return {*}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Either"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1624,
+                1687
+            ],
+            "filename": "Component.js",
+            "lineno": 80,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000138",
+                "name": "Component#toEither",
+                "type": "MethodDefinition",
+                "paramnames": []
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [],
+        "longname": "module:Component~Component#toEither",
+        "name": "toEither",
+        "memberof": "module:Component~Component",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000018",
+        "description": "<p>Change the Component to a Right Either.</p>",
+        "comment": "/**\n     * Change the Component to a Right Either.\n     * @return {Either}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Either"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1778,
+                1838
+            ],
+            "filename": "Component.js",
+            "lineno": 88,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000152",
+                "name": "Component#toMaybe",
+                "type": "MethodDefinition",
+                "paramnames": []
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [],
+        "longname": "module:Component~Component#toMaybe",
+        "name": "toMaybe",
+        "memberof": "module:Component~Component",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000019",
+        "description": "<p>Change the Component to a Some Maybe.</p>",
+        "comment": "/**\n     * Change the Component to a Some Maybe.\n     * @return {Either}\n     */"
+    },
+    {
         "comment": "/**\n * Either is monad that can hold a value of type `Left` or `Right`, but never at the same time.\n * @module Either\n */",
         "meta": {
             "range": [
@@ -15,20 +356,20 @@
         "kind": "module",
         "name": "Either",
         "longname": "module:Either",
-        "___id": "T000002R000002",
+        "___id": "T000002R000022",
         "___s": true
     },
     {
         "meta": {
             "range": [
                 366,
-                2330
+                2399
             ],
             "filename": "Either.js",
             "lineno": 21,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000043",
+                "id": "astnode100000225",
                 "name": "Either",
                 "type": "ClassDeclaration",
                 "paramnames": [
@@ -62,7 +403,7 @@
         "scope": "inner",
         "kind": "class",
         "___s": true,
-        "___id": "T000002R000009",
+        "___id": "T000002R000029",
         "comment": "/**\n * Either class\n */"
     },
     {
@@ -84,7 +425,7 @@
             "lineno": 38,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000064",
+                "id": "astnode100000246",
                 "name": "Either#unit",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -111,7 +452,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000013",
+        "___id": "T000002R000033",
         "description": "<p>Unit function</p>",
         "comment": "/**\n     * Unit function\n     * @param {any} value\n     * @return {Either}\n     */"
     },
@@ -134,7 +475,7 @@
             "lineno": 47,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000073",
+                "id": "astnode100000255",
                 "name": "Either#flatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -161,7 +502,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000014",
+        "___id": "T000002R000034",
         "description": "<p>flatMap</p>",
         "comment": "/**\n     * flatMap\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -184,7 +525,7 @@
             "lineno": 56,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000089",
+                "id": "astnode100000271",
                 "name": "Either#map",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -211,7 +552,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000015",
+        "___id": "T000002R000035",
         "description": "<p>map</p>",
         "comment": "/**\n     * map\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -234,7 +575,7 @@
             "lineno": 65,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000108",
+                "id": "astnode100000290",
                 "name": "Either#leftFlatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -261,7 +602,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000016",
+        "___id": "T000002R000036",
         "description": "<p>leftFlatMap</p>",
         "comment": "/**\n     * leftFlatMap\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -284,7 +625,7 @@
             "lineno": 74,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000124",
+                "id": "astnode100000306",
                 "name": "Either#leftMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -311,7 +652,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000017",
+        "___id": "T000002R000037",
         "description": "<p>leftMap</p>",
         "comment": "/**\n     * leftMap\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -334,7 +675,7 @@
             "lineno": 83,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000141",
+                "id": "astnode100000323",
                 "name": "Either#ap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -361,7 +702,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000018",
+        "___id": "T000002R000038",
         "description": "<p>ap</p>",
         "comment": "/**\n     * ap\n     * @param {Either} eitherWithFn\n     * @return {Either}\n     */"
     },
@@ -384,7 +725,7 @@
             "lineno": 93,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000163",
+                "id": "astnode100000345",
                 "name": "Either#biMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -420,7 +761,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000019",
+        "___id": "T000002R000039",
         "description": "<p>Provide functions to map both sides of the Either</p>",
         "comment": "/**\n     * Provide functions to map both sides of the Either\n     * @param {Function} leftFn\n     * @param {Function} rightFn\n     * @return {any}\n     */"
     },
@@ -443,7 +784,7 @@
             "lineno": 103,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000184",
+                "id": "astnode100000366",
                 "name": "Either#biFlatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -479,7 +820,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000020",
+        "___id": "T000002R000040",
         "description": "<p>biFlatMap</p>",
         "comment": "/**\n     * biFlatMap\n     * @param {Function} leftFn\n     * @param {Function} rightFn\n     * @return {any}\n     */"
     },
@@ -502,7 +843,7 @@
             "lineno": 111,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000205",
+                "id": "astnode100000387",
                 "name": "Either#value",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -518,7 +859,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000021",
+        "___id": "T000002R000041",
         "description": "<p>Return the current value.</p>",
         "comment": "/**\n     * Return the current value.\n     * @return {any}\n     */"
     },
@@ -541,7 +882,7 @@
             "lineno": 119,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000213",
+                "id": "astnode100000395",
                 "name": "Either#toMaybe",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -557,7 +898,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000022",
+        "___id": "T000002R000042",
         "description": "<p>toMaybe</p>",
         "comment": "/**\n     * toMaybe\n     * @return {Maybe}\n     */"
     },
@@ -569,81 +910,18 @@
                         "Either"
                     ]
                 }
-            },
-            {
-                "type": {
-                    "names": [
-                        "Either"
-                    ]
-                }
             }
         ],
         "meta": {
             "range": [
-                2452,
-                2533
+                2571,
+                2635
             ],
             "filename": "Either.js",
-            "lineno": 133,
+            "lineno": 137,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000237",
-                "name": "EitherFactory",
-                "type": "FunctionDeclaration",
-                "paramnames": [
-                    "value",
-                    "isRight"
-                ]
-            }
-        },
-        "params": [
-            {
-                "type": {
-                    "names": [
-                        "any"
-                    ]
-                },
-                "name": "value"
-            },
-            {
-                "type": {
-                    "names": [
-                        "boolean"
-                    ]
-                },
-                "name": "isRight"
-            }
-        ],
-        "longname": "module:Either~EitherFactory",
-        "name": "EitherFactory",
-        "memberof": "module:Either",
-        "scope": "inner",
-        "kind": "function",
-        "___s": true,
-        "___id": "T000002R000023",
-        "description": "<p>Create an Either</p>",
-        "comment": "/**\n * Create an Either\n * @param {any} value\n * @param {boolean} isRight\n * @return {Either}\n * @return {Either}\n */"
-    },
-    {
-        "returns": [
-            {
-                "type": {
-                    "names": [
-                        "Either"
-                    ]
-                }
-            }
-        ],
-        "meta": {
-            "range": [
-                2622,
-                2686
-            ],
-            "filename": "Either.js",
-            "lineno": 142,
-            "path": "/Users/allanhortle/localhost/code/fronads/src",
-            "code": {
-                "id": "astnode100000247",
+                "id": "astnode100000442",
                 "name": "Right",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -667,7 +945,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000024",
+        "___id": "T000002R000045",
         "description": "<p>Create an Either as a Right value</p>",
         "comment": "/**\n * Create an Either as a Right value\n * @param {any} value\n * @return {Either}\n */"
     },
@@ -683,14 +961,14 @@
         ],
         "meta": {
             "range": [
-                2774,
-                2838
+                2723,
+                2787
             ],
             "filename": "Either.js",
-            "lineno": 151,
+            "lineno": 146,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000256",
+                "id": "astnode100000451",
                 "name": "Left",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -714,7 +992,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000025",
+        "___id": "T000002R000046",
         "description": "<p>Create an Either as a Left value</p>",
         "comment": "/**\n * Create an Either as a Left value\n * @param {any} value\n * @return {Either}\n */"
     },
@@ -730,14 +1008,14 @@
         ],
         "meta": {
             "range": [
-                3061,
-                3184
+                3010,
+                3133
             ],
             "filename": "Either.js",
-            "lineno": 162,
+            "lineno": 157,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000265",
+                "id": "astnode100000460",
                 "name": "Try",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -761,16 +1039,356 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000026",
+        "___id": "T000002R000047",
         "description": "<p>Create a Try Either. <code>func</code> is immediately exceuted,\nif an error is thrown the Either will be Left(error) otherwise\nthe value of <code>func</code> is passed to a Right.</p>",
         "comment": "/**\n * Create a Try Either. `func` is immediately exceuted,\n * if an error is thrown the Either will be Left(error) otherwise\n * the value of `func` is passed to a Right.\n * @param {Function} func\n * @return {Either}\n */"
+    },
+    {
+        "comment": "/**\n * Identity is a monad that has only one state. It has all the monad operations but\n * will always return the same state type.\n * It is useful as a way to compose functions.\n * @module Identity\n */",
+        "meta": {
+            "range": [
+                196,
+                397
+            ],
+            "filename": "Identity.js",
+            "lineno": 12,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {}
+        },
+        "description": "<p>Identity is a monad that has only one state. It has all the monad operations but\nwill always return the same state type.\nIt is useful as a way to compose functions.</p>",
+        "kind": "module",
+        "name": "Identity",
+        "longname": "module:Identity",
+        "___id": "T000002R000048",
+        "___s": true
+    },
+    {
+        "meta": {
+            "range": [
+                425,
+                1740
+            ],
+            "filename": "Identity.js",
+            "lineno": 22,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000509",
+                "name": "Identity",
+                "type": "ClassDeclaration",
+                "paramnames": [
+                    "value"
+                ]
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "*"
+                    ]
+                },
+                "description": "<p>The value to store</p>",
+                "name": "value"
+            }
+        ],
+        "longname": "module:Identity~Identity",
+        "classdesc": "<p>Identity class</p>",
+        "name": "Identity",
+        "memberof": "module:Identity",
+        "scope": "inner",
+        "kind": "class",
+        "___s": true,
+        "___id": "T000002R000053",
+        "description": "<p>Identity constructor</p>",
+        "comment": "/**\n * Identity class\n */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Identity"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                716,
+                774
+            ],
+            "filename": "Identity.js",
+            "lineno": 39,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000523",
+                "name": "Identity#unit",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "value"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "any"
+                    ]
+                },
+                "name": "value"
+            }
+        ],
+        "longname": "module:Identity~Identity#unit",
+        "name": "unit",
+        "memberof": "module:Identity~Identity",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000056",
+        "description": "<p>Unit function</p>",
+        "comment": "/**\n     * Unit function\n     * @param {any} value\n     * @return {Identity}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Some"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                922,
+                970
+            ],
+            "filename": "Identity.js",
+            "lineno": 49,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000532",
+                "name": "Identity#flatMap",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "function"
+                    ]
+                },
+                "description": "<p>perform a flatMap</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Identity~Identity#flatMap",
+        "name": "flatMap",
+        "memberof": "module:Identity~Identity",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000057",
+        "description": "<p>Perform a flatMap on the current identity</p>",
+        "comment": "/**\n     * Perform a flatMap on the current identity\n     *\n     * @param {Function} fn - perform a flatMap\n     * @return {Some}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Identity"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1057,
+                1132
+            ],
+            "filename": "Identity.js",
+            "lineno": 58,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000543",
+                "name": "Identity#map",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "function"
+                    ]
+                },
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Identity~Identity#map",
+        "name": "map",
+        "memberof": "module:Identity~Identity",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000058",
+        "description": "<p>map</p>",
+        "comment": "/**\n     * map\n     * @param {Function} fn\n     * @return {Identity}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "*"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1293,
+                1386
+            ],
+            "filename": "Identity.js",
+            "lineno": 67,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000562",
+                "name": "Identity#value",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "defaultValue"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "*"
+                    ]
+                },
+                "optional": true,
+                "defaultvalue": null,
+                "name": "defaultValue"
+            }
+        ],
+        "longname": "module:Identity~Identity#value",
+        "name": "value",
+        "memberof": "module:Identity~Identity",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000059",
+        "description": "<p>Return the identity's value. If the value is null, return <code>defaultValue</code></p>",
+        "comment": "/**\n     * Return the identity's value. If the value is null, return `defaultValue`\n     * @param {*} [defaultValue = null]\n     * @return {*}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Either"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1478,
+                1541
+            ],
+            "filename": "Identity.js",
+            "lineno": 75,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000580",
+                "name": "Identity#toEither",
+                "type": "MethodDefinition",
+                "paramnames": []
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [],
+        "longname": "module:Identity~Identity#toEither",
+        "name": "toEither",
+        "memberof": "module:Identity~Identity",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000060",
+        "description": "<p>Change the Identity to a Right Either.</p>",
+        "comment": "/**\n     * Change the Identity to a Right Either.\n     * @return {Either}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Either"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1631,
+                1691
+            ],
+            "filename": "Identity.js",
+            "lineno": 83,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100000594",
+                "name": "Identity#toMaybe",
+                "type": "MethodDefinition",
+                "paramnames": []
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [],
+        "longname": "module:Identity~Identity#toMaybe",
+        "name": "toMaybe",
+        "memberof": "module:Identity~Identity",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000061",
+        "description": "<p>Change the Identity to a Some Maybe.</p>",
+        "comment": "/**\n     * Change the Identity to a Some Maybe.\n     * @return {Either}\n     */"
     },
     {
         "comment": "/**\n * Maybe is a way to represent null values. It is either `Some` or it is `None`.\n * * [Some](#module:Maybe~Some)\n * * [None](#module:Maybe~None)\n * @module Maybe\n */",
         "meta": {
             "range": [
-                369,
-                538
+                371,
+                540
             ],
             "filename": "Maybe.js",
             "lineno": 17,
@@ -781,20 +1399,20 @@
         "kind": "module",
         "name": "Maybe",
         "longname": "module:Maybe",
-        "___id": "T000002R000027",
+        "___id": "T000002R000064",
         "___s": true
     },
     {
         "meta": {
             "range": [
-                563,
-                1927
+                565,
+                2121
             ],
             "filename": "Maybe.js",
             "lineno": 27,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000347",
+                "id": "astnode100000688",
                 "name": "Maybe",
                 "type": "ClassDeclaration",
                 "paramnames": [
@@ -830,7 +1448,7 @@
         "scope": "inner",
         "kind": "class",
         "___s": true,
-        "___id": "T000002R000037",
+        "___id": "T000002R000074",
         "description": "<p>Maybe constructor</p>",
         "comment": "/**\n * Maybe class\n */"
     },
@@ -846,14 +1464,14 @@
         ],
         "meta": {
             "range": [
-                921,
-                962
+                961,
+                1008
             ],
             "filename": "Maybe.js",
             "lineno": 46,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000368",
+                "id": "astnode100000709",
                 "name": "Maybe#unit",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -880,9 +1498,9 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000041",
+        "___id": "T000002R000078",
         "description": "<p>Unit function</p>",
-        "comment": "/**\n   * Unit function\n   * @param {any} value\n   * @return {Either}\n   */"
+        "comment": "/**\n     * Unit function\n     * @param {any} value\n     * @return {Either}\n     */"
     },
     {
         "returns": [
@@ -896,14 +1514,14 @@
         ],
         "meta": {
             "range": [
-                1101,
-                1164
+                1161,
+                1230
             ],
             "filename": "Maybe.js",
             "lineno": 56,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000377",
+                "id": "astnode100000718",
                 "name": "Maybe#flatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -931,9 +1549,9 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000042",
+        "___id": "T000002R000079",
         "description": "<p>Perform a flatMap on the current maybe</p>",
-        "comment": "/**\n   * Perform a flatMap on the current maybe\n   *\n   * @param {Function} fn - perform a flatMap if Some\n   * @return {Some}\n   */"
+        "comment": "/**\n     * Perform a flatMap on the current maybe\n     *\n     * @param {Function} fn - perform a flatMap if Some\n     * @return {Some}\n     */"
     },
     {
         "returns": [
@@ -947,14 +1565,14 @@
         ],
         "meta": {
             "range": [
-                1236,
-                1305
+                1314,
+                1389
             ],
             "filename": "Maybe.js",
             "lineno": 65,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000393",
+                "id": "astnode100000734",
                 "name": "Maybe#map",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -981,9 +1599,9 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000043",
+        "___id": "T000002R000080",
         "description": "<p>map</p>",
-        "comment": "/**\n   * map\n   * @param {Function} fn\n   * @return {Maybe}\n   */"
+        "comment": "/**\n     * map\n     * @param {Function} fn\n     * @return {Maybe}\n     */"
     },
     {
         "returns": [
@@ -997,14 +1615,14 @@
         ],
         "meta": {
             "range": [
-                1473,
-                1560
+                1569,
+                1662
             ],
             "filename": "Maybe.js",
             "lineno": 74,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000412",
+                "id": "astnode100000753",
                 "name": "Maybe#value",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1034,9 +1652,9 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000044",
+        "___id": "T000002R000081",
         "description": "<p>Return the maybe's value if it is 'some' or else return <code>defaultValue</code></p>",
-        "comment": "/**\n   * Return the maybe's value if it is 'some' or else return `defaultValue`\n   * @param {*} [defaultValue = null] - value that is Some\n   * @return {*}\n   */"
+        "comment": "/**\n     * Return the maybe's value if it is 'some' or else return `defaultValue`\n     * @param {*} [defaultValue = null] - value that is Some\n     * @return {*}\n     */"
     },
     {
         "returns": [
@@ -1050,14 +1668,14 @@
         ],
         "meta": {
             "range": [
-                1814,
-                1925
+                1934,
+                2051
             ],
             "filename": "Maybe.js",
             "lineno": 86,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000430",
+                "id": "astnode100000771",
                 "name": "Maybe#toEither",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1085,21 +1703,21 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000045",
+        "___id": "T000002R000082",
         "description": "<p>Change the Maybe to an Either. If <code>Some</code> the value is placed in <code>Right</code>\nif <code>None</code> the value of <code>leftValue</code> is placed in a <code>Left</code></p>",
-        "comment": "/**\n   * Change the Maybe to an Either. If `Some` the value is placed in `Right`\n   * if `None` the value of `leftValue` is placed in a `Left`\n   *\n   * @inner\n   * @param {*} leftValue - Value to place in the Left side\n   * @return {Either}\n   */"
+        "comment": "/**\n     * Change the Maybe to an Either. If `Some` the value is placed in `Right`\n     * if `None` the value of `leftValue` is placed in a `Left`\n     *\n     * @inner\n     * @param {*} leftValue - Value to place in the Left side\n     * @return {Either}\n     */"
     },
     {
         "meta": {
             "range": [
-                2188,
-                2248
+                2384,
+                2446
             ],
             "filename": "Maybe.js",
-            "lineno": 105,
+            "lineno": 109,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000466",
+                "id": "astnode100000820",
                 "name": "Some",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1117,21 +1735,21 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000047",
+        "___id": "T000002R000085",
         "description": "<p>Creates a new Maybe as 'Some' value</p>",
         "comment": "/**\n * Creates a new Maybe as 'Some' value\n * @example\n * var person = Some({\n *     name: \"Derek Tibbs\",\n *     child: Some({\n *         name: \"Derek Tibbs Jr\"\n *     })\n * });\n */"
     },
     {
         "meta": {
             "range": [
-                2391,
-                2446
+                2589,
+                2646
             ],
             "filename": "Maybe.js",
-            "lineno": 118,
+            "lineno": 122,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000475",
+                "id": "astnode100000829",
                 "name": "None",
                 "type": "FunctionDeclaration",
                 "paramnames": []
@@ -1147,21 +1765,21 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000048",
+        "___id": "T000002R000086",
         "description": "<p>Creates a new Maybe as 'None' value</p>",
         "comment": "/**\n * Creates a new Maybe as 'None' value\n *\n * @example\n * var person = Some({\n *     name: \"Derek Tibbs\",\n *     child: None()\n * });\n */"
     },
     {
         "meta": {
             "range": [
-                2567,
-                2641
+                2767,
+                2843
             ],
             "filename": "Maybe.js",
-            "lineno": 128,
+            "lineno": 132,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000483",
+                "id": "astnode100000837",
                 "name": "Perhaps",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1179,7 +1797,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000049",
+        "___id": "T000002R000087",
         "description": "<p>Create a new Maybe where the value is uncertain.</p>",
         "comment": "/**\n * Create a new Maybe where the value is uncertain.\n *\n * @example\n * var person = Perhaps(possibleNullValue);\n */"
     },
@@ -1199,7 +1817,7 @@
         "kind": "module",
         "name": "RequestState",
         "longname": "module:RequestState",
-        "___id": "T000002R000050",
+        "___id": "T000002R000088",
         "___s": true
     },
     {
@@ -1212,7 +1830,7 @@
             "lineno": 29,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000546",
+                "id": "astnode100000900",
                 "name": "RequestState",
                 "type": "ClassDeclaration",
                 "paramnames": [
@@ -1264,7 +1882,7 @@
         "scope": "inner",
         "kind": "class",
         "___s": true,
-        "___id": "T000002R000058",
+        "___id": "T000002R000096",
         "comment": "/**\n * RequestState class\n */"
     },
     {
@@ -1286,7 +1904,7 @@
             "lineno": 50,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000581",
+                "id": "astnode100000935",
                 "name": "RequestState#map",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1313,7 +1931,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000064",
+        "___id": "T000002R000102",
         "description": "<p>map</p>",
         "comment": "/**\n   * map\n   * @param {any} fn\n   * @return {RequestState}\n   */"
     },
@@ -1336,7 +1954,7 @@
             "lineno": 59,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000599",
+                "id": "astnode100000953",
                 "name": "RequestState#flatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1363,7 +1981,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000065",
+        "___id": "T000002R000103",
         "description": "<p>flatMap</p>",
         "comment": "/**\n   * flatMap\n   * @param {Function} fn\n   * @return {any}\n   */"
     },
@@ -1386,7 +2004,7 @@
             "lineno": 68,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000615",
+                "id": "astnode100000969",
                 "name": "RequestState#fetchingMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1413,7 +2031,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000066",
+        "___id": "T000002R000104",
         "description": "<p>fetchingMap</p>",
         "comment": "/**\n   * fetchingMap\n   * @param {Function} fn\n   * @return {RequestState}\n   */"
     },
@@ -1436,7 +2054,7 @@
             "lineno": 77,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000633",
+                "id": "astnode100000987",
                 "name": "RequestState#fetchingFlatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1463,7 +2081,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000067",
+        "___id": "T000002R000105",
         "description": "<p>fetchingFlatMap</p>",
         "comment": "/**\n   * fetchingFlatMap\n   * @param {Function} fn\n   * @return {RequestState}\n   */"
     },
@@ -1486,7 +2104,7 @@
             "lineno": 86,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000649",
+                "id": "astnode100001003",
                 "name": "RequestState#errorMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1513,7 +2131,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000068",
+        "___id": "T000002R000106",
         "description": "<p>errorMap</p>",
         "comment": "/**\n   * errorMap\n   * @param {Function} fn\n   * @return {RequestState}\n   */"
     },
@@ -1536,7 +2154,7 @@
             "lineno": 95,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000667",
+                "id": "astnode100001021",
                 "name": "RequestState#errorFlatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1563,7 +2181,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000069",
+        "___id": "T000002R000107",
         "description": "<p>errorFlatMap</p>",
         "comment": "/**\n   * errorFlatMap\n   * @param {Function} fn\n   * @return {RequestState}\n   */"
     },
@@ -1586,7 +2204,7 @@
             "lineno": 103,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000683",
+                "id": "astnode100001037",
                 "name": "RequestState#toFetching",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1602,7 +2220,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000070",
+        "___id": "T000002R000108",
         "description": "<p>toFetching</p>",
         "comment": "/**\n   * toFetching\n   * @return {RequestState}\n   */"
     },
@@ -1625,7 +2243,7 @@
             "lineno": 111,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000693",
+                "id": "astnode100001047",
                 "name": "RequestState#toError",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1641,7 +2259,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000071",
+        "___id": "T000002R000109",
         "description": "<p>toError</p>",
         "comment": "/**\n   * toError\n   * @return {RequestState}\n   */"
     },
@@ -1664,7 +2282,7 @@
             "lineno": 119,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000703",
+                "id": "astnode100001057",
                 "name": "RequestState#toSuccess",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1680,7 +2298,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000072",
+        "___id": "T000002R000110",
         "description": "<p>toSuccess</p>",
         "comment": "/**\n   * toSuccess\n   * @return {RequestState}\n   */"
     },
@@ -1703,7 +2321,7 @@
             "lineno": 127,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000713",
+                "id": "astnode100001067",
                 "name": "RequestState#toEmpty",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1719,7 +2337,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000073",
+        "___id": "T000002R000111",
         "description": "<p>toEmpty</p>",
         "comment": "/**\n   * toEmpty\n   * @return {RequestState}\n   */"
     },
@@ -1742,7 +2360,7 @@
             "lineno": 135,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000720",
+                "id": "astnode100001074",
                 "name": "RequestState#toEither",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1758,7 +2376,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000074",
+        "___id": "T000002R000112",
         "description": "<p>Convert the RequestState to an Either. RequestErrors will be turned into a <code>Left</code> everything else a will be a <code>Right</code>.</p>",
         "comment": "/**\n   * Convert the RequestState to an Either. RequestErrors will be turned into a `Left` everything else a will be a `Right`.\n   * @return {Either}\n   */"
     },
@@ -1781,7 +2399,7 @@
             "lineno": 144,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000738",
+                "id": "astnode100001092",
                 "name": "RequestState#value",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1808,7 +2426,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000075",
+        "___id": "T000002R000113",
         "description": "<p>value</p>",
         "comment": "/**\n   * value\n   * @param {any} defaultValue\n   * @return {any}\n   */"
     },
@@ -1831,7 +2449,7 @@
             "lineno": 155,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000760",
+                "id": "astnode100001114",
                 "name": "RequestEmpty",
                 "type": "FunctionDeclaration",
                 "paramnames": []
@@ -1853,7 +2471,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000077",
+        "___id": "T000002R000115",
         "description": "<p>Create an RequestState as a RequestEmpty value</p>",
         "comment": "/**\n                                 * Create an RequestState as a RequestEmpty value\n                                 * @param {any} value\n                                 * @return {RequestState}\n                                 */"
     },
@@ -1876,7 +2494,7 @@
             "lineno": 164,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000770",
+                "id": "astnode100001124",
                 "name": "RequestFetching",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1900,7 +2518,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000078",
+        "___id": "T000002R000116",
         "description": "<p>Create a RequestState as a RequestFetching value</p>",
         "comment": "/**\n * Create a RequestState as a RequestFetching value\n * @param {any} value\n * @return {RequestState}\n */"
     },
@@ -1923,7 +2541,7 @@
             "lineno": 173,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000781",
+                "id": "astnode100001135",
                 "name": "RequestError",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1947,7 +2565,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000079",
+        "___id": "T000002R000117",
         "description": "<p>Create a RequestState as a RequestError value</p>",
         "comment": "/**\n * Create a RequestState as a RequestError value\n * @param {any} value\n * @return {RequestState}\n */"
     },
@@ -1970,7 +2588,7 @@
             "lineno": 182,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000792",
+                "id": "astnode100001146",
                 "name": "RequestSuccess",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1994,23 +2612,78 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000080",
+        "___id": "T000002R000118",
         "description": "<p>Create a RequestState as a RequestSuccess value</p>",
         "comment": "/**\n * Create a RequestState as a RequestSuccess value\n * @param {any} value\n * @return {RequestState}\n */"
+    },
+    {
+        "meta": {
+            "range": [
+                674,
+                1849
+            ],
+            "filename": "StateFunctor.js",
+            "lineno": 30,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001263",
+                "name": "StateFunctor",
+                "type": "ClassDeclaration",
+                "paramnames": [
+                    "value",
+                    "stateBooleans"
+                ]
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "*"
+                    ]
+                },
+                "description": "<p>The value to store</p>",
+                "name": "value"
+            },
+            {
+                "type": {
+                    "names": [
+                        "boolean"
+                    ]
+                },
+                "description": "<p>Whether or not the maybe is <code>some</code> or <code>none</code></p>",
+                "name": "isSome"
+            }
+        ],
+        "longname": "StateFunctor",
+        "classdesc": "<p>Maybe class</p>",
+        "name": "StateFunctor",
+        "scope": "global",
+        "kind": "class",
+        "___s": true,
+        "___id": "T000002R000131",
+        "description": "<p>Maybe constructor</p>",
+        "comment": "/**\n * Maybe class\n */"
     },
     {
         "kind": "package",
         "longname": "package:undefined",
         "files": [
+            "/Users/allanhortle/localhost/code/fronads/src/Component.js",
             "/Users/allanhortle/localhost/code/fronads/src/Either.js",
+            "/Users/allanhortle/localhost/code/fronads/src/Identity.js",
             "/Users/allanhortle/localhost/code/fronads/src/Maybe.js",
             "/Users/allanhortle/localhost/code/fronads/src/RequestState.js",
+            "/Users/allanhortle/localhost/code/fronads/src/StateFunctor.js",
+            "/Users/allanhortle/localhost/code/fronads/src/__test__/Component-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/Either-test.js",
+            "/Users/allanhortle/localhost/code/fronads/src/__test__/Identity-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/Maybe-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/RequestState-test.js",
+            "/Users/allanhortle/localhost/code/fronads/src/__test__/StateFunctor-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/index.js"
         ],
-        "___id": "T000002R000139",
+        "___id": "T000002R000258",
         "___s": true
     }
 ]
