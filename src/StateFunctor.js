@@ -13,6 +13,8 @@ function falsify(obj: Object): Object {
  * Maybe class
  */
 class StateFunctor {
+    val: any;
+    value: Function;
 
     /**
      * Maybe constructor

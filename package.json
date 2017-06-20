@@ -88,5 +88,8 @@
     "require": [
       "babel-register"
     ]
+  },
+  "dependencies": {
+    "flow-bin": "^0.48.0"
   }
 }

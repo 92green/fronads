@@ -24,7 +24,7 @@ export {
 
 export {
     IdentityFactory as Identity
-} from './Either';
+} from './Identity';
 
 export {
     StateFunctorFactoryFactory as StateFunctor
