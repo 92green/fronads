@@ -7,6 +7,24 @@ import {Some} from './Maybe';
  * Identity is a monad that has only one state. It has all the monad operations but
  * will always return the same state type.
  * It is useful as a way to compose functions.
+ *
+ * ```js
+ * import {Identity} from 'fronads';
+ *
+ * const add = aa => bb => aa + bb;
+ *
+ * Identity(5)
+ *     .map(add(2))
+ *     .map(add(-10))
+ *     .value();
+ * // -3
+ *
+ *
+ * // Hocking a React component.
+ * Some(UserProfile)
+ *     .map(connect(({user}) => ({user}))
+ *     .value();
+ * ```
  * @module Identity
  */
 

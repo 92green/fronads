@@ -740,7 +740,7 @@
                 "meta": {
                     "range": [
                         196,
-                        397
+                        697
                     ],
                     "filename": "Identity.js",
                     "lineno": 12,
@@ -753,11 +753,11 @@
                     {
                         "meta": {
                             "range": [
-                                425,
-                                1740
+                                725,
+                                2040
                             ],
                             "filename": "Identity.js",
-                            "lineno": 22,
+                            "lineno": 40,
                             "path": "/Users/allanhortle/localhost/code/fronads/src",
                             "code": {
                                 "id": "astnode100000327",
@@ -795,11 +795,11 @@
                                 ],
                                 "meta": {
                                     "range": [
-                                        716,
-                                        774
+                                        1016,
+                                        1074
                                     ],
                                     "filename": "Identity.js",
-                                    "lineno": 39,
+                                    "lineno": 57,
                                     "path": "/Users/allanhortle/localhost/code/fronads/src",
                                     "code": {
                                         "id": "astnode100000341",
@@ -847,11 +847,11 @@
                                 ],
                                 "meta": {
                                     "range": [
-                                        922,
-                                        970
+                                        1222,
+                                        1270
                                     ],
                                     "filename": "Identity.js",
-                                    "lineno": 49,
+                                    "lineno": 67,
                                     "path": "/Users/allanhortle/localhost/code/fronads/src",
                                     "code": {
                                         "id": "astnode100000350",
@@ -900,11 +900,11 @@
                                 ],
                                 "meta": {
                                     "range": [
-                                        1057,
-                                        1132
+                                        1357,
+                                        1432
                                     ],
                                     "filename": "Identity.js",
-                                    "lineno": 58,
+                                    "lineno": 76,
                                     "path": "/Users/allanhortle/localhost/code/fronads/src",
                                     "code": {
                                         "id": "astnode100000361",
@@ -952,11 +952,11 @@
                                 ],
                                 "meta": {
                                     "range": [
-                                        1293,
-                                        1386
+                                        1593,
+                                        1686
                                     ],
                                     "filename": "Identity.js",
-                                    "lineno": 67,
+                                    "lineno": 85,
                                     "path": "/Users/allanhortle/localhost/code/fronads/src",
                                     "code": {
                                         "id": "astnode100000380",
@@ -1006,11 +1006,11 @@
                                 ],
                                 "meta": {
                                     "range": [
-                                        1478,
-                                        1541
+                                        1778,
+                                        1841
                                     ],
                                     "filename": "Identity.js",
-                                    "lineno": 75,
+                                    "lineno": 93,
                                     "path": "/Users/allanhortle/localhost/code/fronads/src",
                                     "code": {
                                         "id": "astnode100000398",
@@ -1047,11 +1047,11 @@
                                 ],
                                 "meta": {
                                     "range": [
-                                        1631,
-                                        1691
+                                        1931,
+                                        1991
                                     ],
                                     "filename": "Identity.js",
-                                    "lineno": 83,
+                                    "lineno": 101,
                                     "path": "/Users/allanhortle/localhost/code/fronads/src",
                                     "code": {
                                         "id": "astnode100000412",
@@ -1090,8 +1090,8 @@
                 "kind": "module",
                 "___s": true,
                 "___id": "T000002R000028",
-                "description": "<p>Identity is a monad that has only one state. It has all the monad operations but\nwill always return the same state type.\nIt is useful as a way to compose functions.</p>",
-                "comment": "/**\n * Identity is a monad that has only one state. It has all the monad operations but\n * will always return the same state type.\n * It is useful as a way to compose functions.\n * @module Identity\n */"
+                "description": "<p>Identity is a monad that has only one state. It has all the monad operations but\nwill always return the same state type.\nIt is useful as a way to compose functions.</p>\n<pre class=\"prettyprint source lang-js\"><code>import {Identity} from 'fronads';\n\nconst add = aa => bb => aa + bb;\n\nIdentity(5)\n    .map(add(2))\n    .map(add(-10))\n    .value();\n// -3\n\n\n// Hocking a React component.\nSome(UserProfile)\n    .map(connect(({user}) => ({user}))\n    .value();</code></pre>",
+                "comment": "/**\n * Identity is a monad that has only one state. It has all the monad operations but\n * will always return the same state type.\n * It is useful as a way to compose functions.\n *\n * ```js\n * import {Identity} from 'fronads';\n *\n * const add = aa => bb => aa + bb;\n *\n * Identity(5)\n *     .map(add(2))\n *     .map(add(-10))\n *     .value();\n * // -3\n *\n *\n * // Hocking a React component.\n * Some(UserProfile)\n *     .map(connect(({user}) => ({user}))\n *     .value();\n * ```\n * @module Identity\n */"
             },
             {
                 "meta": {
