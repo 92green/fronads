@@ -35,7 +35,7 @@ class StateFunctor {
                 const unit = (value: *): StateFunctor => {
                     return new StateFunctorFactory(value, {
                         ...falsify(stateBooleans),
-                        booleanKey: true
+                        [booleanKey]: true
                     });
                 };
 
