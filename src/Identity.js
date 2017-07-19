@@ -3,10 +3,37 @@
 import {Right} from './Either';
 import {Some} from './Maybe';
 
+
+// ```
+// withData(withState(component))
+
+// Some(component)
+//     .map(withState)
+//     .map(withData)
+//     .value();
+
+// [withState, withData]
+//     .reduce((rr, ii) => rr.map(ii), Some(component))
+//     .value()
+
+// [withData, withState]
+//     .reverse()
+//     .reduce((rr, ii) => rr.map(ii), Some(component))
+//     .value()
+// ```
+
 /**
- * Identity is a monad that has only one state. It has all the monad operations but
- * will always return the same state type.
- * It is useful as a way to compose functions.
+ * Identity is the vanilla ice cream of monads. Plain and simple; it is just the core concept.
+ * The identity monad has only one state. It says "I will always map your function to my value"
+ * Identity is just like a compose function.
+ *
+ * ```
+ * Identity/Compose/composition example
+ * ```
+ *
+ * ### Examples
+ * * Hocks
+ * * repeated Composition.
  *
  * ```js
  * import {Identity} from 'fronads';
@@ -91,7 +118,7 @@ class Identity {
 
     /**
      * Change the Identity to a Some Maybe.
-     * @return {Either}
+     * @return {Maybe}
      */
     toMaybe(): Maybe {
         return Some(this.val);

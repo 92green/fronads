@@ -12,6 +12,7 @@ export {
     MaybeFactory as Maybe,
     None,
     Perhaps,
+    PerhapsIn,
     Some
 } from './Maybe';
 

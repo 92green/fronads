@@ -10,18 +10,18 @@ function falsify(obj: Object): Object {
 }
 
 /**
- * Maybe class
+ * @module State
  */
 class StateFunctor {
     val: any;
     value: Function;
 
     /**
-     * Maybe constructor
+     * State constructor
      *
      * @param {*} value - The value to store
-     * @param {boolean} isSome - Whether or not the maybe is `some` or `none`
-     * @return {Maybe}
+     * @param {object} stateBooleans - Whether or not the maybe is `some` or `none`
+     * @return {State}
      */
     constructor(value: any, stateBooleans: Object) {
         this.val = value;
@@ -48,7 +48,7 @@ class StateFunctor {
                 };
 
                 const to = (): StateFunctor => {
-                    return this[stateKey] ? this : unit(this.value);
+                    return unit(this.val);
                 };
 
                 this[`to${booleanKey}`] = to;
@@ -66,6 +66,31 @@ export function StateFunctorFactory(value: any, stateBooleans: Object): Maybe {
     return new StateFunctor(value, stateBooleans);
 }
 
+
+/**
+ * Sometimes the state of your app can be represented through more than two states.
+ * The StateMonadFactory lets you create a monad with an arbitary number of state.
+ *
+ * Given an array of names it will returns an on object of custom Unit functions.
+ *
+ * @name StateFunctor
+ * @example
+ * StateFunctor(['Empty', 'Fetching', 'Refetching', 'Error', 'Success'])
+ * // {
+ * //      EmptyState: EmptyState,
+ * //      FetchingState: FetchingState,
+ * //      RefetchingState: RefetchingState,
+ * //      ErrorState: ErrorState,
+ * //      SuccessState: SuccessState
+ * // }
+ *
+ * StateFunctor(['New', 'Edit', 'View'])
+ * // {
+ * //      NewState: NewState,
+ * //      EditState: EditState,
+ * //      ViewState: ViewState
+ * // }
+ */
 export function StateFunctorFactoryFactory(stateBooleans: boolean[]): Object {
     return stateBooleans
         .reduce((rr, ii) => {

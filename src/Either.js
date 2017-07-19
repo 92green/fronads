@@ -4,7 +4,11 @@ import {Some, None} from './Maybe';
 
 
 /**
- * Either is monad that can hold a value of type `Left` or `Right`, but never at the same time.
+ * The Either monad describes situations that have two distinct states: Right and Left. Often used
+ * If the Either is Right map/Flatmap will be called and if the Either is Left leftMap/leftFlatMap will be called.
+ *
+ * If Identity has 1 state, Maybe has 1.5, Either has 2.
+ *
  * @module Either
  */
 

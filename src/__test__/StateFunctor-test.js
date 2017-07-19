@@ -18,3 +18,8 @@ test('StateFunctor.value', tt => {
     tt.is(ViewState('bar').value('foo'), 'bar');
     tt.is(ViewState().value('foo'), 'foo');
 });
+
+test('StateFunctor.to', tt => {
+    tt.is(ViewState('bar').toEdit().editMap(ii => 'foo').value(), 'foo');
+    tt.is(ViewState('bar').toEdit().viewMap(ii => 'foo').value(), 'bar');
+});

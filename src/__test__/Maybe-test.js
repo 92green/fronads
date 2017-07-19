@@ -2,6 +2,7 @@ import test from 'ava';
 import {
     MaybeFactory,
     Perhaps,
+    PerhapsIn,
     Some,
     None
 } from '../Maybe';
@@ -40,6 +41,15 @@ test('Perhaps', tt => {
     tt.is(Perhaps(2).isSome, true);
     tt.is(Perhaps(null).isSome, false);
 });
+
+
+test('PerhapsIn', tt => {
+    tt.is(PerhapsIn({foo: {bar: 2}}, ['foo', 'bar']).isSome, true);
+    tt.is(PerhapsIn({foo: {bar: 2}}, ['foo', 'bar']).isSome, true);
+    tt.is(PerhapsIn({foo: null}, ['foo', 'bar']).map(ii => ii * 2).isSome, false);
+    tt.is(PerhapsIn(null, ['foo', 'bar']).isSome, false);
+});
+
 
 
 test('to', tt => {

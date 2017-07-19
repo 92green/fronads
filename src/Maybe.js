@@ -1,9 +1,30 @@
 // @flow
 
 import Either, {Left, Right} from './Either';
+import {getIn} from './util/Data';
 
 /**
- * Maybe is a way to represent null values. It is either `Some` or it is `None`.
+ * The maybe monad is a way to represent null values without being forced to check for their existence. Maybe is the identity monad but with an added condition. The maybe says "I will only ever call map/flatmap if I am a Some. "
+ *
+ *
+ * ```
+ * Some(5).map(ii => ii * 2) // Some(10)
+ * None().map(ii => ii * 2) // None()
+ * ```
+ *
+ * Maybe lets you declaratively write what should happen to data, but only excecutes if that data exists.
+ *
+ * ### Units
+ * Some(value)
+ * None()
+ * Perhaps(value)
+ * PerhapsIn(value, path)
+ *
+ * ### Examples
+ * #### Unknown Deep Children
+ * #### Don't Render without data
+ * ####
+ *
  * * [Some](#module:Maybe~Some)
  * * [None](#module:Maybe~None)
  * @module Maybe
@@ -121,6 +142,18 @@ export function None(): Maybe {
  */
 export function Perhaps(value: any): Maybe {
     return value == null ? None() : Some(value);
+}
+
+
+/**
+ * Create a new Maybe from a deep uncertain value.
+ *
+ * @example
+ * var person = PerhapsIn({foo: {bar: possibleNullValue}}, ['foo', 'bar']);
+ */
+export function PerhapsIn(value: any, path: string[]): Maybe {
+    const deepValue = getIn(value, path);
+    return deepValue == null ? None() : Some(deepValue);
 }
 
 
