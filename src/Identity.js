@@ -23,12 +23,22 @@ import {Some} from './Maybe';
 // ```
 
 /**
- * Identity is the vanilla ice cream of monads. Plain and simple; it is just the core concept.
- * The identity monad has only one state. It says "I will always map your function to my value"
- * Identity is just like a compose function.
+ * Identity is the vanilla ice cream of monads. Plain and simple, it is a function composer with only one state.
+ * Identity says: "I will always map your function to my value".
  *
  * ```
- * Identity/Compose/composition example
+ * // Composition
+ * foo(bar(value));
+ *
+ * // Compose
+ * Compose(foo, bar)(value);
+ *
+ * // Identity
+ * Identity(value)
+ *     .map(bar)
+ *     .map(value)
+ *     .value();
+ *
  * ```
  *
  * ### Examples
