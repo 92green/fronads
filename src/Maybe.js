@@ -109,6 +109,7 @@ export function MaybeFactory(value: any, isSome: boolean): Maybe {
 
 /**
  * Creates a new Maybe as 'Some' value
+ * @return {Maybe}
  * @example
  * var person = Some({
  *     name: "Derek Tibbs",
@@ -136,7 +137,8 @@ export function None(): Maybe {
 
 /**
  * Create a new Maybe where the value is uncertain.
- *
+ * @param {any} value
+ * @return {Maybe}
  * @example
  * var person = Perhaps(possibleNullValue);
  */
@@ -147,7 +149,9 @@ export function Perhaps(value: any): Maybe {
 
 /**
  * Create a new Maybe from a deep uncertain value.
- *
+ * @param {any} value
+ * @param {string[]} path
+ * @return {Maybe}
  * @example
  * var person = PerhapsIn({foo: {bar: possibleNullValue}}, ['foo', 'bar']);
  */

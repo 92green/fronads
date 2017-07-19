@@ -1367,13 +1367,22 @@
         "comment": "/**\n     * Change the Maybe to an Either. If `Some` the value is placed in `Right`\n     * if `None` the value of `leftValue` is placed in a `Left`\n     *\n     * @inner\n     * @param {*} leftValue - Value to place in the Left side\n     * @return {Either}\n     */"
     },
     {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Maybe"
+                    ]
+                }
+            }
+        ],
         "meta": {
             "range": [
-                2987,
-                3049
+                3006,
+                3068
             ],
             "filename": "Maybe.js",
-            "lineno": 132,
+            "lineno": 133,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
                 "id": "astnode100000650",
@@ -1396,16 +1405,16 @@
         "___s": true,
         "___id": "T000002R000067",
         "description": "<p>Creates a new Maybe as 'Some' value</p>",
-        "comment": "/**\n * Creates a new Maybe as 'Some' value\n * @example\n * var person = Some({\n *     name: \"Derek Tibbs\",\n *     child: Some({\n *         name: \"Derek Tibbs Jr\"\n *     })\n * });\n */"
+        "comment": "/**\n * Creates a new Maybe as 'Some' value\n * @return {Maybe}\n * @example\n * var person = Some({\n *     name: \"Derek Tibbs\",\n *     child: Some({\n *         name: \"Derek Tibbs Jr\"\n *     })\n * });\n */"
     },
     {
         "meta": {
             "range": [
-                3192,
-                3249
+                3211,
+                3268
             ],
             "filename": "Maybe.js",
-            "lineno": 145,
+            "lineno": 146,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
                 "id": "astnode100000659",
@@ -1429,13 +1438,22 @@
         "comment": "/**\n * Creates a new Maybe as 'None' value\n *\n * @example\n * var person = Some({\n *     name: \"Derek Tibbs\",\n *     child: None()\n * });\n */"
     },
     {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Maybe"
+                    ]
+                }
+            }
+        ],
         "meta": {
             "range": [
-                3370,
-                3446
+                3427,
+                3503
             ],
             "filename": "Maybe.js",
-            "lineno": 155,
+            "lineno": 157,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
                 "id": "astnode100000667",
@@ -1446,7 +1464,16 @@
                 ]
             }
         },
-        "params": [],
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "any"
+                    ]
+                },
+                "name": "value"
+            }
+        ],
         "longname": "module:Maybe~Perhaps",
         "examples": [
             "var person = Perhaps(possibleNullValue);"
@@ -1458,16 +1485,25 @@
         "___s": true,
         "___id": "T000002R000069",
         "description": "<p>Create a new Maybe where the value is uncertain.</p>",
-        "comment": "/**\n * Create a new Maybe where the value is uncertain.\n *\n * @example\n * var person = Perhaps(possibleNullValue);\n */"
+        "comment": "/**\n * Create a new Maybe where the value is uncertain.\n * @param {any} value\n * @return {Maybe}\n * @example\n * var person = Perhaps(possibleNullValue);\n */"
     },
     {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Maybe"
+                    ]
+                }
+            }
+        ],
         "meta": {
             "range": [
-                3598,
-                3743
+                3719,
+                3864
             ],
             "filename": "Maybe.js",
-            "lineno": 165,
+            "lineno": 169,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
                 "id": "astnode100000681",
@@ -1482,7 +1518,24 @@
                 "deepValue": "module:Maybe~PerhapsIn~deepValue"
             }
         },
-        "params": [],
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "any"
+                    ]
+                },
+                "name": "value"
+            },
+            {
+                "type": {
+                    "names": [
+                        "Array.<string>"
+                    ]
+                },
+                "name": "path"
+            }
+        ],
         "longname": "module:Maybe~PerhapsIn",
         "examples": [
             "var person = PerhapsIn({foo: {bar: possibleNullValue}}, ['foo', 'bar']);"
@@ -1494,7 +1547,7 @@
         "___s": true,
         "___id": "T000002R000070",
         "description": "<p>Create a new Maybe from a deep uncertain value.</p>",
-        "comment": "/**\n * Create a new Maybe from a deep uncertain value.\n *\n * @example\n * var person = PerhapsIn({foo: {bar: possibleNullValue}}, ['foo', 'bar']);\n */"
+        "comment": "/**\n * Create a new Maybe from a deep uncertain value.\n * @param {any} value\n * @param {string[]} path\n * @return {Maybe}\n * @example\n * var person = PerhapsIn({foo: {bar: possibleNullValue}}, ['foo', 'bar']);\n */"
     },
     {
         "returns": [
