@@ -1,6 +1,6 @@
 // @flow
 
-import {Some, None} from './Maybe';
+import {Maybe, Some, None} from './Maybe';
 
 
 /**
@@ -12,17 +12,10 @@ import {Some, None} from './Maybe';
  * @module Either
  */
 
-
-/**
- * Either class
- */
 class Either {
+    val: *;
+    isRight: boolean;
 
-    /**
-     * @param {any} value
-     * @param {boolean} isRight
-     * @return {Either}
-     */
     constructor(value: any, isRight: boolean) {
         this.isRight = isRight;
         this.val = value;
@@ -86,7 +79,7 @@ class Either {
      * Provide functions to map both sides of the Either
      * @param {Function} leftFn
      * @param {Function} rightFn
-     * @return {any}
+     * @return {Either}
      */
     biMap(leftFn: Function, rightFn: Function): Either {
         return this.isRight ? this.map(rightFn) : this.leftMap(leftFn);
@@ -96,9 +89,9 @@ class Either {
      * biFlatMap
      * @param {Function} leftFn
      * @param {Function} rightFn
-     * @return {any}
+     * @return {Either}
      */
-    biFlatMap(leftFn: Function, rightFn: Function): any {
+    biFlatMap(leftFn: Function, rightFn: Function): Either {
         return this.isRight ? rightFn(this.val) : leftFn(this.val);
     }
 
@@ -123,6 +116,12 @@ class Either {
     }
 }
 
+/**
+ *
+ * @class Either
+ * @param {any} value
+ * @param {boolean} isRight
+ */
 export function EitherFactory(value: any, isRight: boolean): Either {
     return new Either(value, isRight);
 }

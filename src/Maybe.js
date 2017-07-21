@@ -87,7 +87,7 @@ class Maybe {
 
     /**
      * Change the Maybe to an Either. If `Some` the value is placed in `Right`
-     * if `None` the value of `leftValue` is placed in a `Left`
+     * if `None` the value of `leftValue` is placed in a `Left`.
      *
      * @inner
      * @param {*} leftValue - Value to place in the Left side

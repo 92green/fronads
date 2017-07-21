@@ -28,5 +28,9 @@ export {
 } from './Identity';
 
 export {
+    ComponentFactory as Component
+} from './Component';
+
+export {
     StateFunctorFactoryFactory as StateFunctor
 } from './StateFunctor';
