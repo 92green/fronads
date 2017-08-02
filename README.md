@@ -1,4 +1,5 @@
 # Fronads
+[![fronads npm](https://img.shields.io/npm/v/fronads.svg?style=flat-square)](https://www.npmjs.com/package/fronads)
 
 > Frontend monads with consistent and beginner-friendly naming conventions. 
 
