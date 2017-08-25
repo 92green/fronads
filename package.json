@@ -31,7 +31,7 @@
     "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run test"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "^0.22.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.0",
     "babel-plugin-istanbul": "^3.0.0",

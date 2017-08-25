@@ -103,8 +103,35 @@ class Either {
         return this.val;
     }
 
+
     /**
-     * toMaybe
+     * Change the Either to a Right or Left based on the result of a predicate
+     * @param {Function} predicate
+     * @return {Either}
+     */
+    filter(predicate: Function): Either {
+        return predicate(this.val) ? this.toRight() : this.toLeft();
+    }
+
+
+    /**
+     * Force the Either to a Left
+     * @return {Left}
+     */
+    toLeft(): Either {
+        return Left(this.val);
+    }
+
+    /**
+     * Force the Either to a Right
+     * @return {Right}
+     */
+    toRight(): Either {
+        return Right(this.val);
+    }
+
+    /**
+     * If the Either is a right change to a Some if the Either is a Left drop the value and return a None
      * @return {Maybe}
      */
     toMaybe(): Maybe {
@@ -112,7 +139,7 @@ class Either {
     }
 
     toJSON(): * {
-        return this.isRight ? this.val : null;
+        return this.val;
     }
 }
 
