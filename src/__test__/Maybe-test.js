@@ -50,7 +50,12 @@ test('PerhapsIn', tt => {
     tt.is(PerhapsIn(null, ['foo', 'bar']).isSome, false);
 });
 
-
+test('Maybe.filter', tt => {
+    tt.true(Some().filter(() => true).isSome);
+    tt.false(Some().filter(() => false).isSome);
+    tt.false(None().filter(() => true).isSome);
+    tt.false(None().filter(() => false).isSome);
+});
 
 test('to', tt => {
     tt.is(Some(1).toEither().isRight, true);

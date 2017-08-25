@@ -93,7 +93,7 @@ class Maybe {
      * @return {Maybe}
      */
     filter(predicate: Function): Either {
-        return predicate(this.val) ? Some(this.val) : None();
+        return this.isSome && predicate(this.val) ? Some(this.val) : None();
     }
 
     /**
