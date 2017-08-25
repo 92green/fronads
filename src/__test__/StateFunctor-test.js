@@ -23,3 +23,10 @@ test('StateFunctor.to', tt => {
     tt.is(ViewState('bar').toEdit().editMap(ii => 'foo').value(), 'foo');
     tt.is(ViewState('bar').toEdit().viewMap(ii => 'foo').value(), 'bar');
 });
+
+
+test('StateFunctor.equals', tt => {
+    tt.false(ViewState(1).equals(EditState(1)));
+    tt.false(ViewState(1).equals(ViewState(2)));
+    tt.true(ViewState(1).equals(ViewState(1)));
+});

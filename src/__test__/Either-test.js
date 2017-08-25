@@ -23,8 +23,8 @@ test('Left', tt => {
 });
 
 test('Try', tt => {
-    tt.is(Try(() => rad).isRight, false);
-    tt.is(Try(() => 'rad').isRight, true);
+    tt.false(Try(() => rad).isRight);
+    tt.true(Try(() => 'rad').isRight);
 });
 
 test('Either.biMap', tt => {
@@ -46,8 +46,8 @@ test('Either.ap', tt => {
 });
 
 test('Either.toMaybe', tt => {
-    tt.is(Left(1).toMaybe().isSome, false);
-    tt.is(Right(1).toMaybe().isSome, true);
+    tt.false(Left(1).toMaybe().isSome);
+    tt.true(Right(1).toMaybe().isSome);
 });
 
 test('Either.toJSON', tt => {
@@ -64,10 +64,10 @@ test('Either.toRight', tt => {
 });
 
 test('Either.filter', tt => {
-    tt.is(Left().filter(() => true).isRight, true);
-    tt.is(Left().filter(() => false).isRight, false);
-    tt.is(Right().filter(() => true).isRight, true);
-    tt.is(Right().filter(() => false).isRight, false);
+    tt.true(Left().filter(() => true).isRight);
+    tt.false(Left().filter(() => false).isRight);
+    tt.true(Right().filter(() => true).isRight);
+    tt.false(Right().filter(() => false).isRight);
 });
 
 

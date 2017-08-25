@@ -15,7 +15,7 @@ function falsify(obj: Object): Object {
 class StateFunctor {
     val: any;
     value: Function;
-    stateBooleans: string[];
+    stateKeys: string[];
 
     /**
      * State constructor
@@ -27,13 +27,13 @@ class StateFunctor {
     constructor(value: any, stateBooleans: Object) {
         this.val = value;
         this.value = (defaultValue: * = null): * => this.val == null ? defaultValue : this.val;
-        this.stateBooleans = [];
+        this.stateKeys = [];
         Object
             .keys(stateBooleans)
             .forEach((booleanKey: string) => {
                 const stateKey = `is${booleanKey}`;
 
-                this.stateBooleans = this.stateBooleans.concat(stateKey);
+                this.stateKeys = this.stateKeys.concat(stateKey);
                 // console.log(this.stateBooleans);
                 this[stateKey] = stateBooleans[booleanKey];
 
@@ -63,8 +63,18 @@ class StateFunctor {
             });
     }
 
-    equals() {
-        // return ['val', ]
+    equals(stateFunctor: StateFunctor): boolean {
+        if(stateFunctor.val !== this.val) {
+            return false;
+        }
+
+        for (let key of this.stateKeys) {
+            if(stateFunctor[key] !== this[key]) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 
