@@ -15,6 +15,7 @@ function falsify(obj: Object): Object {
 class StateFunctor {
     val: any;
     value: Function;
+    stateBooleans: string[];
 
     /**
      * State constructor
@@ -26,10 +27,14 @@ class StateFunctor {
     constructor(value: any, stateBooleans: Object) {
         this.val = value;
         this.value = (defaultValue: * = null): * => this.val == null ? defaultValue : this.val;
+        this.stateBooleans = [];
         Object
             .keys(stateBooleans)
             .forEach((booleanKey: string) => {
                 const stateKey = `is${booleanKey}`;
+
+                this.stateBooleans = this.stateBooleans.concat(stateKey);
+                // console.log(this.stateBooleans);
                 this[stateKey] = stateBooleans[booleanKey];
 
                 const unit = (value: *): StateFunctor => {
@@ -56,6 +61,10 @@ class StateFunctor {
                 this[`${booleanKey.toLowerCase()}FlatMap`] = flatMap;
                 this[`${booleanKey.toLowerCase()}Map`] = map;
             });
+    }
+
+    equals() {
+        // return ['val', ]
     }
 
 
