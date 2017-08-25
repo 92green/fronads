@@ -34,6 +34,8 @@ import {getIn} from './util/Data';
  * Maybe class
  */
 class Maybe {
+    val: *;
+    isSome: boolean;
 
     /**
      * Maybe constructor
@@ -83,6 +85,15 @@ class Maybe {
      */
     value(defaultValue: any = null): any {
         return this.val == null ? defaultValue : this.val;
+    }
+
+    /**
+     * Change the Maybe to a Some or None based on the result of a predicate
+     * @param {Function} predicate
+     * @return {Maybe}
+     */
+    filter(predicate: Function): Either {
+        return predicate(this.val) ? Some(this.val) : None();
     }
 
     /**
