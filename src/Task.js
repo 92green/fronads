@@ -2,41 +2,46 @@
 
 const NOOP = () => {};
 
+type TaskFlatMapper = (value: *) => Task;
+type TaskMapper = (value: *) => *;
+
 class Task {
+    _type: string;
     computation: Function;
 
     constructor(fn: Function) {
         this.computation = fn;
+        this._type = 'Task';
     }
     unit(fn: Function): Task {
         return new Task(fn);
     }
-    flatMap(fn: Function): Task {
-        return new Task((reject: Function, resolve: Function): * => {
+    flatMap(fn: TaskFlatMapper): Task {
+        return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 reject,
                 value => fn(value).computation(reject, resolve)
             );
         });
     }
-    leftFlatMap(fn: Function): Task {
-        return new Task((reject: Function, resolve: Function): * => {
+    leftFlatMap(fn: TaskFlatMapper): Task {
+        return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 value => fn(value).computation(reject, resolve),
                 resolve
             );
         });
     }
-    map(fn: Function): Task {
-        return new Task((reject: Function, resolve: Function): * => {
+    map(fn: TaskMapper): Task {
+        return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 reject,
                 value => resolve(fn(value))
             );
         });
     }
-    leftMap(fn: Function): Task {
-        return new Task((reject: Function, resolve: Function): * => {
+    leftMap(fn: TaskMapper): Task {
+        return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 value => reject(fn(value)),
                 resolve,
@@ -67,4 +72,8 @@ export function Resolve(value: any): Task {
 
 export function Reject(value: any): Task {
     return new Task(reject => reject(value));
+}
+
+export function TaskPromise(fn: Function): Task {
+    return new Task((reject, resolve) => fn().then(resolve, reject));
 }
