@@ -4,18 +4,50 @@ const NOOP = () => {};
 
 type TaskFlatMapper = (value: *) => Task;
 type TaskMapper = (value: *) => *;
+type TaskComputation = (reject: Function, resolve, Function) => *;
 
+/**
+ * Task lets you create a description of an action that is resolved via a callback.
+ * It is useful for asynchronous operations. It can be thought of as a stricter more monadic version of a promise.
+ *
+ * @module Task
+ */
+
+
+/**
+ * Task class
+ */
 export class Task {
     _type: string;
     computation: Function;
 
-    constructor(fn: Function) {
-        this.computation = fn;
+    /**
+     * Task constructor
+     *
+     * @param {TaskComputation} fn - a function given reject and resolve callback to call when appropriate
+     * @return {Task}
+     */
+    constructor(computation: TaskComputation) {
+        this.computation = computation;
         this._type = 'Task';
     }
-    unit(fn: Function): Task {
-        return new Task(fn);
+
+    /**
+     * Unit function
+     *
+     * @param {TaskComputation} fn - a function given reject and resolve callback to call when appropriate
+     * @return {Task}
+     */
+    unit(computation: TaskComputation): Task {
+        return new Task(computation);
     }
+
+    /**
+     * Perform a flatMap on the current value of the previous resolved computation
+     *
+     * @param {TaskFlatMapper} fn - perform a flatMap
+     * @return {Task}
+     */
     flatMap(fn: TaskFlatMapper): Task {
         return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
@@ -24,6 +56,13 @@ export class Task {
             );
         });
     }
+
+    /**
+     * Perform a flatMap on the current value of the previous rejected computation 
+     *
+     * @param {TaskFlatMapper} fn - perform a flatMap
+     * @return {Task}
+     */
     leftFlatMap(fn: TaskFlatMapper): Task {
         return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
@@ -32,6 +71,13 @@ export class Task {
             );
         });
     }
+
+    /**
+     * Perform a map on the current value of the previous resolved computation 
+     *
+     * @param {TaskMapper} fn - map
+     * @return {Task}
+     */
     map(fn: TaskMapper): Task {
         return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
@@ -40,6 +86,13 @@ export class Task {
             );
         });
     }
+
+    /**
+     * Perform a map on the current value of the previous rejected computation 
+     *
+     * @param {TaskMapper} fn - map
+     * @return {Task}
+     */
     leftMap(fn: TaskMapper): Task {
         return this.unit((reject: Function, resolve: Function): * => {
             return this.computation(
@@ -48,6 +101,10 @@ export class Task {
             );
         });
     }
+
+    /**
+     * Run the the series of compututations.
+     */
     run() {
         //    __
         // -=(o '.
@@ -57,24 +114,49 @@ export class Task {
         //     _\_):,_
         this.computation(NOOP, NOOP);
     }
+
+    /**
+     * Run the computation and return the state as either a rejected or resolved promise.
+     * @returns {Promise}
+     */
     toPromise(): Promise<> {
         return new Promise((resolve, reject) => this.computation(reject, resolve));
     }
 }
 
 
-export function TaskFactory(fn: Function): Task {
-    return new Task(fn);
+/**
+ * Create a new Task
+ * @param {TaskComputation} computation
+ * @return {Task}
+ */
+export function TaskFactory(computation: Function): Task {
+    return new Task(computation);
 }
 
+/**
+ * Create a new resolved Task
+ * @param {any} value
+ * @return {Task}
+ */
 export function Resolve(value: any): Task {
     return new Task((_, resolve) => resolve(value));
 }
 
+/**
+ * Create a new rejected Task
+ * @param {any} value
+ * @return {Task}
+ */
 export function Reject(value: any): Task {
     return new Task(reject => reject(value));
 }
 
+/**
+ * Create a new Task from a function that returns a promise.
+ * @param {any} value
+ * @return {Task}
+ */
 export function TaskPromise(fn: Function): Task {
     return new Task((reject, resolve) => fn().then(resolve, reject));
 }
