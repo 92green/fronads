@@ -15,7 +15,7 @@
         "kind": "module",
         "name": "Either",
         "longname": "module:Either",
-        "___id": "T000002R000019",
+        "___id": "T000002R000008",
         "___s": true
     },
     {
@@ -37,7 +37,7 @@
             "lineno": 34,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000164",
+                "id": "astnode100000064",
                 "name": "Either#unit",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -64,7 +64,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000024",
+        "___id": "T000002R000013",
         "description": "<p>Unit function</p>",
         "comment": "/**\n     * Unit function\n     * @param {any} value\n     * @return {Either}\n     */"
     },
@@ -87,7 +87,7 @@
             "lineno": 43,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000173",
+                "id": "astnode100000073",
                 "name": "Either#flatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -114,7 +114,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000025",
+        "___id": "T000002R000014",
         "description": "<p>flatMap</p>",
         "comment": "/**\n     * flatMap\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -137,7 +137,7 @@
             "lineno": 52,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000189",
+                "id": "astnode100000089",
                 "name": "Either#map",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -164,7 +164,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000026",
+        "___id": "T000002R000015",
         "description": "<p>map</p>",
         "comment": "/**\n     * map\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -187,7 +187,7 @@
             "lineno": 61,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000208",
+                "id": "astnode100000108",
                 "name": "Either#leftFlatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -214,7 +214,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000027",
+        "___id": "T000002R000016",
         "description": "<p>leftFlatMap</p>",
         "comment": "/**\n     * leftFlatMap\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -237,7 +237,7 @@
             "lineno": 70,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000224",
+                "id": "astnode100000124",
                 "name": "Either#leftMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -264,7 +264,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000028",
+        "___id": "T000002R000017",
         "description": "<p>leftMap</p>",
         "comment": "/**\n     * leftMap\n     * @param {Function} fn\n     * @return {Either}\n     */"
     },
@@ -287,7 +287,7 @@
             "lineno": 79,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000241",
+                "id": "astnode100000141",
                 "name": "Either#ap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -314,7 +314,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000029",
+        "___id": "T000002R000018",
         "description": "<p>ap</p>",
         "comment": "/**\n     * ap\n     * @param {Either} eitherWithFn\n     * @return {Either}\n     */"
     },
@@ -337,7 +337,7 @@
             "lineno": 89,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000263",
+                "id": "astnode100000163",
                 "name": "Either#biMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -373,7 +373,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000030",
+        "___id": "T000002R000019",
         "description": "<p>Provide functions to map both sides of the Either</p>",
         "comment": "/**\n     * Provide functions to map both sides of the Either\n     * @param {Function} leftFn\n     * @param {Function} rightFn\n     * @return {Either}\n     */"
     },
@@ -396,7 +396,7 @@
             "lineno": 99,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000284",
+                "id": "astnode100000184",
                 "name": "Either#biFlatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -432,7 +432,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000031",
+        "___id": "T000002R000020",
         "description": "<p>biFlatMap</p>",
         "comment": "/**\n     * biFlatMap\n     * @param {Function} leftFn\n     * @param {Function} rightFn\n     * @return {Either}\n     */"
     },
@@ -455,7 +455,7 @@
             "lineno": 107,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000305",
+                "id": "astnode100000205",
                 "name": "Either#value",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -471,7 +471,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000032",
+        "___id": "T000002R000021",
         "description": "<p>Return the current value.</p>",
         "comment": "/**\n     * Return the current value.\n     * @return {any}\n     */"
     },
@@ -494,7 +494,7 @@
             "lineno": 116,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000313",
+                "id": "astnode100000213",
                 "name": "Either#filter",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -521,7 +521,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000033",
+        "___id": "T000002R000022",
         "description": "<p>Change the Either to a Right or Left based on the result of a predicate</p>",
         "comment": "/**\n     * Change the Either to a Right or Left based on the result of a predicate\n     * @param {Function} predicate\n     * @return {Either}\n     */"
     },
@@ -544,7 +544,7 @@
             "lineno": 124,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000333",
+                "id": "astnode100000233",
                 "name": "Either#toLeft",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -560,7 +560,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000034",
+        "___id": "T000002R000023",
         "description": "<p>Force the Either to a Left</p>",
         "comment": "/**\n     * Force the Either to a Left\n     * @return {Left}\n     */"
     },
@@ -583,7 +583,7 @@
             "lineno": 132,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000343",
+                "id": "astnode100000243",
                 "name": "Either#toRight",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -599,7 +599,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000035",
+        "___id": "T000002R000024",
         "description": "<p>Force the Either to a Right</p>",
         "comment": "/**\n     * Force the Either to a Right\n     * @return {Right}\n     */"
     },
@@ -622,7 +622,7 @@
             "lineno": 140,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000353",
+                "id": "astnode100000253",
                 "name": "Either#toMaybe",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -638,7 +638,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000036",
+        "___id": "T000002R000025",
         "description": "<p>If the Either is a right change to a Some if the Either is a Left drop the value and return a None</p>",
         "comment": "/**\n     * If the Either is a right change to a Some if the Either is a Left drop the value and return a None\n     * @return {Maybe}\n     */"
     },
@@ -677,7 +677,7 @@
         "scope": "inner",
         "kind": "class",
         "___s": true,
-        "___id": "T000002R000038",
+        "___id": "T000002R000027",
         "comment": "/**\n *\n * @class Either\n * @param {any} value\n * @param {boolean} isRight\n */"
     },
     {
@@ -699,7 +699,7 @@
             "lineno": 166,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000395",
+                "id": "astnode100000295",
                 "name": "Right",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -723,7 +723,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000040",
+        "___id": "T000002R000029",
         "description": "<p>Create an Either as a Right value</p>",
         "comment": "/**\n * Create an Either as a Right value\n * @param {any} value\n * @return {Either}\n */"
     },
@@ -746,7 +746,7 @@
             "lineno": 175,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000404",
+                "id": "astnode100000304",
                 "name": "Left",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -770,7 +770,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000041",
+        "___id": "T000002R000030",
         "description": "<p>Create an Either as a Left value</p>",
         "comment": "/**\n * Create an Either as a Left value\n * @param {any} value\n * @return {Either}\n */"
     },
@@ -793,7 +793,7 @@
             "lineno": 186,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000413",
+                "id": "astnode100000313",
                 "name": "Try",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -817,7 +817,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000042",
+        "___id": "T000002R000031",
         "description": "<p>Create a Try Either. <code>func</code> is immediately exceuted,\nif an error is thrown the Either will be Left(error) otherwise\nthe value of <code>func</code> is passed to a Right.</p>",
         "comment": "/**\n * Create a Try Either. `func` is immediately exceuted,\n * if an error is thrown the Either will be Left(error) otherwise\n * the value of `func` is passed to a Right.\n * @param {Function} func\n * @return {Either}\n */"
     },
@@ -837,7 +837,7 @@
         "kind": "module",
         "name": "Identity",
         "longname": "module:Identity",
-        "___id": "T000002R000043",
+        "___id": "T000002R000032",
         "___s": true
     },
     {
@@ -850,7 +850,7 @@
             "lineno": 76,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000462",
+                "id": "astnode100000362",
                 "name": "Identity",
                 "type": "ClassDeclaration",
                 "paramnames": [
@@ -876,7 +876,7 @@
         "scope": "inner",
         "kind": "class",
         "___s": true,
-        "___id": "T000002R000048",
+        "___id": "T000002R000037",
         "description": "<p>Identity constructor</p>",
         "comment": "/**\n * Identity class\n */"
     },
@@ -899,7 +899,7 @@
             "lineno": 93,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000476",
+                "id": "astnode100000376",
                 "name": "Identity#unit",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -926,7 +926,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000051",
+        "___id": "T000002R000040",
         "description": "<p>Unit function</p>",
         "comment": "/**\n     * Unit function\n     * @param {any} value\n     * @return {Identity}\n     */"
     },
@@ -949,7 +949,7 @@
             "lineno": 103,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000485",
+                "id": "astnode100000385",
                 "name": "Identity#flatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -977,7 +977,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000052",
+        "___id": "T000002R000041",
         "description": "<p>Perform a flatMap on the current identity</p>",
         "comment": "/**\n     * Perform a flatMap on the current identity\n     *\n     * @param {Function} fn - perform a flatMap\n     * @return {Some}\n     */"
     },
@@ -1000,7 +1000,7 @@
             "lineno": 112,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000496",
+                "id": "astnode100000396",
                 "name": "Identity#map",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1027,7 +1027,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000053",
+        "___id": "T000002R000042",
         "description": "<p>map</p>",
         "comment": "/**\n     * map\n     * @param {Function} fn\n     * @return {Identity}\n     */"
     },
@@ -1050,7 +1050,7 @@
             "lineno": 121,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000515",
+                "id": "astnode100000415",
                 "name": "Identity#value",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1079,7 +1079,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000054",
+        "___id": "T000002R000043",
         "description": "<p>Return the identity's value. If the value is null, return <code>defaultValue</code></p>",
         "comment": "/**\n     * Return the identity's value. If the value is null, return `defaultValue`\n     * @param {*} [defaultValue = null]\n     * @return {*}\n     */"
     },
@@ -1102,7 +1102,7 @@
             "lineno": 129,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000533",
+                "id": "astnode100000433",
                 "name": "Identity#toEither",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1118,7 +1118,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000055",
+        "___id": "T000002R000044",
         "description": "<p>Change the Identity to a Right Either.</p>",
         "comment": "/**\n     * Change the Identity to a Right Either.\n     * @return {Either}\n     */"
     },
@@ -1141,7 +1141,7 @@
             "lineno": 137,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000547",
+                "id": "astnode100000447",
                 "name": "Identity#toMaybe",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1157,7 +1157,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000056",
+        "___id": "T000002R000045",
         "description": "<p>Change the Identity to a Some Maybe.</p>",
         "comment": "/**\n     * Change the Identity to a Some Maybe.\n     * @return {Maybe}\n     */"
     },
@@ -1177,20 +1177,20 @@
         "kind": "module",
         "name": "Maybe",
         "longname": "module:Maybe",
-        "___id": "T000002R000059",
+        "___id": "T000002R000048",
         "___s": true
     },
     {
         "meta": {
             "range": [
                 1168,
-                2969
+                2984
             ],
             "filename": "Maybe.js",
             "lineno": 50,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000653",
+                "id": "astnode100000553",
                 "name": "Maybe",
                 "type": "ClassDeclaration",
                 "paramnames": [
@@ -1226,7 +1226,7 @@
         "scope": "inner",
         "kind": "class",
         "___s": true,
-        "___id": "T000002R000071",
+        "___id": "T000002R000060",
         "description": "<p>Maybe constructor</p>",
         "comment": "/**\n * Maybe class\n */"
     },
@@ -1249,7 +1249,7 @@
             "lineno": 69,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000674",
+                "id": "astnode100000574",
                 "name": "Maybe#unit",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1276,7 +1276,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000075",
+        "___id": "T000002R000064",
         "description": "<p>Unit function</p>",
         "comment": "/**\n     * Unit function\n     * @param {any} value\n     * @return {Either}\n     */"
     },
@@ -1299,7 +1299,7 @@
             "lineno": 79,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000683",
+                "id": "astnode100000583",
                 "name": "Maybe#flatMap",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1327,7 +1327,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000076",
+        "___id": "T000002R000065",
         "description": "<p>Perform a flatMap on the current maybe</p>",
         "comment": "/**\n     * Perform a flatMap on the current maybe\n     *\n     * @param {Function} fn - perform a flatMap if Some\n     * @return {Some}\n     */"
     },
@@ -1350,7 +1350,7 @@
             "lineno": 88,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000699",
+                "id": "astnode100000599",
                 "name": "Maybe#map",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1377,7 +1377,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000077",
+        "___id": "T000002R000066",
         "description": "<p>map</p>",
         "comment": "/**\n     * map\n     * @param {Function} fn\n     * @return {Maybe}\n     */"
     },
@@ -1400,7 +1400,7 @@
             "lineno": 97,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000718",
+                "id": "astnode100000618",
                 "name": "Maybe#value",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1430,7 +1430,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000078",
+        "___id": "T000002R000067",
         "description": "<p>Return the maybe's value if it is 'some' or else return <code>defaultValue</code></p>",
         "comment": "/**\n     * Return the maybe's value if it is 'some' or else return `defaultValue`\n     * @param {*} [defaultValue = null] - value that is Some\n     * @return {*}\n     */"
     },
@@ -1447,13 +1447,13 @@
         "meta": {
             "range": [
                 2422,
-                2509
+                2524
             ],
             "filename": "Maybe.js",
             "lineno": 106,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000736",
+                "id": "astnode100000636",
                 "name": "Maybe#filter",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1480,7 +1480,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000079",
+        "___id": "T000002R000068",
         "description": "<p>Change the Maybe to a Some or None based on the result of a predicate</p>",
         "comment": "/**\n     * Change the Maybe to a Some or None based on the result of a predicate\n     * @param {Function} predicate\n     * @return {Maybe}\n     */"
     },
@@ -1496,14 +1496,14 @@
         ],
         "meta": {
             "range": [
-                2782,
-                2899
+                2797,
+                2914
             ],
             "filename": "Maybe.js",
             "lineno": 118,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000755",
+                "id": "astnode100000659",
                 "name": "Maybe#toEither",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1531,7 +1531,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000080",
+        "___id": "T000002R000069",
         "description": "<p>Change the Maybe to an Either. If <code>Some</code> the value is placed in <code>Right</code>\nif <code>None</code> the value of <code>leftValue</code> is placed in a <code>Left</code>.</p>",
         "comment": "/**\n     * Change the Maybe to an Either. If `Some` the value is placed in `Right`\n     * if `None` the value of `leftValue` is placed in a `Left`.\n     *\n     * @inner\n     * @param {*} leftValue - Value to place in the Left side\n     * @return {Either}\n     */"
     },
@@ -1547,14 +1547,14 @@
         ],
         "meta": {
             "range": [
-                3251,
-                3313
+                3266,
+                3328
             ],
             "filename": "Maybe.js",
             "lineno": 142,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000804",
+                "id": "astnode100000708",
                 "name": "Some",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1572,21 +1572,21 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000083",
+        "___id": "T000002R000072",
         "description": "<p>Creates a new Maybe as 'Some' value</p>",
         "comment": "/**\n * Creates a new Maybe as 'Some' value\n * @return {Maybe}\n * @example\n * var person = Some({\n *     name: \"Derek Tibbs\",\n *     child: Some({\n *         name: \"Derek Tibbs Jr\"\n *     })\n * });\n */"
     },
     {
         "meta": {
             "range": [
-                3456,
-                3513
+                3471,
+                3528
             ],
             "filename": "Maybe.js",
             "lineno": 155,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000813",
+                "id": "astnode100000717",
                 "name": "None",
                 "type": "FunctionDeclaration",
                 "paramnames": []
@@ -1602,7 +1602,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000084",
+        "___id": "T000002R000073",
         "description": "<p>Creates a new Maybe as 'None' value</p>",
         "comment": "/**\n * Creates a new Maybe as 'None' value\n *\n * @example\n * var person = Some({\n *     name: \"Derek Tibbs\",\n *     child: None()\n * });\n */"
     },
@@ -1618,14 +1618,14 @@
         ],
         "meta": {
             "range": [
-                3672,
-                3748
+                3687,
+                3763
             ],
             "filename": "Maybe.js",
             "lineno": 166,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000821",
+                "id": "astnode100000725",
                 "name": "Perhaps",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1652,7 +1652,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000085",
+        "___id": "T000002R000074",
         "description": "<p>Create a new Maybe where the value is uncertain.</p>",
         "comment": "/**\n * Create a new Maybe where the value is uncertain.\n * @param {any} value\n * @return {Maybe}\n * @example\n * var person = Perhaps(possibleNullValue);\n */"
     },
@@ -1668,14 +1668,14 @@
         ],
         "meta": {
             "range": [
-                3964,
-                4109
+                3979,
+                4124
             ],
             "filename": "Maybe.js",
             "lineno": 178,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100000835",
+                "id": "astnode100000739",
                 "name": "PerhapsIn",
                 "type": "FunctionDeclaration",
                 "paramnames": [
@@ -1714,7 +1714,7 @@
         "scope": "inner",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000086",
+        "___id": "T000002R000075",
         "description": "<p>Create a new Maybe from a deep uncertain value.</p>",
         "comment": "/**\n * Create a new Maybe from a deep uncertain value.\n * @param {any} value\n * @param {string[]} path\n * @return {Maybe}\n * @example\n * var person = PerhapsIn({foo: {bar: possibleNullValue}}, ['foo', 'bar']);\n */"
     },
@@ -1737,7 +1737,7 @@
             "lineno": 119,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100001170",
+                "id": "astnode100000971",
                 "name": "RequestState#toSuccess",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1753,7 +1753,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000119",
+        "___id": "T000002R000098",
         "description": "<p>toSuccess</p>",
         "comment": "/**\n   * toSuccess\n   * @return {RequestState}\n   */"
     },
@@ -1776,7 +1776,7 @@
             "lineno": 127,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100001180",
+                "id": "astnode100000981",
                 "name": "RequestState#toEmpty",
                 "type": "MethodDefinition",
                 "paramnames": []
@@ -1792,7 +1792,7 @@
         "scope": "instance",
         "kind": "function",
         "___s": true,
-        "___id": "T000002R000120",
+        "___id": "T000002R000099",
         "description": "<p>toEmpty</p>",
         "comment": "/**\n   * toEmpty\n   * @return {RequestState}\n   */"
     },
@@ -1811,7 +1811,7 @@
         "kind": "module",
         "name": "State",
         "longname": "module:State",
-        "___id": "T000002R000140",
+        "___id": "T000002R000119",
         "___s": true
     },
     {
@@ -1827,13 +1827,13 @@
         "meta": {
             "range": [
                 902,
-                2145
+                2486
             ],
             "filename": "StateFunctor.js",
             "lineno": 39,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {
-                "id": "astnode100001379",
+                "id": "astnode100001180",
                 "name": "StateFunctor",
                 "type": "MethodDefinition",
                 "paramnames": [
@@ -1871,18 +1871,18 @@
         "scope": "static",
         "kind": "class",
         "___s": true,
-        "___id": "T000002R000142",
+        "___id": "T000002R000121",
         "description": "<p>State constructor</p>",
         "comment": "/**\n     * State constructor\n     *\n     * @param {*} value - The value to store\n     * @param {object} stateBooleans - Whether or not the maybe is `some` or `none`\n     * @return {State}\n     */"
     },
     {
         "meta": {
             "range": [
-                2307,
-                3042
+                2949,
+                3684
             ],
             "filename": "StateFunctor.js",
-            "lineno": 85,
+            "lineno": 102,
             "path": "/Users/allanhortle/localhost/code/fronads/src",
             "code": {}
         },
@@ -1895,30 +1895,610 @@
         "scope": "inner",
         "kind": "member",
         "___s": true,
-        "___id": "T000002R000160",
+        "___id": "T000002R000140",
         "description": "<p>Sometimes the state of your app can be represented through more than two states.\nThe StateMonadFactory lets you create a monad with an arbitary number of state.</p>\n<p>Given an array of names it will returns an on object of custom Unit functions.</p>",
         "comment": "/**\n * Sometimes the state of your app can be represented through more than two states.\n * The StateMonadFactory lets you create a monad with an arbitary number of state.\n *\n * Given an array of names it will returns an on object of custom Unit functions.\n *\n * @name StateFunctor\n * @example\n * StateFunctor(['Empty', 'Fetching', 'Refetching', 'Error', 'Success'])\n * // {\n * //      EmptyState: EmptyState,\n * //      FetchingState: FetchingState,\n * //      RefetchingState: RefetchingState,\n * //      ErrorState: ErrorState,\n * //      SuccessState: SuccessState\n * // }\n *\n * StateFunctor(['New', 'Edit', 'View'])\n * // {\n * //      NewState: NewState,\n * //      EditState: EditState,\n * //      ViewState: ViewState\n * // }\n */"
+    },
+    {
+        "comment": "/**\n * Task lets you create a description of an action that is resolved via a callback.\n * It is useful for asynchronous operations. It can be thought of as a stricter more monadic version of a promise.\n *\n * @module Task\n */",
+        "meta": {
+            "range": [
+                462,
+                687
+            ],
+            "filename": "Task.js",
+            "lineno": 21,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {}
+        },
+        "description": "<p>Task lets you create a description of an action that is resolved via a callback.\nIt is useful for asynchronous operations. It can be thought of as a stricter more monadic version of a promise.</p>",
+        "kind": "module",
+        "name": "Task",
+        "longname": "module:Task",
+        "___id": "T000002R000146",
+        "___s": true
+    },
+    {
+        "meta": {
+            "range": [
+                711,
+                3104
+            ],
+            "filename": "Task.js",
+            "lineno": 31,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001552",
+                "name": "Task",
+                "type": "ClassDeclaration",
+                "paramnames": [
+                    "computation"
+                ]
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "TaskComputation"
+                    ]
+                },
+                "description": "<p>a function given reject and resolve callback to call when appropriate</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Task~Task",
+        "classdesc": "<p>Task class</p>",
+        "name": "Task",
+        "memberof": "module:Task",
+        "scope": "inner",
+        "kind": "class",
+        "___s": true,
+        "___id": "T000002R000158",
+        "description": "<p>Task constructor</p>",
+        "comment": "/**\n * Task class\n */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1185,
+                1248
+            ],
+            "filename": "Task.js",
+            "lineno": 50,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001572",
+                "name": "Task#unit",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "computation"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "TaskComputation"
+                    ]
+                },
+                "description": "<p>a function given reject and resolve callback to call when appropriate</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Task~Task#unit",
+        "name": "unit",
+        "memberof": "module:Task~Task",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000162",
+        "description": "<p>Unit function</p>",
+        "comment": "/**\n     * Unit function\n     *\n     * @param {TaskComputation} fn - a function given reject and resolve callback to call when appropriate\n     * @return {Task}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1436,
+                1609
+            ],
+            "filename": "Task.js",
+            "lineno": 60,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001581",
+                "name": "Task#flatMap",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "TaskFlatMapper"
+                    ]
+                },
+                "description": "<p>perform a flatMap</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Task~Task#flatMap",
+        "name": "flatMap",
+        "memberof": "module:Task~Task",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000163",
+        "description": "<p>Perform a flatMap on the current value of the previous resolved computation</p>",
+        "comment": "/**\n     * Perform a flatMap on the current value of the previous resolved computation\n     *\n     * @param {TaskFlatMapper} fn - perform a flatMap\n     * @return {Task}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                1798,
+                1976
+            ],
+            "filename": "Task.js",
+            "lineno": 72,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001611",
+                "name": "Task#leftFlatMap",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "TaskFlatMapper"
+                    ]
+                },
+                "description": "<p>perform a flatMap</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Task~Task#leftFlatMap",
+        "name": "leftFlatMap",
+        "memberof": "module:Task~Task",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000164",
+        "description": "<p>Perform a flatMap on the current value of the previous rejected computation</p>",
+        "comment": "/**\n     * Perform a flatMap on the current value of the previous rejected computation \n     *\n     * @param {TaskFlatMapper} fn - perform a flatMap\n     * @return {Task}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                2143,
+                2292
+            ],
+            "filename": "Task.js",
+            "lineno": 84,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001641",
+                "name": "Task#map",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "TaskMapper"
+                    ]
+                },
+                "description": "<p>map</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Task~Task#map",
+        "name": "map",
+        "memberof": "module:Task~Task",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000165",
+        "description": "<p>Perform a map on the current value of the previous resolved computation</p>",
+        "comment": "/**\n     * Perform a map on the current value of the previous resolved computation \n     *\n     * @param {TaskMapper} fn - map\n     * @return {Task}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                2459,
+                2612
+            ],
+            "filename": "Task.js",
+            "lineno": 96,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001668",
+                "name": "Task#leftMap",
+                "type": "MethodDefinition",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "TaskMapper"
+                    ]
+                },
+                "description": "<p>map</p>",
+                "name": "fn"
+            }
+        ],
+        "longname": "module:Task~Task#leftMap",
+        "name": "leftMap",
+        "memberof": "module:Task~Task",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000166",
+        "description": "<p>Perform a map on the current value of the previous rejected computation</p>",
+        "comment": "/**\n     * Perform a map on the current value of the previous rejected computation \n     *\n     * @param {TaskMapper} fn - map\n     * @return {Task}\n     */"
+    },
+    {
+        "meta": {
+            "range": [
+                2679,
+                2851
+            ],
+            "filename": "Task.js",
+            "lineno": 105,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001695",
+                "name": "Task#run",
+                "type": "MethodDefinition",
+                "paramnames": []
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [],
+        "longname": "module:Task~Task#run",
+        "name": "run",
+        "memberof": "module:Task~Task",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000167",
+        "description": "<p>Run the the series of compututations.</p>",
+        "comment": "/**\n     * Run the the series of compututations.\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Promise"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                2989,
+                3102
+            ],
+            "filename": "Task.js",
+            "lineno": 119,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001706",
+                "name": "Task#toPromise",
+                "type": "MethodDefinition",
+                "paramnames": []
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [],
+        "longname": "module:Task~Task#toPromise",
+        "name": "toPromise",
+        "memberof": "module:Task~Task",
+        "scope": "instance",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000168",
+        "description": "<p>Run the computation and return the state as either a rejected or resolved promise.</p>",
+        "comment": "/**\n     * Run the computation and return the state as either a rejected or resolved promise.\n     * @returns {Promise}\n     */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                3299,
+                3370
+            ],
+            "filename": "Task.js",
+            "lineno": 130,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001730",
+                "name": "TaskFactory",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "computation"
+                ]
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "TaskComputation"
+                    ]
+                },
+                "name": "computation"
+            }
+        ],
+        "longname": "module:Task~TaskFactory",
+        "name": "TaskFactory",
+        "memberof": "module:Task",
+        "scope": "inner",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000170",
+        "description": "<p>Create a new Task</p>",
+        "comment": "/**\n                      * Create a new Task\n                      * @param {TaskComputation} computation\n                      * @return {Task}\n                      */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                3450,
+                3530
+            ],
+            "filename": "Task.js",
+            "lineno": 139,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001738",
+                "name": "Resolve",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "value"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "any"
+                    ]
+                },
+                "name": "value"
+            }
+        ],
+        "longname": "module:Task~Resolve",
+        "name": "Resolve",
+        "memberof": "module:Task",
+        "scope": "inner",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000171",
+        "description": "<p>Create a new resolved Task</p>",
+        "comment": "/**\n * Create a new resolved Task\n * @param {any} value\n * @return {Task}\n */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                3610,
+                3682
+            ],
+            "filename": "Task.js",
+            "lineno": 148,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001751",
+                "name": "Reject",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "value"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "any"
+                    ]
+                },
+                "name": "value"
+            }
+        ],
+        "longname": "module:Task~Reject",
+        "name": "Reject",
+        "memberof": "module:Task",
+        "scope": "inner",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000172",
+        "description": "<p>Create a new rejected Task</p>",
+        "comment": "/**\n * Create a new rejected Task\n * @param {any} value\n * @return {Task}\n */"
+    },
+    {
+        "returns": [
+            {
+                "type": {
+                    "names": [
+                        "Task"
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "range": [
+                3793,
+                3891
+            ],
+            "filename": "Task.js",
+            "lineno": 157,
+            "path": "/Users/allanhortle/localhost/code/fronads/src",
+            "code": {
+                "id": "astnode100001763",
+                "name": "TaskPromise",
+                "type": "FunctionDeclaration",
+                "paramnames": [
+                    "fn"
+                ]
+            },
+            "vars": {
+                "": null
+            }
+        },
+        "params": [
+            {
+                "type": {
+                    "names": [
+                        "any"
+                    ]
+                },
+                "name": "value"
+            }
+        ],
+        "longname": "module:Task~TaskPromise",
+        "name": "TaskPromise",
+        "memberof": "module:Task",
+        "scope": "inner",
+        "kind": "function",
+        "___s": true,
+        "___id": "T000002R000173",
+        "description": "<p>Create a new Task from a function that returns a promise.</p>",
+        "comment": "/**\n * Create a new Task from a function that returns a promise.\n * @param {any} value\n * @return {Task}\n */"
     },
     {
         "kind": "package",
         "longname": "package:undefined",
         "files": [
-            "/Users/allanhortle/localhost/code/fronads/src/Comonad.js",
             "/Users/allanhortle/localhost/code/fronads/src/Either.js",
             "/Users/allanhortle/localhost/code/fronads/src/Identity.js",
             "/Users/allanhortle/localhost/code/fronads/src/Maybe.js",
-            "/Users/allanhortle/localhost/code/fronads/src/Reader.js",
             "/Users/allanhortle/localhost/code/fronads/src/RequestState.js",
             "/Users/allanhortle/localhost/code/fronads/src/StateFunctor.js",
+            "/Users/allanhortle/localhost/code/fronads/src/Task.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/Either-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/Identity-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/Maybe-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/RequestState-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/__test__/StateFunctor-test.js",
+            "/Users/allanhortle/localhost/code/fronads/src/__test__/Task-test.js",
             "/Users/allanhortle/localhost/code/fronads/src/index.js",
             "/Users/allanhortle/localhost/code/fronads/src/util/Data.js"
         ],
-        "___id": "T000002R000272",
+        "___id": "T000002R000298",
         "___s": true
     }
 ]
