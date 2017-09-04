@@ -1,13 +1,12 @@
+//@flow
 import test from 'ava';
-import {TaskFactory as Task, Reject, Resolve, TaskPromise} from '../Task';
-
-// const delay = (value) => new Task((_, resolve) => setTimeout(() => resolve(value), 500));
+import {Task, TaskFactory, Reject, Resolve, TaskPromise} from '../Task';
 
 
 //
 // unit
 //
-test('Task.unit returns a new task', (tt: Object): Promise<string> => {
+test('Task.unit returns a new task', (tt: *): Promise<*> => {
     return Resolve()
         .unit((_, resolve) => resolve('foo'))
         .toPromise()
@@ -18,21 +17,21 @@ test('Task.unit returns a new task', (tt: Object): Promise<string> => {
 //
 // flatMap
 //
-test('Task.flatMap will be called on resolved values.', (tt: Object): Promise<string> => {
+test('Task.flatMap will be called on resolved values.', (tt: *): Promise<*> => {
     return Resolve()
         .flatMap(() => Resolve('foo'))
         .toPromise()
         .then((data) => tt.is(data, 'foo'));
 });
 
-test('Task.flatMap will be not called on rejected values.', (tt: Object): Promise<string> => {
+test('Task.flatMap will be not called on rejected values.', (tt: *): Promise<*> => {
     return Reject('foo')
         .flatMap(() => Resolve('bar'))
         .toPromise()
         .catch((data) => tt.is(data, 'foo'));
 });
 
-test('Task.flatMap will accept the new task that is returned', (tt: Object): Promise<string> => {
+test('Task.flatMap will accept the new task that is returned', (tt: *): Promise<*> => {
     return Resolve('foo')
         .flatMap(() => Reject('bar'))
         .toPromise()
@@ -43,21 +42,21 @@ test('Task.flatMap will accept the new task that is returned', (tt: Object): Pro
 //
 // leftFlatMap
 //
-test('Task.leftFlatMap will be called on rejected values.', (tt: Object): Promise<string> => {
+test('Task.leftFlatMap will be called on rejected values.', (tt: *): Promise<*> => {
     return Reject()
         .leftFlatMap(() => Reject('foo'))
         .toPromise()
         .catch((data) => tt.is(data, 'foo'));
 });
 
-test('Task.leftFlatMap will be not called on resolved values.', (tt: Object): Promise<string> => {
+test('Task.leftFlatMap will be not called on resolved values.', (tt: *): Promise<*> => {
     return Resolve('foo')
         .leftFlatMap(() => Reject('bar'))
         .toPromise()
         .then((data) => tt.is(data, 'foo'));
 });
 
-test('Task.leftFlatMap will accept the new task that is returned', (tt: Object): Promise<string> => {
+test('Task.leftFlatMap will accept the new task that is returned', (tt: *): Promise<*> => {
     return Reject('foo')
         .leftFlatMap(() => Resolve('bar'))
         .map(() => 'baz')
@@ -69,21 +68,21 @@ test('Task.leftFlatMap will accept the new task that is returned', (tt: Object):
 //
 // map
 //
-test('Task.map will be called on resolved values.', (tt: Object): Promise<string> => {
+test('Task.map will be called on resolved values.', (tt: *): Promise<*> => {
     return Resolve()
         .map(() => 'foo')
         .toPromise()
         .then((data) => tt.is(data, 'foo'));
 });
 
-test('Task.map will be not called on rejected values.', (tt: Object): Promise<string> => {
+test('Task.map will be not called on rejected values.', (tt: *): Promise<*> => {
     return Reject('foo')
         .map(() => 'bar')
         .toPromise()
         .catch((data) => tt.is(data, 'foo'));
 });
 
-test('Task.map will place the return value in a new task', (tt: Object): Promise<string> => {
+test('Task.map will place the return value in a new task', (tt: *): Promise<*> => {
     tt.plan(2);
     return Resolve()
         .map(() => Resolve('bar'))
@@ -99,25 +98,26 @@ test('Task.map will place the return value in a new task', (tt: Object): Promise
 //
 // leftMap
 //
-test('Task.leftMap will be called on rejected values.', (tt: Object): Promise<string> => {
+test('Task.leftMap will be called on rejected values.', (tt: *): Promise<*> => {
     return Reject()
         .leftMap(() => 'foo')
         .toPromise()
         .catch((data) => tt.is(data, 'foo'));
 });
 
-test('Task.leftMap will be not called on resolved values.', (tt: Object): Promise<string> => {
+test('Task.leftMap will be not called on resolved values.', (tt: *): Promise<*> => {
     return Resolve('foo')
         .leftMap(() => 'bar')
         .toPromise()
         .then((data) => tt.is(data, 'foo'));
 });
 
-test('Task.leftMap will place the return value in a new task', (tt: Object): Promise<string> => {
+test('Task.leftMap will place the return value in a new task', (tt: *): Promise<*> => {
     tt.plan(2);
     return Reject()
         .leftMap(() => Reject('bar'))
         .leftMap((data: Task): Task => {
+            console.log(data);
             tt.is(data._type, 'Task');
             return data;
         })
@@ -130,7 +130,7 @@ test('Task.leftMap will place the return value in a new task', (tt: Object): Pro
 //
 // run
 //
-test.cb('Tasks will not execute until run is called.', (tt: Object): Promise<string> => {
+test.cb('Tasks will not execute until run is called.', (tt: *) => {
     Resolve().map(tt.fail);
     Resolve()
         .map(() => 'foo')
@@ -142,22 +142,24 @@ test.cb('Tasks will not execute until run is called.', (tt: Object): Promise<str
 //
 // toPromise
 //
-test('Task.toPromise will return a promise', (tt: Object): Promise<string> => {
-    return Resolve('foo').toPromise().then((data) => tt.is(data, 'foo'));
+test('Task.toPromise will return a promise', (tt: *): Promise<*> => {
+    return Resolve('foo')
+        .toPromise()
+        .then((data) => tt.is(data, 'foo'));
 });
 
 
 //
 // TaskFactory unit
 //
-test('Task factory lets the user create a resolved task from a callback', (tt: Object): Promise<string> => {
-    return Task((_, resolve) => setTimeout(() => resolve('foo'), 2))
+test('Task factory lets the user create a resolved task from a callback', (tt: *): Promise<*> => {
+    return TaskFactory((_, resolve) => setTimeout(() => resolve('foo'), 2))
         .toPromise()
         .then((data) => tt.is(data, 'foo'));
 });
 
-test('Task factory lets the user create a rejected task from a callback', (tt: Object): Promise<string> => {
-    return Task((reject) => setTimeout(() => reject('foo'), 2))
+test('Task factory lets the user create a rejected task from a callback', (tt: *): Promise<*> => {
+    return TaskFactory((reject) => setTimeout(() => reject('foo'), 2))
         .toPromise()
         .catch((data) => tt.is(data, 'foo'));
 });
@@ -167,14 +169,14 @@ test('Task factory lets the user create a rejected task from a callback', (tt: O
 //
 // Resolve/Reject unit
 //
-test('Resolve creates a resolved task', (tt: Object): Promise<string> => {
+test('Resolve creates a resolved task', (tt: *): Promise<*> => {
     return Resolve()
         .map(() => 'foo')
         .toPromise()
         .then((data) => tt.is(data, 'foo'));
 });
 
-test('Reject creates a rejected task', (tt: Object): Promise<string> => {
+test('Reject creates a rejected task', (tt: *): Promise<*> => {
     return Reject()
         .leftMap(() => 'foo')
         .toPromise()
@@ -185,13 +187,13 @@ test('Reject creates a rejected task', (tt: Object): Promise<string> => {
 //
 // TaskPromise
 //
-test('TaskPromise creates a rejected task from a rejected promise', (tt: Object): Promise<string> => {
+test('TaskPromise creates a rejected task from a rejected promise', (tt: *): Promise<*> => {
     return TaskPromise(() => Promise.reject('foo'))
         .toPromise()
         .catch((data) => tt.is(data, 'foo'));
 });
 
-test('TaskPromise creates a resolved task from a resolved promise', (tt: Object): Promise<string> => {
+test('TaskPromise creates a resolved task from a resolved promise', (tt: *): Promise<*> => {
     return TaskPromise(() => Promise.resolve('foo'))
         .toPromise()
         .then((data) => tt.is(data, 'foo'));

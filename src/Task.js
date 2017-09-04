@@ -5,7 +5,7 @@ const NOOP = () => {};
 type TaskFlatMapper = (value: *) => Task;
 type TaskMapper = (value: *) => *;
 
-class Task {
+export class Task {
     _type: string;
     computation: Function;
 
@@ -61,6 +61,7 @@ class Task {
         return new Promise((resolve, reject) => this.computation(reject, resolve));
     }
 }
+
 
 export function TaskFactory(fn: Function): Task {
     return new Task(fn);

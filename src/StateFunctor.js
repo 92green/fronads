@@ -3,7 +3,7 @@
 function falsify(obj: Object): Object {
     return Object
         .keys(obj)
-        .reduce((rr, ii) => {
+        .reduce((rr: Object, ii: string): Object => {
             rr[ii] = false;
             return rr;
         }, {});
@@ -34,7 +34,8 @@ class StateFunctor {
                 const stateKey = `is${booleanKey}`;
 
                 this.stateKeys = this.stateKeys.concat(stateKey);
-                // console.log(this.stateBooleans);
+
+                // $FlowBug: flow cant handle dynamic keys on classes
                 this[stateKey] = stateBooleans[booleanKey];
 
                 const unit = (value: *): StateFunctor => {
@@ -45,6 +46,7 @@ class StateFunctor {
                 };
 
                 const flatMap = (fn: Function): StateFunctor => {
+                    // $FlowBug: flow cant handle dynamic keys on classes
                     return this[stateKey] ? fn(this.val) : this;
                 };
 
@@ -56,9 +58,13 @@ class StateFunctor {
                     return unit(this.val);
                 };
 
+                // $FlowBug: flow cant handle dynamic keys on classes
                 this[`to${booleanKey}`] = to;
+                // $FlowBug: flow cant handle dynamic keys on classes
                 this[`${booleanKey.toLowerCase()}Unit`] = unit;
+                // $FlowBug: flow cant handle dynamic keys on classes
                 this[`${booleanKey.toLowerCase()}FlatMap`] = flatMap;
+                // $FlowBug: flow cant handle dynamic keys on classes
                 this[`${booleanKey.toLowerCase()}Map`] = map;
             });
     }
@@ -69,6 +75,7 @@ class StateFunctor {
         }
 
         for (let key of this.stateKeys) {
+            // $FlowBug: flow cant handle dynamic keys on classes
             if(stateFunctor[key] !== this[key]) {
                 return false;
             }
@@ -81,7 +88,7 @@ class StateFunctor {
 }
 
 
-export function StateFunctorFactory(value: any, stateBooleans: Object): Maybe {
+export function StateFunctorFactory(value: any, stateBooleans: Object): StateFunctor {
     return new StateFunctor(value, stateBooleans);
 }
 
@@ -110,14 +117,15 @@ export function StateFunctorFactory(value: any, stateBooleans: Object): Maybe {
  * //      ViewState: ViewState
  * // }
  */
-export function StateFunctorFactoryFactory(stateBooleans: boolean[]): Object {
+export function StateFunctorFactoryFactory(stateBooleans: string[]): Object {
     return stateBooleans
-        .reduce((rr, ii) => {
+        .reduce((rr: Object, ii: string): Object => {
             const bools = stateBooleans
-                .reduce((rr, ii) => {
+                .reduce((rr: Object, ii: string): Object => {
                     rr[ii] = false;
                     return rr;
                 }, {});
+
             rr[`${ii}State`] = (value) => StateFunctorFactory(value, {...bools, [ii]: true});
             return rr;
         }, {});

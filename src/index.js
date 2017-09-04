@@ -27,6 +27,22 @@ export {
     IdentityFactory as Identity
 } from './Identity';
 
+
+
+
 export {
     StateFunctorFactoryFactory as StateFunctor
 } from './StateFunctor';
+
+
+//
+// Deferred Monads
+//
+
+export {
+    Reject,
+    Resolve,
+    Task,
+    TaskFactory,
+    TaskPromise
+} from './Task';
