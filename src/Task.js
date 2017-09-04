@@ -58,7 +58,7 @@ export class Task {
     }
 
     /**
-     * Perform a flatMap on the current value of the previous rejected computation 
+     * Perform a flatMap on the current value of the previous rejected computation
      *
      * @param {TaskFlatMapper} fn - perform a flatMap
      * @return {Task}
@@ -73,7 +73,7 @@ export class Task {
     }
 
     /**
-     * Perform a map on the current value of the previous resolved computation 
+     * Perform a map on the current value of the previous resolved computation
      *
      * @param {TaskMapper} fn - map
      * @return {Task}
@@ -88,7 +88,7 @@ export class Task {
     }
 
     /**
-     * Perform a map on the current value of the previous rejected computation 
+     * Perform a map on the current value of the previous rejected computation
      *
      * @param {TaskMapper} fn - map
      * @return {Task}
@@ -106,13 +106,17 @@ export class Task {
      * Run the the series of compututations.
      */
     run() {
-        //    __
-        // -=(o '.
-        //    '.-.\
-        //    /|  \\
-        //    '|  ||
-        //     _\_):,_
         this.computation(NOOP, NOOP);
+        //               ----------
+        //                     \
+        //                      \
+        //                         __
+        //                      -=(o '.
+        //                         '.-.\
+        //                         /|  \\
+        //                         '|  ||
+        //                          _\_):,_
+        //
     }
 
     /**
