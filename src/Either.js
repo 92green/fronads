@@ -12,7 +12,7 @@ import {Maybe, Some, None} from './Maybe';
  * @module Either
  */
 
-class Either {
+export class Either {
     val: *;
     isRight: boolean;
 

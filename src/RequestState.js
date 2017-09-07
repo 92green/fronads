@@ -1,5 +1,5 @@
 // @flow
-import {EitherFactory} from './Either';
+import {EitherFactory, Either} from './Either';
 
 /*
  * RequestState is used to hold the four part relationship of an asynchronous request.
@@ -18,6 +18,11 @@ import {EitherFactory} from './Either';
  * RequestState class
  */
 export default class RequestState {
+    isFetching: boolean;
+    isError: boolean;
+    isSuccess: boolean;
+    val: any;
+
     /*
      * @kind function
      * @param {any} value
@@ -123,7 +128,7 @@ export default class RequestState {
      * Convert the RequestState to an Either. RequestErrors will be turned into a `Left` everything else a will be a `Right`.
      * @return {Either}
      */
-    toEither(): RequestState {
+    toEither(): Either {
         return EitherFactory(this.val, !this.isError);
     }
 
