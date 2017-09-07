@@ -1,7 +1,7 @@
 // @flow
 
-import {Right} from './Either';
-import {Some} from './Maybe';
+import {Right, Either} from './Either';
+import {Some, Maybe} from './Maybe';
 
 
 // ```
@@ -69,6 +69,7 @@ import {Some} from './Maybe';
  * Identity class
  */
 class Identity {
+    val: any;
 
     /**
      * Identity constructor

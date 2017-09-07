@@ -1,6 +1,6 @@
 // @flow
 
-import Either, {Left, Right} from './Either';
+import {Left, Right, Either} from './Either';
 import {getIn} from './util/Data';
 
 /**
@@ -33,7 +33,7 @@ import {getIn} from './util/Data';
 /**
  * Maybe class
  */
-class Maybe {
+export class Maybe {
     val: *;
     isSome: boolean;
 
@@ -92,7 +92,7 @@ class Maybe {
      * @param {Function} predicate
      * @return {Maybe}
      */
-    filter(predicate: Function): Either {
+    filter(predicate: Function): Maybe {
         return this.isSome && predicate(this.val) ? Some(this.val) : None();
     }
 

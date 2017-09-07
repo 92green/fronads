@@ -4,7 +4,7 @@ const NOOP = () => {};
 
 type TaskFlatMapper = (value: *) => Task;
 type TaskMapper = (value: *) => *;
-type TaskComputation = (reject: Function, resolve, Function) => *;
+type TaskComputation = (reject: Function, resolve: Function) => *;
 
 /**
  * Task lets you create a description of an action that is resolved via a callback.
