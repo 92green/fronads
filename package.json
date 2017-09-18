@@ -40,6 +40,7 @@
     "dotenv": "^2.0.0",
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.4.0",
+    "flow-bin": "^0.48.0",
     "gh-pages": "^0.11.0",
     "git-url-parse": "^6.0.1",
     "jsdoc": "^3.4.3",
@@ -89,8 +90,5 @@
     "require": [
       "babel-register"
     ]
-  },
-  "dependencies": {
-    "flow-bin": "^0.48.0"
   }
 }
