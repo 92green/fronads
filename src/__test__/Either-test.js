@@ -3,8 +3,18 @@ import test from 'ava';
 import {Either, EitherFactory, Right, Left, Try} from '../Either';
 
 test('EitherFactory', (tt: Object) => {
-    tt.is(EitherFactory(1, true).map(() => 2).value(), 2);
-    tt.is(EitherFactory(1, false).map(() => 2).value(), 1);
+    tt.is(
+        EitherFactory(1, true)
+            .map(() => 2)
+            .value(),
+        2
+    );
+    tt.is(
+        EitherFactory(1, false)
+            .map(() => 2)
+            .value(),
+        1
+    );
 });
 
 
@@ -22,19 +32,41 @@ test('Left', (tt: Object) => {
 });
 
 test('Try', (tt: Object) => {
-    tt.false(Try(() => new Error()).isRight);
+    tt.false(Try(() => {
+        throw 'blergh';
+    }).isRight);
     tt.true(Try(() => 'rad').isRight);
 });
 
 test('Either.biMap', (tt: Object) => {
-    tt.is(Left(1).biMap(ii => 2, () => 'foo').value(), 2);
-    tt.is(Right(1).biMap(() => 'foo', ii => 2).value(), 2);
+    tt.is(
+        Left(1)
+            .biMap(() => 2, () => 'foo')
+            .value(),
+        2
+    );
+    tt.is(
+        Right(1)
+            .biMap(() => 'foo', () => 2)
+            .value(),
+        2
+    );
 });
 
 
 test('Either.biFlatMap', (tt: Object) => {
-    tt.is(Left(1).biFlatMap(() => Left(2), () => Right(1)).value(), 2);
-    tt.is(Right(1).biFlatMap(() => Right(1), () => Right(2)).value(), 2);
+    tt.is(
+        Left(1)
+            .biFlatMap(() => Left(2), () => Right(1))
+            .value(),
+        2
+    );
+    tt.is(
+        Right(1)
+            .biFlatMap(() => Right(1), () => Right(2))
+            .value(),
+        2
+    );
 });
 
 
@@ -55,11 +87,23 @@ test('Either.toJSON', (tt: Object) => {
 });
 
 test('Either.toLeft', (tt: Object) => {
-    tt.is(Right().toLeft().leftMap(() => 'foo').value(), 'foo');
+    tt.is(
+        Right()
+            .toLeft()
+            .leftMap(() => 'foo')
+            .value(),
+        'foo'
+    );
 });
 
 test('Either.toRight', (tt: Object) => {
-    tt.is(Left().toRight().map(() => 'foo').value(), 'foo');
+    tt.is(
+        Left()
+            .toRight()
+            .map(() => 'foo')
+            .value(),
+        'foo'
+    );
 });
 
 test('Either.filter', (tt: Object) => {

@@ -1,7 +1,7 @@
 // @flow
 
 import {Maybe, Some, None} from './Maybe';
-
+import type {Mapper, FilterPredicate} from './definitions';
 
 /**
  * The Either monad describes situations that have two distinct states: Right and Left. Often used

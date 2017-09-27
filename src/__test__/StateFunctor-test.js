@@ -1,31 +1,47 @@
+// @flow
 import test from 'ava';
 import {
-    StateFunctorFactoryFactory as StateFunctorFactory,
+    StateFunctorFactoryFactory as StateFunctorFactory
 } from '../StateFunctor';
 
 const {ViewState, EditState} = StateFunctorFactory(['View', 'Edit']);
 
-test('StateFunctor map/flatmap/unit', tt => {
-    tt.is(ViewState('foo').viewMap(() => 'bar').value(), 'bar');
-    tt.is(ViewState('foo').editMap(() => 'bar').value(), 'foo');
+const viewState = ViewState('foo');
+const editState = EditState('foo');
 
-    tt.is(EditState('foo').viewMap(() => 'bar').value(), 'foo');
-    tt.is(EditState('foo').editMap(() => 'bar').value(), 'bar');
+test('StateFunctor map/flatmap/unit', (tt: Object) => {
+    tt.is(viewState.viewMap(() => 'bar').value(), 'bar');
+    tt.is(viewState.editMap(() => 'bar').value(), 'foo');
+
+    tt.is(editState.viewMap(() => 'bar').value(), 'foo');
+    tt.is(editState.editMap(() => 'bar').value(), 'bar');
 });
 
 
-test('StateFunctor.value', tt => {
+test('StateFunctor.value', (tt: Object) => {
     tt.is(ViewState('bar').value('foo'), 'bar');
     tt.is(ViewState().value('foo'), 'foo');
 });
 
-test('StateFunctor.to', tt => {
-    tt.is(ViewState('bar').toEdit().editMap(ii => 'foo').value(), 'foo');
-    tt.is(ViewState('bar').toEdit().viewMap(ii => 'foo').value(), 'bar');
+test('StateFunctor.to', (tt: Object) => {
+    tt.is(
+        ViewState('bar')
+            .toEdit()
+            .editMap(() => 'foo')
+            .value(),
+        'foo'
+    );
+    tt.is(
+        ViewState('bar')
+            .toEdit()
+            .viewMap(() => 'foo')
+            .value(),
+        'bar'
+    );
 });
 
 
-test('StateFunctor.equals', tt => {
+test('StateFunctor.equals', (tt: Object) => {
     tt.false(ViewState(1).equals(EditState(1)));
     tt.false(ViewState(1).equals(ViewState(2)));
     tt.true(ViewState(1).equals(ViewState(1)));

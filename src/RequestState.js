@@ -17,7 +17,7 @@ import {EitherFactory, Either} from './Either';
 /*
  * RequestState class
  */
-export default class RequestState {
+export class RequestState {
     isFetching: boolean;
     isError: boolean;
     isSuccess: boolean;

@@ -3,6 +3,8 @@
 import {Left, Right, Either} from './Either';
 import {getIn} from './util/Data';
 
+import type {Mapper, FilterPredicate} from './definitions';
+
 /**
  * The maybe monad is a way to represent null values without being forced to check for their existence. Maybe is the identity monad but with an added condition. The maybe says "I will only ever call map/flatmap if I am a Some. "
  *

@@ -3,6 +3,7 @@
 import {Right, Either} from './Either';
 import {Some, Maybe} from './Maybe';
 
+import type {Mapper} from './definitions';
 
 // ```
 // withData(withState(component))

@@ -1,5 +1,7 @@
 // @flow
 
+import type {Mapper} from './definitions';
+
 function falsify(obj: Object): Object {
     return Object
         .keys(obj)
@@ -12,8 +14,8 @@ function falsify(obj: Object): Object {
 /**
  * @module State
  */
-class StateFunctor {
-    val: any;
+export class StateFunctor<T> {
+    val: T;
     value: Function;
     stateKeys: string[];
 
@@ -24,7 +26,7 @@ class StateFunctor {
      * @param {object} stateBooleans - Whether or not the maybe is `some` or `none`
      * @return {State}
      */
-    constructor(value: any, stateBooleans: Object) {
+    constructor(value: T, stateBooleans: Object) {
         this.val = value;
         this.value = (defaultValue: * = null): * => this.val == null ? defaultValue : this.val;
         this.stateKeys = [];
@@ -33,50 +35,47 @@ class StateFunctor {
             .forEach((booleanKey: string) => {
                 const stateKey = `is${booleanKey}`;
 
+                const FLOWBUG_this: Object = this;
+                const _this = this;
+
                 this.stateKeys = this.stateKeys.concat(stateKey);
 
-                // $FlowBug: flow cant handle dynamic keys on classes
-                this[stateKey] = stateBooleans[booleanKey];
+                FLOWBUG_this[stateKey] = stateBooleans[booleanKey];
 
-                const unit = (value: *): StateFunctor => {
+                function unit<U>(value: U): StateFunctor<U> {
                     return new StateFunctorFactory(value, {
                         ...falsify(stateBooleans),
                         [booleanKey]: true
                     });
-                };
+                }
 
-                const flatMap = (fn: Function): StateFunctor => {
-                    // $FlowBug: flow cant handle dynamic keys on classes
-                    return this[stateKey] ? fn(this.val) : this;
-                };
+                function flatMap<U>(fn: Mapper<T,StateFunctor<U>>): StateFunctor<U>|StateFunctor<T> {
+                    return FLOWBUG_this[stateKey] ? fn(_this.val) : _this;
+                }
 
-                const map = (fn: Function): StateFunctor => {
+                function map<U>(fn: Mapper<T,U>): StateFunctor<U>|StateFunctor<T> {
                     return flatMap(value => unit(fn(value)));
-                };
+                }
 
-                const to = (): StateFunctor => {
-                    return unit(this.val);
-                };
+                function to(): StateFunctor<T> {
+                    return unit(_this.val);
+                }
 
-                // $FlowBug: flow cant handle dynamic keys on classes
-                this[`to${booleanKey}`] = to;
-                // $FlowBug: flow cant handle dynamic keys on classes
-                this[`${booleanKey.toLowerCase()}Unit`] = unit;
-                // $FlowBug: flow cant handle dynamic keys on classes
-                this[`${booleanKey.toLowerCase()}FlatMap`] = flatMap;
-                // $FlowBug: flow cant handle dynamic keys on classes
-                this[`${booleanKey.toLowerCase()}Map`] = map;
+                FLOWBUG_this[`to${booleanKey}`] = to;
+                FLOWBUG_this[`${booleanKey.toLowerCase()}Unit`] = unit;
+                FLOWBUG_this[`${booleanKey.toLowerCase()}FlatMap`] = flatMap;
+                FLOWBUG_this[`${booleanKey.toLowerCase()}Map`] = map;
             });
     }
 
-    equals(stateFunctor: StateFunctor): boolean {
+    equals(stateFunctor: Object): boolean {
+        const FLOWBUG_this: Object = this;
         if(stateFunctor.val !== this.val) {
             return false;
         }
 
         for (let key of this.stateKeys) {
-            // $FlowBug: flow cant handle dynamic keys on classes
-            if(stateFunctor[key] !== this[key]) {
+            if(stateFunctor[key] !== FLOWBUG_this[key]) {
                 return false;
             }
         }
@@ -88,7 +87,7 @@ class StateFunctor {
 }
 
 
-export function StateFunctorFactory(value: any, stateBooleans: Object): StateFunctor {
+export function StateFunctorFactory<T>(value: T, stateBooleans: Object): StateFunctor<T> {
     return new StateFunctor(value, stateBooleans);
 }
 

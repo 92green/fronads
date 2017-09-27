@@ -1,5 +1,7 @@
+// @flow
 import test from 'ava';
-import RequestState, {
+import {
+    RequestState,
     RequestStateFactory,
     RequestEmpty,
     RequestFetching,
@@ -9,11 +11,15 @@ import RequestState, {
 
 const NOOP = () => {};
 
-test('RequestStateFactory', tt => {
+const fetching = RequestFetching();
+const error = RequestError();
+const success = RequestSuccess();
+
+test('RequestStateFactory', (tt: Object) => {
     tt.is(RequestStateFactory(null, false, false, false) instanceof RequestState, true);
 });
 
-test('RequestEmpty', tt => {
+test('RequestEmpty', (tt: Object) => {
     tt.is(
         RequestEmpty()
             .map(tt.fail)
@@ -24,49 +30,79 @@ test('RequestEmpty', tt => {
     );
 });
 
-test('RequestFetching', tt => {
-    tt.is(RequestFetching().errorMap(NOOP).fetchingMap(() => 'foo').value(), 'foo');
-    tt.is(RequestFetching().errorFlatMap(NOOP).fetchingFlatMap(() => 'foo'), 'foo');
+test('RequestFetching', (tt: Object) => {
+    tt.is(
+        fetching
+            .errorMap(NOOP)
+            .fetchingMap(() => 'foo')
+            .value(),
+        'foo'
+    );
+    tt.is(fetching.errorFlatMap(NOOP).fetchingFlatMap(() => 'foo'), 'foo');
 });
 
-test('RequestError', tt => {
-    tt.is(RequestError().fetchingMap(NOOP).errorMap(() => 'foo').value(), 'foo');
-    tt.is(RequestError().fetchingFlatMap(NOOP).errorFlatMap(() => 'foo'), 'foo');
+test('RequestError', (tt: Object) => {
+    tt.is(
+        error
+            .fetchingMap(NOOP)
+            .errorMap(() => 'foo')
+            .value(),
+        'foo'
+    );
+    tt.is(
+        error
+            .fetchingFlatMap(NOOP)
+            .errorFlatMap(() => 'foo')
+            ,
+        'foo'
+    );
 });
 
-test('RequestSuccess', tt => {
-    tt.is(RequestSuccess('success').flatMap(() => 'foo'), 'foo');
-    tt.is(RequestSuccess('success').map(ii => ii) instanceof RequestState, true);
+test('RequestSuccess', (tt: Object) => {
+    tt.is(success.flatMap(() => 'foo'), 'foo');
+    tt.is(success.map(ii => ii) instanceof RequestState, true);
     tt.is(RequestFetching('success').flatMap(ii => ii) instanceof RequestState, true);
     tt.is(RequestError('success').flatMap(ii => ii) instanceof RequestState, true);
 
     tt.is(RequestSuccess('success').value('rad'), 'success');
-    tt.is(RequestFetching().value('rad'), 'rad');
+    tt.is(fetching.value('rad'), 'rad');
 });
 
 
-test('Component Test', tt => {
-    function Component(requestState) {
+test('Component Test', (tt: Object) => {
+    function Component(requestState: RequestState): string {
         return requestState
             .map(() => 'Component')
             .fetchingMap(() => 'fetching')
             .errorMap(() => 'error')
             .value('empty');
     }
-    tt.is(Component(RequestFetching()), 'fetching');
-    tt.is(Component(RequestError()), 'error');
+    tt.is(Component(fetching), 'fetching');
+    tt.is(Component(error), 'error');
     tt.is(Component(RequestEmpty()), 'empty');
-    tt.is(Component(RequestSuccess()), 'Component');
+    tt.is(Component(success), 'Component');
 
 });
 
-test('to<type> functions', tt => {
+test('to<type> functions', (tt: Object) => {
     tt.is(RequestEmpty().toFetching().isFetching, true);
     tt.is(RequestEmpty().toError().isError, true);
     tt.is(RequestEmpty().toSuccess().isSuccess, true);
-    tt.is(RequestSuccess().toEmpty().isSuccess, false);
-    tt.is(RequestSuccess().toEither().map(() => 2).value(), 2);
-    tt.is(RequestError().toEither().leftMap(() => 2).value(), 2);
+    tt.is(success.toEmpty().isSuccess, false);
+    tt.is(
+        success
+            .toEither()
+            .map(() => 2)
+            .value(),
+        2
+    );
+    tt.is(
+        error
+            .toEither()
+            .leftMap(() => 2)
+            .value(),
+        2
+    );
 });
 
 

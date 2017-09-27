@@ -104,7 +104,7 @@ test('Task.leftMap will be called on rejected values.', (tt: Object): Promise<an
         .toPromise()
         .catch((data) => tt.is(data, 'foo'));
 });
-``
+
 test('Task.leftMap will be not called on resolved values.', (tt: Object): Promise<any> => {
     return Resolve('foo')
         .leftMap(() => 'bar')
