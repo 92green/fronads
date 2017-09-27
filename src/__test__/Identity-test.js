@@ -1,23 +1,28 @@
+// @flow
 import test from 'ava';
 import {
-    IdentityFactory as Identity,
+    Identity,
+    IdentityFactory
 } from '../Identity';
 
+const foo: Identity<string> = new Identity('foo');
+const bar: Identity<string> = new Identity('bar');
 
-test('Identity map/flatmap/unit', tt => {
-    tt.is(Identity('foo').map(() => 'bar').value(), 'bar');
+
+test('Identity map/flatmap/unit', (tt: Object) => {
+    tt.is(foo.map(() => 'bar').value(), 'bar');
 });
 
-test('Identity.value', tt => {
-    tt.is(Identity('bar').value('foo'), 'bar');
-    tt.is(Identity().value('foo'), 'foo');
+test('Identity.value', (tt: Object) => {
+    tt.is(bar.value('foo'), 'bar');
+    tt.is(IdentityFactory().value('foo'), 'foo');
 });
 
-test('Identity.to', tt => {
-    tt.true(Identity('foo').toMaybe().isSome);
-    tt.true(Identity('foo').toEither().isRight);
+test('Identity.to', (tt: Object) => {
+    tt.true(foo.toMaybe().isSome);
+    tt.true(foo.toEither().isRight);
 });
 
-test('Identity.toJSON', tt => {
-    tt.is(JSON.stringify(Identity('foo').toJSON()), "\"foo\"");
+test('Identity.toJSON', (tt: Object) => {
+    tt.is(JSON.stringify(foo.toJSON()), "\"foo\"");
 });
