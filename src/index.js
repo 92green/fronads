@@ -9,7 +9,8 @@ export {
 } from './RequestState';
 
 export {
-    MaybeFactory as Maybe,
+    Maybe,
+    MaybeFactory,
     None,
     Perhaps,
     PerhapsIn,
@@ -17,21 +18,24 @@ export {
 } from './Maybe';
 
 export {
-    EitherFactory as Either,
+    Either,
+    EitherFactory,
     Left,
     Right,
     Try
 } from './Either';
 
 export {
-    IdentityFactory as Identity
+    IdentityFactory,
+    Identity
 } from './Identity';
 
 
 
 
 export {
-    StateFunctorFactoryFactory as StateFunctor
+    StateFunctor,
+    StateFunctorFactoryFactory as StateFunctorFactory
 } from './StateFunctor';
 
 
