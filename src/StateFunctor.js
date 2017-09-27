@@ -35,6 +35,11 @@ export class StateFunctor<T> {
             .forEach((booleanKey: string) => {
                 const stateKey = `is${booleanKey}`;
 
+                // TODO: Flow cant handle computed property types on classes
+                // This line tricks flow into thinking it's just an object
+                // UBER HACK. But as it is a library the flow types need to be valid as they
+                // can't be ignored through comments and so you are left with the rock/hard place
+                // of broken flow or gross hacks.
                 const FLOWBUG_this: Object = this;
                 const _this = this;
 
@@ -68,6 +73,8 @@ export class StateFunctor<T> {
             });
     }
 
+    //
+    // State function isn't really an object. See comment above.
     equals(stateFunctor: Object): boolean {
         const FLOWBUG_this: Object = this;
         if(stateFunctor.val !== this.val) {
