@@ -128,7 +128,7 @@ export default class RequestState {
      * Convert the RequestState to an Either. RequestErrors will be turned into a `Left` everything else a will be a `Right`.
      * @return {Either}
      */
-    toEither(): Either {
+    toEither(): Either<any> {
         return EitherFactory(this.val, !this.isError);
     }
 

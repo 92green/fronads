@@ -2,9 +2,9 @@
 
 const NOOP = () => {};
 
-type TaskFlatMapper = (value: *) => Task;
-type TaskMapper = (value: *) => *;
-type TaskComputation = (reject: Function, resolve: Function) => *;
+type TaskFlatMapper = (value: any) => Task;
+type TaskMapper = (value: any) => any;
+type TaskComputation = (reject: Function, resolve: Function) => void;
 
 /**
  * Task lets you create a description of an action that is resolved via a callback.
@@ -19,7 +19,7 @@ type TaskComputation = (reject: Function, resolve: Function) => *;
  */
 export class Task {
     _type: string;
-    computation: Function;
+    computation: TaskComputation;
 
     /**
      * Task constructor
@@ -123,7 +123,7 @@ export class Task {
      * Run the computation and return the state as either a rejected or resolved promise.
      * @returns {Promise}
      */
-    toPromise(): Promise<> {
+    toPromise(): Promise<any> {
         return new Promise((resolve, reject) => this.computation(reject, resolve));
     }
 }

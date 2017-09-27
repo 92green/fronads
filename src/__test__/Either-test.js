@@ -1,69 +1,68 @@
+// @flow
 import test from 'ava';
-import {EitherFactory, Right, Left, Try} from '../Either';
-// import {Some, None} from '../Maybe';
+import {Either, EitherFactory, Right, Left, Try} from '../Either';
 
-const NoOp = () => {};
-const Identity = (ii) => ii;
-
-
-test('EitherFactory', tt => {
+test('EitherFactory', (tt: Object) => {
     tt.is(EitherFactory(1, true).map(() => 2).value(), 2);
     tt.is(EitherFactory(1, false).map(() => 2).value(), 1);
 });
 
 
-test('Right', tt => {
-    tt.is(Right(1).map(() => 2).value(), 2);
-    tt.is(Right(1).leftMap(() => 'WRONG').value(), 1);
+test('Right', (tt: Object) => {
+    const value: Either<number> = Right(1);
+
+    tt.is(value.map(() => 2).value(), 2);
+    tt.is(value.leftMap(() => 2).value(), 1);
 });
 
-test('Left', tt => {
-    tt.is(Left(1).leftMap(() => 2).value(), 2);
-    tt.is(Left(1).map(() => 'WRONG').value(), 1);
+test('Left', (tt: Object) => {
+    const value: Either<number> = Left(1);
+    tt.is(value.leftMap(() => 2).value(), 2);
+    tt.is(value.map(() => 2).value(), 1);
 });
 
-test('Try', tt => {
-    tt.false(Try(() => rad).isRight);
+test('Try', (tt: Object) => {
+    tt.false(Try(() => new Error()).isRight);
     tt.true(Try(() => 'rad').isRight);
 });
 
-test('Either.biMap', tt => {
-    tt.is(Left(1).biMap(ii => 2, null).value(), 2);
-    tt.is(Right(1).biMap(null, ii => 2).value(), 2);
+test('Either.biMap', (tt: Object) => {
+    tt.is(Left(1).biMap(ii => 2, () => 'foo').value(), 2);
+    tt.is(Right(1).biMap(() => 'foo', ii => 2).value(), 2);
 });
 
 
-test('Either.biFlatMap', tt => {
-    tt.is(Left(1).biFlatMap(ii => 2, null), 2);
-    tt.is(Right(1).biFlatMap(null, ii => 2), 2);
+test('Either.biFlatMap', (tt: Object) => {
+    tt.is(Left(1).biFlatMap(() => Left(2), () => Right(1)).value(), 2);
+    tt.is(Right(1).biFlatMap(() => Right(1), () => Right(2)).value(), 2);
 });
 
 
 
-test('Either.ap', tt => {
+test('Either.ap', (tt: Object) => {
     tt.is(Right(10).ap(Right(ii => ii * 2)).val, 20);
     tt.is(Left(10).ap(Right(ii => ii * 2)).val, 10);
 });
 
-test('Either.toMaybe', tt => {
+test('Either.toMaybe', (tt: Object) => {
     tt.false(Left(1).toMaybe().isSome);
     tt.true(Right(1).toMaybe().isSome);
 });
 
-test('Either.toJSON', tt => {
+test('Either.toJSON', (tt: Object) => {
     tt.deepEqual(JSON.stringify({a: Right({b: Right(2)})}), JSON.stringify({a: {b: 2}}));
     tt.deepEqual(JSON.stringify({a: Left(null)}), JSON.stringify({a: null}));
 });
 
-test('Either.toLeft', tt => {
+test('Either.toLeft', (tt: Object) => {
     tt.is(Right().toLeft().leftMap(() => 'foo').value(), 'foo');
 });
 
-test('Either.toRight', tt => {
+test('Either.toRight', (tt: Object) => {
     tt.is(Left().toRight().map(() => 'foo').value(), 'foo');
 });
 
-test('Either.filter', tt => {
+test('Either.filter', (tt: Object) => {
     tt.true(Left().filter(() => true).isRight);
     tt.false(Left().filter(() => false).isRight);
     tt.true(Right().filter(() => true).isRight);

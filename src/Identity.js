@@ -62,14 +62,14 @@ import {Some, Maybe} from './Maybe';
  *     .map(connect(({user}) => ({user}))
  *     .value();
  * ```
- * @module Identity
+ * @module Identity`
  */
 
 /**
  * Identity class
  */
-class Identity {
-    val: any;
+export class Identity<T> {
+    val: T;
 
     /**
      * Identity constructor
@@ -77,7 +77,7 @@ class Identity {
      * @param {*} value - The value to store
      * @return {Identity}
      */
-    constructor(value: any) {
+    constructor(value: T) {
         this.val = value;
     }
 
@@ -86,7 +86,7 @@ class Identity {
      * @param {any} value
      * @return {Identity}
      */
-    unit(value: any): Identity {
+    unit<U>(value: U): Identity<U> {
         return IdentityFactory(value);
     }
 
@@ -96,7 +96,7 @@ class Identity {
      * @param {Function} fn - perform a flatMap
      * @return {Some}
      */
-    flatMap(fn: Function): any {
+    flatMap<U>(fn: Mapper<T, Identity<U>>): Identity<U> {
         return fn(this.val);
     }
 
@@ -105,7 +105,7 @@ class Identity {
      * @param {Function} fn
      * @return {Identity}
      */
-    map(fn: any): Identity {
+    map<U>(fn: Mapper<T,U>): Identity<U> {
         return this.flatMap(value => this.unit(fn(value)));
     }
 
@@ -115,7 +115,7 @@ class Identity {
      * @param {*} [defaultValue = null]
      * @return {*}
      */
-    value(defaultValue: any = null): any {
+    value(defaultValue: any = null): T|any {
         return this.val == null ? defaultValue : this.val;
     }
 
@@ -123,7 +123,7 @@ class Identity {
      * Change the Identity to a Right Either.
      * @return {Either}
      */
-    toEither(): Either {
+    toEither(): Either<T> {
         return Right(this.val);
     }
 
@@ -131,7 +131,7 @@ class Identity {
      * Change the Identity to a Some Maybe.
      * @return {Maybe}
      */
-    toMaybe(): Maybe {
+    toMaybe(): Maybe<T> {
         return Some(this.val);
     }
 
@@ -141,7 +141,7 @@ class Identity {
 }
 
 
-export function IdentityFactory(value: any): Identity {
+export function IdentityFactory(value: any): Identity<any> {
     return new Identity(value);
 }
 

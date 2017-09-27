@@ -12,11 +12,11 @@ import {Maybe, Some, None} from './Maybe';
  * @module Either
  */
 
-export class Either {
-    val: *;
+export class Either<T> {
+    val: T;
     isRight: boolean;
 
-    constructor(value: any, isRight: boolean) {
+    constructor(value: T, isRight: boolean) {
         this.isRight = isRight;
         this.val = value;
     }
@@ -26,7 +26,7 @@ export class Either {
      * @param {any} value
      * @return {Either}
      */
-    unit(value: any): Either {
+    unit<U>(value: U): Either<U> {
         return Right(value);
     }
 
@@ -35,7 +35,7 @@ export class Either {
      * @param {Function} fn
      * @return {Either}
      */
-    flatMap(fn: Function): Either {
+    flatMap<U>(fn: Mapper<T, Either<U>>): Either<U>|Either<T> {
         return this.isRight ? fn(this.val) : this;
     }
 
@@ -44,7 +44,7 @@ export class Either {
      * @param {Function} fn
      * @return {Either}
      */
-    map(fn: Function): Either {
+    map<U>(fn: Mapper<T,U>): Either<U>|Either<T> {
         return this.flatMap(value => this.unit(fn(value)));
     }
 
@@ -53,7 +53,7 @@ export class Either {
      * @param {Function} fn
      * @return {Either}
      */
-    leftFlatMap(fn: Function): Either {
+    leftFlatMap<U>(fn: Mapper<T, Either<U>>): Either<U>|Either<T> {
         return this.isRight ? this : fn(this.val);
     }
 
@@ -62,7 +62,7 @@ export class Either {
      * @param {Function} fn
      * @return {Either}
      */
-    leftMap(fn: Function): Either {
+    leftMap<U>(fn: Mapper<T,U>): Either<U>|Either<T> {
         return this.leftFlatMap(value => Left(fn(value)));
     }
 
@@ -71,7 +71,7 @@ export class Either {
      * @param {Either} eitherWithFn
      * @return {Either}
      */
-    ap(eitherWithFn: Either): Either {
+    ap<U>(eitherWithFn: Either<any>): Either<U>|Either<T> {
         return this.isRight ? eitherWithFn.map(fn => fn(this.val)) : this;
     }
 
@@ -81,7 +81,7 @@ export class Either {
      * @param {Function} rightFn
      * @return {Either}
      */
-    biMap(leftFn: Function, rightFn: Function): Either {
+    biMap<U>(leftFn: Mapper<T,U>, rightFn: Mapper<T,U>): Either<U>|Either<T> {
         return this.isRight ? this.map(rightFn) : this.leftMap(leftFn);
     }
 
@@ -91,7 +91,7 @@ export class Either {
      * @param {Function} rightFn
      * @return {Either}
      */
-    biFlatMap(leftFn: Function, rightFn: Function): Either {
+    biFlatMap<U>(leftFn: Mapper<T, Either<U>>, rightFn: Mapper<T, Either<U>>): Either<U>|Either<T> {
         return this.isRight ? rightFn(this.val) : leftFn(this.val);
     }
 
@@ -99,7 +99,7 @@ export class Either {
      * Return the current value.
      * @return {any}
      */
-    value(): any {
+    value(): T {
         return this.val;
     }
 
@@ -109,7 +109,7 @@ export class Either {
      * @param {Function} predicate
      * @return {Either}
      */
-    filter(predicate: Function): Either {
+    filter(predicate: FilterPredicate<T>): Either<T> {
         return predicate(this.val) ? this.toRight() : this.toLeft();
     }
 
@@ -118,7 +118,7 @@ export class Either {
      * Force the Either to a Left
      * @return {Left}
      */
-    toLeft(): Either {
+    toLeft(): Either<T> {
         return Left(this.val);
     }
 
@@ -126,7 +126,7 @@ export class Either {
      * Force the Either to a Right
      * @return {Right}
      */
-    toRight(): Either {
+    toRight(): Either<T> {
         return Right(this.val);
     }
 
@@ -134,7 +134,7 @@ export class Either {
      * If the Either is a right change to a Some if the Either is a Left drop the value and return a None
      * @return {Maybe}
      */
-    toMaybe(): Maybe {
+    toMaybe(): Maybe<T> {
         return this.isRight ? Some(this.val) : None();
     }
 
@@ -149,7 +149,7 @@ export class Either {
  * @param {any} value
  * @param {boolean} isRight
  */
-export function EitherFactory(value: any, isRight: boolean): Either {
+export function EitherFactory(value: any, isRight: boolean): Either<any> {
     return new Either(value, isRight);
 }
 
@@ -158,7 +158,7 @@ export function EitherFactory(value: any, isRight: boolean): Either {
  * @param {any} value
  * @return {Either}
  */
-export function Right(value: any): Either {
+export function Right(value: any): Either<any> {
     return EitherFactory(value, true);
 }
 
@@ -167,7 +167,7 @@ export function Right(value: any): Either {
  * @param {any} value
  * @return {Either}
  */
-export function Left(value: any): Either {
+export function Left(value: any): Either<any> {
     return EitherFactory(value, false);
 }
 
@@ -178,7 +178,7 @@ export function Left(value: any): Either {
  * @param {Function} func
  * @return {Either}
  */
-export function Try(func: Function): Either {
+export function Try(func: Function): Either<any> {
     try {
         return Right(func.call());
     } catch(error) {

@@ -33,8 +33,8 @@ import {getIn} from './util/Data';
 /**
  * Maybe class
  */
-export class Maybe {
-    val: *;
+export class Maybe<T> {
+    val: T;
     isSome: boolean;
 
     /**
@@ -44,7 +44,7 @@ export class Maybe {
      * @param {boolean} isSome - Whether or not the maybe is `some` or `none`
      * @return {Maybe}
      */
-    constructor(value: any, isSome: boolean) {
+    constructor(value: T, isSome: boolean) {
         this.isSome = isSome;
         this.val = value;
     }
@@ -54,7 +54,7 @@ export class Maybe {
      * @param {any} value
      * @return {Either}
      */
-    unit(value: any): Maybe {
+    unit<U>(value: U): Maybe<U> {
         return Some(value);
     }
 
@@ -64,7 +64,7 @@ export class Maybe {
      * @param {Function} fn - perform a flatMap if Some
      * @return {Some}
      */
-    flatMap(fn: Function): any {
+    flatMap<U>(fn: Mapper<T, Maybe<U>>): Maybe<U>|Maybe<T> {
         return this.isSome ? fn(this.val) : this;
     }
 
@@ -73,7 +73,7 @@ export class Maybe {
      * @param {Function} fn
      * @return {Maybe}
      */
-    map(fn: any): Maybe {
+    map<U>(fn: Mapper<T,U>): Maybe<U>|Maybe<T> {
         return this.flatMap(value => this.unit(fn(value)));
     }
 
@@ -83,7 +83,7 @@ export class Maybe {
      * @param {*} [defaultValue = null] - value that is Some
      * @return {*}
      */
-    value(defaultValue: any = null): any {
+    value(defaultValue: any = null): T|any {
         return this.val == null ? defaultValue : this.val;
     }
 
@@ -92,7 +92,7 @@ export class Maybe {
      * @param {Function} predicate
      * @return {Maybe}
      */
-    filter(predicate: Function): Maybe {
+    filter(predicate: FilterPredicate<T>): Maybe<T> {
         return this.isSome && predicate(this.val) ? Some(this.val) : None();
     }
 
@@ -104,7 +104,7 @@ export class Maybe {
      * @param {*} leftValue - Value to place in the Left side
      * @return {Either}
      */
-    toEither(leftValue: any): Either {
+    toEither(leftValue: any): Either<T> {
         return this.isSome ? Right(this.val) : Left(leftValue);
     }
 
@@ -114,7 +114,7 @@ export class Maybe {
 }
 
 
-export function MaybeFactory(value: any, isSome: boolean): Maybe {
+export function MaybeFactory<T>(value: T, isSome: boolean): Maybe<T> {
     return new Maybe(value, isSome);
 }
 
@@ -129,7 +129,7 @@ export function MaybeFactory(value: any, isSome: boolean): Maybe {
  *     })
  * });
  */
-export function Some(value: any): Maybe {
+export function Some<T>(value: T): Maybe<T> {
     return MaybeFactory(value, true);
 }
 
@@ -142,7 +142,7 @@ export function Some(value: any): Maybe {
  *     child: None()
  * });
  */
-export function None(): Maybe {
+export function None(): Maybe<any> {
     return MaybeFactory(null, false);
 }
 
@@ -153,7 +153,7 @@ export function None(): Maybe {
  * @example
  * var person = Perhaps(possibleNullValue);
  */
-export function Perhaps(value: any): Maybe {
+export function Perhaps<T>(value: T): Maybe<T> {
     return value == null ? None() : Some(value);
 }
 
@@ -166,7 +166,7 @@ export function Perhaps(value: any): Maybe {
  * @example
  * var person = PerhapsIn({foo: {bar: possibleNullValue}}, ['foo', 'bar']);
  */
-export function PerhapsIn(value: any, path: string[]): Maybe {
+export function PerhapsIn(value: any, path: string[]): Maybe<any> {
     const deepValue = getIn(value, path);
     return deepValue == null ? None() : Some(deepValue);
 }
