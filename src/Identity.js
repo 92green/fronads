@@ -116,7 +116,7 @@ export class Identity<T> {
      * @param {*} [defaultValue = null]
      * @return {*}
      */
-    value(defaultValue: any = null): T|any {
+    value(defaultValue: any = null): any {
         return this.val == null ? defaultValue : this.val;
     }
 

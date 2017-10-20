@@ -85,7 +85,7 @@ export class Maybe<T> {
      * @param {*} [defaultValue = null] - value that is Some
      * @return {*}
      */
-    value(defaultValue: any = null): T|any {
+    value(defaultValue: any = null): any {
         return this.val == null ? defaultValue : this.val;
     }
 

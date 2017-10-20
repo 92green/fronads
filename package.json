@@ -49,8 +49,14 @@
     "nyc": "^10.0.0",
     "proto-babel-plugin-extract-flow-types": "git+ssh://git@github.com/blueflag/proto-babel-plugin-extract-flow-types.git#v0.1.1",
     "proxyquire": "^1.7.10",
-    "sinon": "^1.17.6"
+    "sinon": "^1.17.6",
+    "size-limit": "^0.11.6"
   },
+  "size-limit": [
+    {
+      "path": "./lib/index.js"
+    }
+  ],
   "ava": {
     "require": [
       "./pretest",
