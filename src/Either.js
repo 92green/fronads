@@ -99,7 +99,7 @@ export class Either<T> {
      * Return the current value.
      * @return {any}
      */
-    value(): T {
+    value(): any {
         return this.val;
     }
 
