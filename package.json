@@ -17,28 +17,22 @@
   ],
   "private": false,
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib --ignore **/*-test.js",
+    "build": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --ignore **/*-test.js",
     "coverage": "blueflag-test coverage",
     "docs": "jsdoc -c jsdoc.json --readme README.md",
     "flow": "blueflag-test flow",
     "lint": "blueflag-test lint",
     "prepublish": "yarn run build",
     "test": "blueflag-test test",
-    "test-all": "yarn lint && yarn flow && yarn coverage"
+    "test-all": "yarn lint && yarn flow && yarn coverage && size-limit"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.0",
-    "babel-plugin-istanbul": "^3.0.0",
     "babel-preset-blueflag": "^0.3.0",
-    "babel-register": "^6.23.0",
     "dotenv": "^2.0.0",
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.4.0",
-    "flow-bin": "^0.48.0",
-    "gh-pages": "^0.11.0",
-    "git-url-parse": "^6.0.1",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.2.1",
     "jsdonk": "^0.6.0",
@@ -48,6 +42,7 @@
   },
   "size-limit": [
     {
+      "limit": "3 KB",
       "path": "./lib/index.js"
     }
   ]

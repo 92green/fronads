@@ -63,7 +63,7 @@ import type {Mapper} from './definitions';
  *     .map(connect(({user}) => ({user}))
  *     .value();
  * ```
- * @module Identity`
+ * @module Identity
  */
 
 /**
