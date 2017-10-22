@@ -2,15 +2,15 @@
   "main": "lib/index.js",
   "name": "fronads",
   "version": "0.12.1",
-  "description": "A monad to handle request states",
-  "license": "UNLICENSED",
+  "description": "Frontend monads with consistent and beginner-friendly naming conventions.",
+  "license": "MIT",
   "author": "Allan Hortle",
   "repository": {
     "type": "git",
-    "url": "git@github.com:blueflag/request-state-monad.git"
+    "url": "git@github.com:blueflag/fronads.git"
   },
   "bugs": {
-    "url": "https://github.com/blueflag/request-state-monad/issues"
+    "url": "https://github.com/blueflag/fronads/issues"
   },
   "files": [
     "lib"
