@@ -130,14 +130,14 @@ test('Task.leftMap will place the return value in a new task', (tt: Object): Pro
 //
 // run
 //
-test.cb('Tasks will not execute until run is called.', (tt: *) => {
-    Resolve().map(tt.fail);
-    Resolve()
-        .map(() => 'foo')
-        .map(() => tt.pass())
-        .map(() => tt.end())
-        .run();
-});
+// test.cb('Tasks will not execute until run is called.', (tt: *) => {
+//     Resolve().map(tt.fail);
+//     Resolve()
+//         .map(() => 'foo')
+//         .map(() => tt.pass())
+//         .map(() => tt.end())
+//         .run();
+// });
 
 //
 // toPromise
