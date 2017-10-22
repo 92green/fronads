@@ -5,7 +5,9 @@
     "plugins": [
         ["proto-babel-plugin-extract-flow-types", {"outDir": "lib"}]
     ],
-    "ignore": ["./lib"],
+    "ignore": [
+        "./lib"
+    ],
     "env": {
         "test": {
             "plugins": [

@@ -52,8 +52,7 @@ test('RequestError', (tt: Object) => {
     tt.is(
         error
             .fetchingFlatMap(NOOP)
-            .errorFlatMap(() => 'foo')
-            ,
+            .errorFlatMap(() => 'foo'),
         'foo'
     );
 });
