@@ -1,94 +1,49 @@
 {
   "main": "lib/index.js",
   "name": "fronads",
-  "version": "0.12.0",
-  "description": "A monad to handle request states",
-  "license": "UNLICENSED",
+  "version": "0.12.1",
+  "description": "Frontend monads with consistent and beginner-friendly naming conventions.",
+  "license": "MIT",
   "author": "Allan Hortle",
   "repository": {
     "type": "git",
-    "url": "git@github.com:blueflag/request-state-monad.git"
+    "url": "git@github.com:blueflag/fronads.git"
   },
   "bugs": {
-    "url": "https://github.com/blueflag/request-state-monad/issues"
+    "url": "https://github.com/blueflag/fronads/issues"
   },
   "files": [
     "lib"
   ],
   "private": false,
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib",
-    "build-examples": "cd example && yarn install && yarn run build && cd -",
-    "deploy-to-gh-pages": "yarn run build && yarn run build-examples && yarn run docs && node scripts/publish.js",
-    "prepublish": "yarn run build",
-    "ava": "NODE_ENV=test ava",
-    "check-coverage": "NODE_ENV=test nyc check-coverage --branches 100.0  --functions 100.0 --lines 100.0",
+    "build": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --ignore **/*-test.js",
+    "coverage": "blueflag-test coverage",
     "docs": "jsdoc -c jsdoc.json --readme README.md",
-    "flow": "flow check",
-    "lint": "eslint src --ext js,jsx",
-    "lint-fix": "eslint src --ext js,jsx --fix",
-    "test": "NODE_ENV=test nyc --report-dir=./coverage ava && yarn run check-coverage",
-    "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run test"
+    "flow": "blueflag-test flow",
+    "lint": "blueflag-test lint",
+    "prepublish": "yarn run build",
+    "test": "blueflag-test test",
+    "test-all": "yarn lint && yarn flow && yarn coverage && size-limit"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.0",
-    "babel-plugin-istanbul": "^3.0.0",
     "babel-preset-blueflag": "^0.3.0",
-    "babel-register": "^6.23.0",
     "dotenv": "^2.0.0",
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.4.0",
-    "flow-bin": "^0.48.0",
-    "gh-pages": "^0.11.0",
-    "git-url-parse": "^6.0.1",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.2.1",
     "jsdonk": "^0.6.0",
-    "nyc": "^10.0.0",
     "proto-babel-plugin-extract-flow-types": "git+ssh://git@github.com/blueflag/proto-babel-plugin-extract-flow-types.git#v0.1.1",
-    "proxyquire": "^1.7.10",
-    "sinon": "^1.17.6"
+    "proto-blueflag-test": "git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.6.1",
+    "size-limit": "^0.11.6"
   },
-  "ava": {
-    "require": [
-      "./pretest",
-      "babel-register"
-    ],
-    "babel": {
-      "presets": [
-        "blueflag"
-      ],
-      "plugins": [
-        "istanbul"
-      ],
-      "sourceMaps": "inline"
-    },
-    "files": [
-      "src/**/*-test.js"
-    ]
-  },
-  "nyc": {
-    "all": true,
-    "sourceMap": false,
-    "instrument": false,
-    "include": [
-      "src/**"
-    ],
-    "exclude": [
-      "src/**/*-test.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "extension": [
-      ".js",
-      ".jsx"
-    ],
-    "require": [
-      "babel-register"
-    ]
-  }
+  "size-limit": [
+    {
+      "limit": "3 KB",
+      "path": "./lib/index.js"
+    }
+  ]
 }

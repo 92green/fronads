@@ -63,7 +63,7 @@ import type {Mapper} from './definitions';
  *     .map(connect(({user}) => ({user}))
  *     .value();
  * ```
- * @module Identity`
+ * @module Identity
  */
 
 /**
@@ -116,7 +116,7 @@ export class Identity<T> {
      * @param {*} [defaultValue = null]
      * @return {*}
      */
-    value(defaultValue: any = null): T|any {
+    value(defaultValue: any = null): any {
         return this.val == null ? defaultValue : this.val;
     }
 

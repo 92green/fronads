@@ -117,7 +117,6 @@ test('Task.leftMap will place the return value in a new task', (tt: Object): Pro
     return Reject()
         .leftMap(() => Reject('bar'))
         .leftMap((data: Task): Task => {
-            console.log(data);
             tt.is(data._type, 'Task');
             return data;
         })

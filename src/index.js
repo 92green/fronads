@@ -1,14 +1,6 @@
 //@flow
 
 export {
-    RequestStateFactory as RequestState,
-    RequestEmpty,
-    RequestError,
-    RequestFetching,
-    RequestSuccess
-} from './RequestState';
-
-export {
     Maybe,
     MaybeFactory,
     None,
@@ -29,8 +21,6 @@ export {
     IdentityFactory,
     Identity
 } from './Identity';
-
-
 
 
 export {
