@@ -5306,7 +5306,7 @@ prop-types@^15.5.7:
   dependencies:
     fs-extra "^4.0.1"
 
-"proto-blueflag-test@git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.x.x":
+"proto-blueflag-test@git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.6.1":
   version "0.6.1"
   resolved "git+ssh://git@github.com/blueflag/proto-blueflag-test.git#cfe3f8fd563b6c9678cf956437c27cae333b53ae"
   dependencies:
