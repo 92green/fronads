@@ -3,22 +3,20 @@
 import {Left, Right, Either} from './Either';
 import {getIn} from './util/Data';
 
-import type {Mapper, FilterPredicate} from './definitions';
-
 /**
  * The maybe monad is a way to represent null values without being forced to check for their existence. Maybe is the identity monad but with an added condition. The maybe says "I will only ever call map/flatmap if I am a Some. "
  *
  *
  * ```
  * Some(5).map(ii => ii * 2) // Some(10)
- * None().map(ii => ii * 2) // None()
+ * None.map(ii => ii * 2) // None
  * ```
  *
  * Maybe lets you declaratively write what should happen to data, but only excecutes if that data exists.
  *
  * ### Units
  * Some(value)
- * None()
+ * None
  * Perhaps(value)
  * PerhapsIn(value, path)
  *
@@ -66,8 +64,8 @@ export class Maybe<T> {
      * @param {Function} fn - perform a flatMap if Some
      * @return {Some}
      */
-    flatMap<U>(fn: Mapper<T, Maybe<U>>): Maybe<U>|Maybe<T> {
-        return this.isSome ? fn(this.val) : this;
+    flatMap<U>(fn: (T) => Maybe<U>): Maybe<U> {
+        return this.isSome ? fn(this.val) : None;
     }
 
     /**
@@ -75,7 +73,7 @@ export class Maybe<T> {
      * @param {Function} fn
      * @return {Maybe}
      */
-    map<U>(fn: Mapper<T,U>): Maybe<U>|Maybe<T> {
+    map<U>(fn: (T) => U): Maybe<U> {
         return this.flatMap(value => this.unit(fn(value)));
     }
 
@@ -85,7 +83,7 @@ export class Maybe<T> {
      * @param {*} [defaultValue = null] - value that is Some
      * @return {*}
      */
-    value(defaultValue: any = null): any {
+    value(defaultValue: any = null): T|any {
         return this.val == null ? defaultValue : this.val;
     }
 
@@ -94,8 +92,8 @@ export class Maybe<T> {
      * @param {Function} predicate
      * @return {Maybe}
      */
-    filter(predicate: FilterPredicate<T>): Maybe<T> {
-        return this.isSome && predicate(this.val) ? Some(this.val) : None();
+    filter(predicate: T => boolean): Maybe<T> {
+        return this.isSome && predicate(this.val) ? Some(this.val) : None;
     }
 
     /**
@@ -141,12 +139,10 @@ export function Some<T>(value: T): Maybe<T> {
  * @example
  * var person = Some({
  *     name: "Derek Tibbs",
- *     child: None()
+ *     child: None
  * });
  */
-export function None(): Maybe<any> {
-    return MaybeFactory(null, false);
-}
+export const None: Maybe<any> = new Maybe(null, false);
 
 /**
  * Create a new Maybe where the value is uncertain.
@@ -156,7 +152,7 @@ export function None(): Maybe<any> {
  * var person = Perhaps(possibleNullValue);
  */
 export function Perhaps<T>(value: T): Maybe<T> {
-    return value == null ? None() : Some(value);
+    return value == null ? None : Some(value);
 }
 
 
@@ -170,7 +166,7 @@ export function Perhaps<T>(value: T): Maybe<T> {
  */
 export function PerhapsIn(value: any, path: string[]): Maybe<any> {
     const deepValue = getIn(value, path);
-    return deepValue == null ? None() : Some(deepValue);
+    return deepValue == null ? None : Some(deepValue);
 }
 
 

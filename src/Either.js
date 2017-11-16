@@ -1,7 +1,6 @@
 // @flow
 
 import {Maybe, Some, None} from './Maybe';
-import type {Mapper, FilterPredicate} from './definitions';
 
 /**
  * The Either monad describes situations that have two distinct states: Right and Left. Often used
@@ -35,8 +34,8 @@ export class Either<T> {
      * @param {Function} fn
      * @return {Either}
      */
-    flatMap<U>(fn: Mapper<T, Either<U>>): Either<U>|Either<T> {
-        return this.isRight ? fn(this.val) : this;
+    flatMap<U>(fn: (T) => Either<U>): Either<U> {
+        return this.isRight ? fn(this.val) : Left(this.val);
     }
 
     /**
@@ -44,7 +43,7 @@ export class Either<T> {
      * @param {Function} fn
      * @return {Either}
      */
-    map<U>(fn: Mapper<T,U>): Either<U>|Either<T> {
+    map<U>(fn: (T) => U): Either<U> {
         return this.flatMap(value => this.unit(fn(value)));
     }
 
@@ -53,8 +52,8 @@ export class Either<T> {
      * @param {Function} fn
      * @return {Either}
      */
-    leftFlatMap<U>(fn: Mapper<T, Either<U>>): Either<U>|Either<T> {
-        return this.isRight ? this : fn(this.val);
+    leftFlatMap<U>(fn: (T) => Either<U>): Either<U> {
+        return this.isRight ? Right(this.val) : fn(this.val);
     }
 
     /**
@@ -62,7 +61,7 @@ export class Either<T> {
      * @param {Function} fn
      * @return {Either}
      */
-    leftMap<U>(fn: Mapper<T,U>): Either<U>|Either<T> {
+    leftMap<U>(fn: (T) => U): Either<U> {
         return this.leftFlatMap(value => Left(fn(value)));
     }
 
@@ -71,8 +70,8 @@ export class Either<T> {
      * @param {Either} eitherWithFn
      * @return {Either}
      */
-    ap<U>(eitherWithFn: Either<any>): Either<U>|Either<T> {
-        return this.isRight ? eitherWithFn.map(fn => fn(this.val)) : this;
+    ap<U>(eitherWithFn: Either<any>): Either<U> {
+        return this.isRight ? eitherWithFn.map(fn => fn(this.val)) : Left(this.val);
     }
 
     /**
@@ -81,7 +80,7 @@ export class Either<T> {
      * @param {Function} rightFn
      * @return {Either}
      */
-    biMap<U>(leftFn: Mapper<T,U>, rightFn: Mapper<T,U>): Either<U>|Either<T> {
+    biMap<U>(leftFn: (T) => U, rightFn: (T) => U): Either<U> {
         return this.isRight ? this.map(rightFn) : this.leftMap(leftFn);
     }
 
@@ -91,7 +90,7 @@ export class Either<T> {
      * @param {Function} rightFn
      * @return {Either}
      */
-    biFlatMap<U>(leftFn: Mapper<T, Either<U>>, rightFn: Mapper<T, Either<U>>): Either<U>|Either<T> {
+    biFlatMap<U>(leftFn: (T) => Either<U>, rightFn: (T) => Either<U>): Either<U> {
         return this.isRight ? rightFn(this.val) : leftFn(this.val);
     }
 
@@ -109,7 +108,7 @@ export class Either<T> {
      * @param {Function} predicate
      * @return {Either}
      */
-    filter(predicate: FilterPredicate<T>): Either<T> {
+    filter(predicate: (T) => boolean): Either<T> {
         return predicate(this.val) ? this.toRight() : this.toLeft();
     }
 
@@ -135,7 +134,7 @@ export class Either<T> {
      * @return {Maybe}
      */
     toMaybe(): Maybe<T> {
-        return this.isRight ? Some(this.val) : None();
+        return this.isRight ? Some(this.val) : None;
     }
 
     toJSON(): * {

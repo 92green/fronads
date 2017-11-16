@@ -18,7 +18,7 @@ const person: Maybe<Object> = Some({
 
 const noGrandChild = Some({
     child: Some({
-        child: None()
+        child: None
     })
 });
 
@@ -35,7 +35,7 @@ test('MaybeFactory', (tt: Object) => {
         MaybeFactory(1, false)
             .map(() => 2)
             .value(),
-        1
+        null
     );
 });
 
@@ -89,15 +89,21 @@ test('PerhapsIn', (tt: Object) => {
 test('Maybe.filter', (tt: Object) => {
     tt.true(Some().filter(() => true).isSome);
     tt.false(Some().filter(() => false).isSome);
-    tt.false(None().filter(() => true).isSome);
-    tt.false(None().filter(() => false).isSome);
+    tt.false(None.filter(() => true).isSome);
+    tt.false(None.filter(() => false).isSome);
 });
 
 test('to', (tt: Object) => {
     tt.is(Some(1).toEither().isRight, true);
-    tt.is(None().toEither().isRight, false);
-    tt.is(None().toEither('fail').val, 'fail');
+    tt.is(None.toEither().isRight, false);
+    tt.is(None.toEither('fail').val, 'fail');
 
     tt.deepEqual(JSON.stringify({a: Some({b: Some(2)})}), JSON.stringify({a: {b: 2}}));
-    tt.deepEqual(JSON.stringify({a: None()}), JSON.stringify({a: null}));
+    tt.deepEqual(JSON.stringify({a: None}), JSON.stringify({a: null}));
+});
+
+test('value', (tt: Object) => {
+    tt.is(Some('foo').value(), 'foo');
+    tt.is(None.value('bar'), 'bar');
+    tt.is(None.value(), null);
 });
