@@ -77,6 +77,15 @@ export class Maybe<T> {
         return this.flatMap(value => this.unit(fn(value)));
     }
 
+    /**
+     * ap
+     * @param {Maybe} maybeWithFn
+     * @return {Maybe}
+     */
+    ap<U>(maybeWithFn: Maybe<(T) => U>): Maybe<U> {
+        return this.isSome ? maybeWithFn.map(fn => fn(this.val)) : None;
+    }
+
 
     /**
      * Return the maybe's value if it is 'some' or else return `defaultValue`
