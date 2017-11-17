@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import {Either, EitherFactory, Right, Left, Try} from '../Either';
+import {Either, EitherFactory, Right, Left, Try, PerhapsEither} from '../Either';
 
 test('EitherFactory', (tt: Object) => {
     tt.is(
@@ -111,6 +111,13 @@ test('Either.filter', (tt: Object) => {
     tt.false(Left().filter(() => false).isRight);
     tt.true(Right().filter(() => true).isRight);
     tt.false(Right().filter(() => false).isRight);
+});
+
+
+test('PerhapsEither', (tt: Object) => {
+    tt.false(PerhapsEither(null).isRight);
+    tt.false(PerhapsEither().isRight);
+    tt.true(PerhapsEither(2).isRight);
 });
 
 

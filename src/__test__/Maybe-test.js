@@ -93,6 +93,13 @@ test('Maybe.filter', (tt: Object) => {
     tt.false(None.filter(() => false).isSome);
 });
 
+test('Maybe.ap', (tt: Object) => {
+    tt.is(Some(2).ap(Some(a => a * 2)).value(), 4);
+    tt.false(Some(2).ap(None).isSome);
+    tt.false(None.ap(None).isSome);
+    tt.false(None.ap(Some(a => a * 2)).isSome);
+});
+
 test('to', (tt: Object) => {
     tt.is(Some(1).toEither().isRight, true);
     tt.is(None.toEither().isRight, false);
