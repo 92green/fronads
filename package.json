@@ -1,7 +1,7 @@
 {
   "main": "lib/index.js",
   "name": "fronads",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "description": "Frontend monads with consistent and beginner-friendly naming conventions.",
   "license": "MIT",
   "author": "Allan Hortle",
