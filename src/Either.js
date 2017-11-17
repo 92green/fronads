@@ -171,6 +171,18 @@ export function Left(value: any): Either<any> {
 }
 
 /**
+ * Create a new Either where the value is uncertain.
+ * @param {any} value
+ * @return {Maybe}
+ * @example
+ * var person = PerhapsEither(possibleNullValue);
+ */
+export function PerhapsEither<T>(value: T): Either<T> {
+    return value == null ? Left(value) : Right(value);
+}
+
+
+/**
  * Create a Try Either. `func` is immediately exceuted,
  * if an error is thrown the Either will be Left(error) otherwise
  * the value of `func` is passed to a Right.

@@ -86,7 +86,6 @@ export class Maybe<T> {
         return this.isSome ? maybeWithFn.map(fn => fn(this.val)) : None;
     }
 
-
     /**
      * Return the maybe's value if it is 'some' or else return `defaultValue`
      * @param {*} [defaultValue = null] - value that is Some
