@@ -19,14 +19,14 @@ test('EitherFactory', (tt: Object) => {
 
 
 test('Right', (tt: Object) => {
-    const value: Either<number> = Right(1);
+    const value: Either<number, number> = Right(1);
 
     tt.is(value.map(() => 2).value(), 2);
     tt.is(value.leftMap(() => 2).value(), 1);
 });
 
 test('Left', (tt: Object) => {
-    const value: Either<number> = Left(1);
+    const value: Either<number, *> = Left(1);
     tt.is(value.leftMap(() => 2).value(), 2);
     tt.is(value.map(() => 2).value(), 1);
 });
@@ -72,8 +72,8 @@ test('Either.biFlatMap', (tt: Object) => {
 
 
 test('Either.ap', (tt: Object) => {
-    tt.is(Right(10).ap(Right(ii => ii * 2)).val, 20);
-    tt.is(Left(10).ap(Right(ii => ii * 2)).val, 10);
+    tt.is(Right(10).ap(Right(ii => ii * 2)).right, 20);
+    tt.is(Left(10).ap(Right(ii => ii * 2)).left, 10);
 });
 
 test('Either.toMaybe', (tt: Object) => {

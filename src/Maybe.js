@@ -112,7 +112,7 @@ export class Maybe<T> {
      * @param {*} leftValue - Value to place in the Left side
      * @return {Either}
      */
-    toEither(leftValue: any): Either<T> {
+    toEither<L>(leftValue: L): Either<L, T> {
         return this.isSome ? Right(this.val) : Left(leftValue);
     }
 

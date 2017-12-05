@@ -37,7 +37,7 @@
     "jsdoc-babel": "^0.2.1",
     "jsdonk": "^0.6.0",
     "proto-babel-plugin-extract-flow-types": "git+ssh://git@github.com/blueflag/proto-babel-plugin-extract-flow-types.git#v0.1.1",
-    "proto-blueflag-test": "git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.6.1",
+    "proto-blueflag-test": "git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.8.0",
     "size-limit": "^0.11.6"
   },
   "size-limit": [

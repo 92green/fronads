@@ -103,7 +103,7 @@ test('Maybe.ap', (tt: Object) => {
 test('to', (tt: Object) => {
     tt.is(Some(1).toEither().isRight, true);
     tt.is(None.toEither().isRight, false);
-    tt.is(None.toEither('fail').val, 'fail');
+    tt.is(None.toEither('fail').left, 'fail');
 
     tt.deepEqual(JSON.stringify({a: Some({b: Some(2)})}), JSON.stringify({a: {b: 2}}));
     tt.deepEqual(JSON.stringify({a: None}), JSON.stringify({a: null}));

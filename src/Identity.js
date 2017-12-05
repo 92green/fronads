@@ -124,7 +124,7 @@ export class Identity<T> {
      * Change the Identity to a Right Either.
      * @return {Either}
      */
-    toEither(): Either<T> {
+    toEither(): Either<*, T> {
         return Right(this.val);
     }
 

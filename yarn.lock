@@ -4621,7 +4621,7 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nyc@^11.2.1:
+nyc@^11.3.0:
   version "11.3.0"
   resolved "https://registry.yarnpkg.com/nyc/-/nyc-11.3.0.tgz#a42bc17b3cfa41f7b15eb602bc98b2633ddd76f0"
   dependencies:
@@ -5323,9 +5323,9 @@ prop-types@^15.5.7:
   dependencies:
     fs-extra "^4.0.1"
 
-"proto-blueflag-test@git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.6.1":
-  version "0.6.1"
-  resolved "git+ssh://git@github.com/blueflag/proto-blueflag-test.git#cfe3f8fd563b6c9678cf956437c27cae333b53ae"
+"proto-blueflag-test@git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.8.0":
+  version "0.8.0"
+  resolved "git+ssh://git@github.com/blueflag/proto-blueflag-test.git#78a45a88183a774d36be92b67f5d2b45d622b424"
   dependencies:
     app-module-path "^2.2.0"
     ava "^0.22.0"
@@ -5342,7 +5342,7 @@ prop-types@^15.5.7:
     eslint-plugin-flowtype "^2.36.0"
     eslint-plugin-react "^7.4.0"
     flow-bin "0.54"
-    nyc "^11.2.1"
+    nyc "^11.3.0"
     proxyquire "^1.7.10"
     sinon "^3.2.1"
 
