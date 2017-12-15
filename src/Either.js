@@ -143,6 +143,13 @@ export class Either<L, R> {
         return this.isRight ? Some(this.right) : None;
     }
 
+    toPromise(): Promise<*> {
+        return this.isRight
+            ? Promise.resolve(this.right)
+            : Promise.reject(this.left)
+        ;
+    }
+
     toJSON(): * {
         return this.value();
     }

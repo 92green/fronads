@@ -106,6 +106,19 @@ test('Either.toRight', (tt: Object) => {
     );
 });
 
+test('Either.toPromise Left', (t: Object): Promise<*> => {
+    return Try(() => {
+        throw 'blah';
+    })
+        .toPromise()
+        .catch((err) => t.is(err, 'blah'))
+    ;
+});
+
+test('Either.toPromise Right', (t: Object): Promise<*> => {
+    return Right(1).toPromise().then(data => t.is(data, 1));
+});
+
 test('Either.filter', (tt: Object) => {
     tt.true(Left().filter(() => true).isRight);
     tt.false(Left().filter(() => false).isRight);
