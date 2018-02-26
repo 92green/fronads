@@ -54,7 +54,7 @@ export class Maybe<T> {
      * @param {any} value
      * @return {Either}
      */
-    unit<U>(value: U): Maybe<U> {
+    static unit<U>(value: U): Maybe<U> {
         return Some(value);
     }
 
@@ -74,7 +74,7 @@ export class Maybe<T> {
      * @return {Maybe}
      */
     map<U>(fn: (T) => U): Maybe<U> {
-        return this.flatMap(value => this.unit(fn(value)));
+        return this.flatMap(value => Maybe.unit(fn(value)));
     }
 
     /**

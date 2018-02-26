@@ -31,7 +31,7 @@ export class Either<L, R> {
      * @param {any} value
      * @return {Either}
      */
-    unit<U>(value: U): Either<L, U> {
+    static unit<U>(value: U): Either<L, U> {
         return Right(value);
     }
 
@@ -50,7 +50,7 @@ export class Either<L, R> {
      * @return {Either}
      */
     map<U>(fn: (R) => U): Either<L, U> {
-        return this.flatMap(value => this.unit(fn(value)));
+        return this.flatMap(value => Either.unit(fn(value)));
     }
 
     /**

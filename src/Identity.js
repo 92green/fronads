@@ -87,7 +87,7 @@ export class Identity<T> {
      * @param {any} value
      * @return {Identity}
      */
-    unit<U>(value: U): Identity<U> {
+    static unit<U>(value: U): Identity<U> {
         return IdentityFactory(value);
     }
 
@@ -107,7 +107,7 @@ export class Identity<T> {
      * @return {Identity}
      */
     map<U>(fn: Mapper<T,U>): Identity<U> {
-        return this.flatMap(value => this.unit(fn(value)));
+        return this.flatMap(value => Identity.unit(fn(value)));
     }
 
 

@@ -13,6 +13,7 @@ export {
     Either,
     EitherFactory,
     Left,
+    PerhapsEither,
     Right,
     Try
 } from './Either';

@@ -38,8 +38,8 @@ export class Task {
      * @param {TaskComputation} fn - a function given reject and resolve callback to call when appropriate
      * @return {Task}
      */
-    unit(computation: TaskComputation): Task {
-        return new Task(computation);
+    static unit(value: *): Task {
+        return new Task((_, resolve) => resolve(value));
     }
 
     /**
@@ -49,7 +49,7 @@ export class Task {
      * @return {Task}
      */
     flatMap(fn: TaskFlatMapper): Task {
-        return this.unit((reject: Function, resolve: Function): * => {
+        return Task.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 reject,
                 value => fn(value).computation(reject, resolve)
@@ -64,7 +64,7 @@ export class Task {
      * @return {Task}
      */
     leftFlatMap(fn: TaskFlatMapper): Task {
-        return this.unit((reject: Function, resolve: Function): * => {
+        return Task.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 value => fn(value).computation(reject, resolve),
                 resolve
@@ -79,7 +79,7 @@ export class Task {
      * @return {Task}
      */
     map(fn: TaskMapper): Task {
-        return this.unit((reject: Function, resolve: Function): * => {
+        return Task.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 reject,
                 value => resolve(fn(value))
@@ -94,7 +94,7 @@ export class Task {
      * @return {Task}
      */
     leftMap(fn: TaskMapper): Task {
-        return this.unit((reject: Function, resolve: Function): * => {
+        return Task.unit((reject: Function, resolve: Function): * => {
             return this.computation(
                 value => reject(fn(value)),
                 resolve,
