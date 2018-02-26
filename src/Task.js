@@ -49,7 +49,7 @@ export class Task {
      * @return {Task}
      */
     flatMap(fn: TaskFlatMapper): Task {
-        return Task.unit((reject: Function, resolve: Function): * => {
+        return new Task((reject: Function, resolve: Function): * => {
             return this.computation(
                 reject,
                 value => fn(value).computation(reject, resolve)
@@ -64,7 +64,7 @@ export class Task {
      * @return {Task}
      */
     leftFlatMap(fn: TaskFlatMapper): Task {
-        return Task.unit((reject: Function, resolve: Function): * => {
+        return new Task((reject: Function, resolve: Function): * => {
             return this.computation(
                 value => fn(value).computation(reject, resolve),
                 resolve
@@ -79,7 +79,7 @@ export class Task {
      * @return {Task}
      */
     map(fn: TaskMapper): Task {
-        return Task.unit((reject: Function, resolve: Function): * => {
+        return new Task((reject: Function, resolve: Function): * => {
             return this.computation(
                 reject,
                 value => resolve(fn(value))
@@ -94,7 +94,7 @@ export class Task {
      * @return {Task}
      */
     leftMap(fn: TaskMapper): Task {
-        return Task.unit((reject: Function, resolve: Function): * => {
+        return new Task((reject: Function, resolve: Function): * => {
             return this.computation(
                 value => reject(fn(value)),
                 resolve,
@@ -144,7 +144,7 @@ export function TaskFactory(computation: Function): Task {
  * @return {Task}
  */
 export function Resolve(value: any): Task {
-    return new Task((_, resolve) => resolve(value));
+    return Task.unit(value);
 }
 
 /**

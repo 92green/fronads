@@ -7,8 +7,8 @@ import {Task, TaskFactory, Reject, Resolve, TaskPromise} from '../Task';
 // unit
 //
 test('Task.unit returns a new task', (tt: Object): Promise<any> => {
-    return Resolve()
-        .unit((_, resolve) => resolve('foo'))
+    return Task
+        .unit('foo')
         .toPromise()
         .then((data) => tt.is(data, 'foo'));
 });
