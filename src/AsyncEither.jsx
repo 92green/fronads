@@ -37,7 +37,7 @@ class AsyncEither {
         return new AsyncEither(this.value.then(
             rightFn,
             value => Promise.resolve(value).then(leftFn).then(rejectify)
-        );
+        ));
     }
 
 
@@ -46,6 +46,5 @@ class AsyncEither {
     }
     catch(fn) {
         return this.value.catch(fn);
-        ;
     }
 }

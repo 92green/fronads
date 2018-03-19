@@ -30,14 +30,12 @@
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.0",
     "babel-preset-blueflag": "^0.3.0",
+    "blueflag-test": "^0.13.2",
     "dotenv": "^2.0.0",
-    "eslint": "^3.9.1",
-    "eslint-config-blueflag": "^0.4.0",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.2.1",
     "jsdonk": "^0.6.0",
     "proto-babel-plugin-extract-flow-types": "git+ssh://git@github.com/blueflag/proto-babel-plugin-extract-flow-types.git#v0.1.1",
-    "proto-blueflag-test": "git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.8.0",
     "size-limit": "^0.11.6"
   },
   "size-limit": [
