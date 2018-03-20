@@ -24,10 +24,8 @@ export {
 } from './Identity';
 
 
-export {
-    StateFunctor,
-    StateFunctorFactoryFactory as StateFunctorFactory
-} from './StateFunctor';
+export {Variant} from './Variant';
+export {VariantFactory} from './Variant';
 
 
 //
