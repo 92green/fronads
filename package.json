@@ -30,7 +30,7 @@
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.0",
     "babel-preset-blueflag": "^0.3.0",
-    "blueflag-test": "^0.13.2",
+    "blueflag-test": "^0.18.1",
     "dotenv": "^2.0.0",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.2.1",

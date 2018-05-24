@@ -10,7 +10,7 @@ export class AsyncEither<T> {
         this.value = value;
     }
 
-    static unit(value: Promise<T>): AsyncEither<T> {
+    static unit(value: T): AsyncEither<T> {
         return new AsyncEither(Promise.resolve(value));
     }
     flatMap<U>(fn: (T) => AsyncEither<U>): AsyncEither<U> {
@@ -24,7 +24,7 @@ export class AsyncEither<T> {
         return new AsyncEither(this.value.then(fn));
     }
 
-    static leftUnit(value: Promise<T>): AsyncEither<T> {
+    static leftUnit(value: T): AsyncEither<T> {
         return new AsyncEither(Promise.reject(value));
     }
     leftFlatMap<U>(fn: (T) => AsyncEither<U>): AsyncEither<U> {
@@ -55,6 +55,14 @@ export class AsyncEither<T> {
 }
 
 
-export default function AsyncEitherFactory<T>(promise: Promise<T>): AsyncEither<T> {
+export function AsyncEitherFactory<T>(promise: Promise<T>): AsyncEither<T> {
     return new AsyncEither(promise);
+}
+
+export function AsyncLeft<T>(value: T): AsyncEither<T> {
+    return AsyncEither.leftUnit(value);
+}
+
+export function AsyncRight<T>(value: T): AsyncEither<T> {
+    return AsyncEither.unit(value);
 }

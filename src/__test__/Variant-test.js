@@ -7,12 +7,16 @@ const {view, edit} = VariantFactory(['view', 'edit']);
 const foo = view('foo');
 const bar = edit('foo');
 
-test('Variant map/flatmap/unit', (t: Object) => {
+test('Variant {type} map/flatmap/unit', (t: Object) => {
     t.is(foo.viewMap(() => 'bar').value(), 'bar');
     t.is(foo.editMap(() => 'bar').value(), 'foo');
 
     t.is(bar.viewMap(() => 'bar').value(), 'foo');
     t.is(bar.editMap(() => 'bar').value(), 'bar');
+});
+
+test('Variant  map/flatmap/unit', (t: Object) => {
+    t.is(foo.map(() => 'bar').value(), 'bar');
 });
 
 
