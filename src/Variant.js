@@ -6,6 +6,7 @@
 export class Variant {
     val: *;
     type: string;
+    typeList: Array<string>;
 
     /**
      * Variant constructor
@@ -17,6 +18,7 @@ export class Variant {
     constructor(value: *, type: string, typeList: Array<string>) {
         this.val = value;
         this.type = type;
+        this.typeList = typeList;
 
         typeList
             .forEach((name: string) => {
@@ -50,6 +52,15 @@ export class Variant {
                 FLOWBUG_this[`${name[0].toLowerCase()}${name.slice(1)}FlatMap`] = flatMap;
                 FLOWBUG_this[`${name[0].toLowerCase()}${name.slice(1)}Map`] = map;
             });
+    }
+    static unit(value: *, type: string, typeList: Array<string>): Variant {
+        return new Variant(value, type, typeList);
+    }
+    flatMap(fn: (*) => Variant): Variant {
+        return fn(this.val);
+    }
+    map(fn: (*) => *): Variant {
+        return this.flatMap(value => Variant.unit(fn(value), this.type, this.typeList));
     }
     value(defaultValue: * = null): * {
         return this.val == null ? defaultValue : this.val;
