@@ -15,6 +15,7 @@
   "files": [
     "lib"
   ],
+  "homepage": "https://blueflag.github.io/fronads/",
   "private": false,
   "scripts": {
     "build": "rm -rf lib && NODE_ENV=production babel src --out-dir lib --ignore **/*-test.js",
